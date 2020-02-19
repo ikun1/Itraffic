@@ -50,7 +50,7 @@
           </div>
         </div>
       </div>
-      <div id="infoBox" style="left:80%;" class="floatToolBar" v-show="!unfold">
+      <div id="infoBox" style="left:100%;" class="floatToolBar" >
         <p class="boxtext boxtitle">范围分析</p>
         <div style="width:100%">
           <p class="boxtext boxsubtitle">选定面积:</p>
@@ -60,6 +60,7 @@
           <p class="boxtext boxsubtitle">个体数量:</p>
           <p class="boxtext boxsubtitle" style="width:200px">{{ammount}}</p>
         </div>
+        <dataInfo ref="dataInfoBox"/>
       </div>
     </div>
   </div>
@@ -69,192 +70,201 @@
 import AMap from 'AMap';   //在页面中引入高德地图
 import * as d3 from 'd3';//引入d3
 import { dataGenerator } from './dataGenerator.js'
+import dataInfo from './dataInfo.vue';
 
 export default {
-    mounted(){
-       this.loadmap();     //加载地图和相关组件
-    },
-    data () {
-    return {
-      map:'',
-      heatmap:'',
-      heatmapdata:'',
-      minicolor:'blue',//图例三种颜色
-      midiumcolor:'rgb(0, 255, 0)',
-      maxcolor:'red',
-      mininumber:'0',//图例三种数字
-      midiumnumber:'0',
-      maxnumber:'0',
-      unfold:true,//是否折叠热力工具窗
-      isMapranging:false,//是否处于范围选取状态
-      ammount:0,//个体数量
-      rangestate:{//选取圆形范围
-        begin:'',
-        end:'',
-        circle:'',
-        rangeArea:0,//选定圆形面积,单位平方公里
-        generateCircle(){
-          var begin = this.begin;
-          var end = this.begin;
-          var center = new AMap.LngLat((begin.getLng()+end.getLng())/2,(begin.getLat()+end.getLat())/2);
-          this.circle = new AMap.Circle({
-            center: center,  // 圆心位置
-            radius: AMap.GeometryUtil.distance(begin, end)/2, // 圆半径
-            fillColor: 'rgba(5, 160, 88, 0.685)',   // 圆形填充颜色
-            strokeColor: '#fff', // 描边颜色
-            strokeWeight: 2, // 描边宽度
-          });
-        },
-        refreshCircle(){
-          //刷新圆显示
-          var begin = this.begin;
-          var end = this.end;
-          var center = new AMap.LngLat((begin.getLng()+end.getLng())/2,(begin.getLat()+end.getLat())/2);
-          this.circle.setCenter(center);
-          this.circle.setRadius(AMap.GeometryUtil.distance(begin, end)/2);
-          this.countArea();
-        },
-        countArea(){
-          //计算圆圈面积
-          var r = AMap.GeometryUtil.distance(this.begin, this.end)/2;
-          var area = 3.14 * Math.pow(r,2);
-          this.rangeArea = Math.round(area/1e6);
-        }
-      }
-
-    }
+  mounted(){
+      this.loadmap();     //加载地图和相关组件
   },
-    methods: {
-      loadmap(){
-        this.heatmapdata = dataGenerator.generator(50000,100,5);
-        this.map = new AMap.Map('container', {
-          zoom: 12,
-          mapStyle: 'amap://styles/whitesmoke',
-          center: [116.418261, 39.921984]
+  data () {
+  return {
+    map:'',
+    heatmap:'',
+    heatmapdata:'',
+    minicolor:'blue',//图例三种颜色
+    midiumcolor:'rgb(0, 255, 0)',
+    maxcolor:'red',
+    mininumber:'0',//图例三种数字
+    midiumnumber:'0',
+    maxnumber:'0',
+    unfold:true,//是否折叠热力工具窗
+    datasee:false,//是否显示数据分析窗
+    isMapranging:false,//是否处于范围选取状态
+    ammount:0,//个体数量
+    rangestate:{//选取圆形范围
+      begin:'',
+      end:'',
+      circle:'',
+      rangeArea:0,//选定圆形面积,单位平方公里
+      generateCircle(){
+        var begin = this.begin;
+        var end = this.begin;
+        var center = new AMap.LngLat((begin.getLng()+end.getLng())/2,(begin.getLat()+end.getLat())/2);
+        this.circle = new AMap.Circle({
+          center: center,  // 圆心位置
+          radius: AMap.GeometryUtil.distance(begin, end)/2, // 圆半径
+          fillColor: 'rgba(5, 160, 88, 0.685)',   // 圆形填充颜色
+          strokeColor: '#fff', // 描边颜色
+          strokeWeight: 2, // 描边宽度
         });
-        var map = this.map;
-        var heatmap = this.heatmap;
-        var cache = this;
-        var generatePoint = this.generatePoint;
-        AMap.plugin(["AMap.Heatmap"], function () {
-            //初始化heatmap对象
-            heatmap = new AMap.Heatmap(map, {
-                radius: 25, //给定半径
-                opacity: [0, 0.8],
-                gradient:{
-                    0.5: 'blue',
-                    0.65: 'rgb(117,211,248)',
-                    0.7: 'rgb(0, 255, 0)',
-                    0.9: '#ffea00',
-                    1.0: 'red'
-                }
-                
-            });
-            //设置数据集：该数据为随机生成的用户数据
-            heatmap.setDataSet({
-                data: cache.heatmapdata
-            });
-            cache.heatmap = heatmap;
-            
-          
-        },this);
-
-        //判断浏览区是否支持canvas
-        function isSupportCanvas() {
-            var elem = document.createElement('canvas');
-            return !!(elem.getContext && elem.getContext('2d'));
-        }
-
-        this.map.setFeatures(['bg','point','building']);
-
-        this.map.on('complete',function(){
-          this.initColor();
-        },this)
-        this.map.on('click',function(){
-          this.foldBox();
-        },this);
       },
-      initColor(){
-        //计算热力图图例
-        var dataset = this.heatmap.getDataSet().data;
-        var gradient = this.heatmap.options.gradient;
-        this.minicolor=gradient[0.5];
-        this.midiumcolor=gradient[0.7];
-        this.maxcolor=gradient[1.0];
-        //将数据集排序，取出最大值,生成图例
-        dataset.sort(function(a,b){
-          return a.count-b.count;
-        });
-        var max = dataset[dataset.length - 1].count;
-        this.mininumber = Math.round(max * 0.5);
-        this.midiumnumber = Math.round(max * 0.7);
-        this.maxnumber =  Math.round(max * 1.0);
-
+      refreshCircle(){
+        //刷新圆显示
+        var begin = this.begin;
+        var end = this.end;
+        var center = new AMap.LngLat((begin.getLng()+end.getLng())/2,(begin.getLat()+end.getLat())/2);
+        this.circle.setCenter(center);
+        this.circle.setRadius(AMap.GeometryUtil.distance(begin, end)/2);
+        this.countArea();
       },
-      unfoldBox(){
-        //展开盒子
-        this.unfold = false;
-        d3.select("#toolBox").transition().style("left", "0%");
-      },
-      foldBox(){
-        if(!this.unfold){
-          var target = this;
-        d3.select("#toolBox").transition().style("left", "-20%").on('end', function(){
-          target.unfold = true;
-        });
-        }
-      },
-      reactRange(){
-        //圈选范围响应
-        this.unfold = true;
-        this.isMapranging=true;
-        var rangestate = this.rangestate;
-        var map = this.map;
-        var isTouching = false;
-        var downEvent = function(ev){
-          if(!isTouching){
-            //非选取状态按下，进入选取状态
-          map.remove(rangestate.circle);
-          rangestate.begin = ev.lnglat;
-          rangestate.end = ev.lnglat;
-          rangestate.generateCircle();
-          map.add(rangestate.circle);
-          }else{
-            //选取状态下再点击，完成圈选
-            map.off('mousedown',downEvent);
-            map.off('mousemove',moveEvent);
-            this.isMapranging = false;
-            this.countInfo();
-          }
-          isTouching = !isTouching;
-        }
-        var moveEvent = function(ev){
-          if(isTouching){
-            rangestate.end = ev.lnglat;
-            rangestate.refreshCircle();
-          }
-        }
-        this.map.on('mousedown',downEvent,this);
-        this.map.on('mousemove',moveEvent,this);
-      },
-      countInfo(){
-        //计算圈选范围详细信息
-        var center = this.rangestate.circle.getCenter();
-        var radius = this.rangestate.circle.getRadius();
-        console.log(dataGenerator.isInCircle(center,center,radius));
-        var count = 0;
-        this.heatmapdata.forEach(v=>{  
-          //遍历所有点，找出在圆范围的点
-          var point = new AMap.LngLat(v.lng,v.lat);
-          if(dataGenerator.isInCircle(point,center,radius)){
-            v.info.forEach(v=>{
-              count++;
-            });
-          }
-        });
-        this.ammount = count;
+      countArea(){
+        //计算圆圈面积
+        var r = AMap.GeometryUtil.distance(this.begin, this.end)/2;
+        var area = 3.14 * Math.pow(r,2);
+        this.rangeArea = Math.round(area/1e6);
       }
     }
+
+  }
+},
+  components:{
+    dataInfo
+  },
+  methods: {
+    loadmap(){
+      this.heatmapdata = dataGenerator.generator(50000,100);
+      this.map = new AMap.Map('container', {
+        zoom: 12,
+        mapStyle: 'amap://styles/whitesmoke',
+        center: [116.418261, 39.921984]
+      });
+      var map = this.map;
+      var heatmap = this.heatmap;
+      var cache = this;
+      var generatePoint = this.generatePoint;
+      AMap.plugin(["AMap.Heatmap"], function () {
+          //初始化heatmap对象
+          heatmap = new AMap.Heatmap(map, {
+              radius: 25, //给定半径
+              opacity: [0, 0.8],
+              gradient:{
+                  0.5: 'blue',
+                  0.65: 'rgb(117,211,248)',
+                  0.7: 'rgb(0, 255, 0)',
+                  0.9: '#ffea00',
+                  1.0: 'red'
+              }
+              
+          });
+          //设置数据集：该数据为随机生成的用户数据
+          heatmap.setDataSet({
+              data: cache.heatmapdata
+          });
+          cache.heatmap = heatmap;
+          
+        
+      },this);
+
+      //判断浏览区是否支持canvas
+      function isSupportCanvas() {
+          var elem = document.createElement('canvas');
+          return !!(elem.getContext && elem.getContext('2d'));
+      }
+
+      this.map.setFeatures(['bg','point','building']);
+
+      this.map.on('complete',function(){
+        this.initColor();
+      },this)
+      this.map.on('click',function(){
+        this.foldBox();
+      },this);
+    },
+    initColor(){
+      //计算热力图图例
+      var dataset = this.heatmap.getDataSet().data;
+      var gradient = this.heatmap.options.gradient;
+      this.minicolor=gradient[0.5];
+      this.midiumcolor=gradient[0.7];
+      this.maxcolor=gradient[1.0];
+      //将数据集排序，取出最大值,生成图例
+      dataset.sort(function(a,b){
+        return a.count-b.count;
+      });
+      var max = dataset[dataset.length - 1].count;
+      this.mininumber = Math.round(max * 0.5);
+      this.midiumnumber = Math.round(max * 0.7);
+      this.maxnumber =  Math.round(max * 1.0);
+
+    },
+    unfoldBox(){
+      //展开盒子
+      this.unfold = false;
+      d3.select("#toolBox").transition().style("left", "0%");
+    },
+    foldBox(){
+      if(!this.unfold){
+        var target = this;
+      d3.select("#toolBox").transition().style("left", "-20%").on('end', function(){
+        target.unfold = true;
+      });
+      }
+    },
+    reactRange(){
+      //圈选范围响应
+      this.unfold = true;
+      this.isMapranging=true;
+      var rangestate = this.rangestate;
+      var map = this.map;
+      var isTouching = false;
+      var downEvent = function(ev){
+        if(!isTouching){
+          //非选取状态按下，进入选取状态
+        map.remove(rangestate.circle);
+        rangestate.begin = ev.lnglat;
+        rangestate.end = ev.lnglat;
+        rangestate.generateCircle();
+        map.add(rangestate.circle);
+        }else{
+          //选取状态下再点击，完成圈选
+          map.off('mousedown',downEvent);
+          map.off('mousemove',moveEvent);
+          this.isMapranging = false;
+          this.countInfo();
+        }
+        isTouching = !isTouching;
+      }
+      var moveEvent = function(ev){
+        if(isTouching){
+          rangestate.end = ev.lnglat;
+          rangestate.refreshCircle();
+        }
+      }
+      this.map.on('mousedown',downEvent,this);
+      this.map.on('mousemove',moveEvent,this);
+    },
+    countInfo(){
+      //计算圈选范围详细信息
+      
+      var center = this.rangestate.circle.getCenter();
+      var radius = this.rangestate.circle.getRadius();
+      var count = 0;
+      var typeinfo = JSON.parse(JSON.stringify(dataGenerator.attrs));//克隆一份对象，不影响原值
+      this.heatmapdata.forEach(v=>{  
+        //遍历所有点，找出在圆范围的点
+        var point = new AMap.LngLat(v.lng,v.lat);
+        if(dataGenerator.isInCircle(point,center,radius)){
+          v.info.forEach(h=>{
+            typeinfo[h.attr].info.push(h.id);
+            count++;
+          },this);
+        }
+      },this);
+      this.ammount = count;
+      this.$refs.dataInfoBox.countInfo(typeinfo);
+      d3.select("#infoBox").transition().style("left", "80%");
+    }
+  }
 }
 
 

@@ -10,6 +10,7 @@ say();*/
 import Vue from 'vue';
 import './style/common.scss';
 import App from './App.vue';
+import dataInfo from './dataInfo.vue';
 import { dataGenerator } from './dataGenerator.js'
 
 var app = new Vue({
