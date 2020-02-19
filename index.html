@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="gridMapHoverBox"
+    style="position:absolute; border: 1px solid #00965e; z-index: 99; font-size: 10px; background:#fff"></div>
+  <div id="topbar" class="shadow-sm">
+    <img id="logo" src="./src/img/logo.png" />
+    <p class="title">时空大数据分析系统</p>
+  </div>
+  <div id="app">
+  </div>
+  <!--<script src="//a.amap.com/jsapi_demos/static/resource/heatmapData.js"></script>-->
+  <script type="text/javascript"
+    src="http://webapi.amap.com/maps?v=1.4.15&key=a5dee79891e57bc6a9d0905370bb32a2&callback=init"></script>
+  <script src="/dist/build.js"></script>
+  <script>
+    //初始化地图(如果点击地图报错,后面拼接callback=init)
+    function init() {
+    }
+  </script>
+</body>
+
+</html>
