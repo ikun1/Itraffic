@@ -60,7 +60,7 @@
           <p class="boxtext boxsubtitle">个体数量:</p>
           <p class="boxtext boxsubtitle" style="width:200px">{{ammount}}</p>
         </div>
-        <dataInfo ref="dataInfoBox"/>
+        <dataInfo ref="dataInfoBox" @func="drawData"/>
       </div>
     </div>
   </div>
@@ -103,7 +103,7 @@ export default {
         this.circle = new AMap.Circle({
           center: center,  // 圆心位置
           radius: AMap.GeometryUtil.distance(begin, end)/2, // 圆半径
-          fillColor: 'rgba(5, 160, 88, 0.685)',   // 圆形填充颜色
+          fillColor: 'rgba(5, 160, 88, 0.2)',   // 圆形填充颜色
           strokeColor: '#fff', // 描边颜色
           strokeWeight: 2, // 描边宽度
         });
@@ -161,8 +161,7 @@ export default {
               data: cache.heatmapdata
           });
           cache.heatmap = heatmap;
-          
-        
+          console.log(heatmap);
       },this);
 
       //判断浏览区是否支持canvas
@@ -229,6 +228,7 @@ export default {
           //选取状态下再点击，完成圈选
           map.off('mousedown',downEvent);
           map.off('mousemove',moveEvent);
+          this.map.panTo(this.rangestate.circle.center);
           this.isMapranging = false;
           this.countInfo();
         }
@@ -245,7 +245,6 @@ export default {
     },
     countInfo(){
       //计算圈选范围详细信息
-      
       var center = this.rangestate.circle.getCenter();
       var radius = this.rangestate.circle.getRadius();
       var count = 0;
@@ -255,7 +254,10 @@ export default {
         var point = new AMap.LngLat(v.lng,v.lat);
         if(dataGenerator.isInCircle(point,center,radius)){
           v.info.forEach(h=>{
-            typeinfo[h.attr].info.push(h.id);
+            typeinfo[h.attr].info.push({
+              id:h.id,
+              location:point
+            });
             count++;
           },this);
         }
@@ -263,6 +265,11 @@ export default {
       this.ammount = count;
       this.$refs.dataInfoBox.countInfo(typeinfo);
       d3.select("#infoBox").transition().style("left", "80%");
+    },
+    drawData(heatmapdata){
+    this.heatmap.setDataSet({
+        data: heatmapdata
+    });
     }
   }
 }
