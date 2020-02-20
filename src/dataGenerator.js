@@ -76,10 +76,43 @@ var dataGenerator = {
             return false;
           }
       },
-    formatter(){
-        d3.csv("/dist/data.csv", function(data) {
-            console.log("输出data")
-            console.log(data)});
+    formatter(target){
+        //读取数据并转换为热力格式
+        d3.json("/src/data/analyze.json")
+            .then(function(data){
+                var countMap = new Map();
+                var heatmapData = [];
+                for(var userID in data){
+                    var outArray = data[userID];
+                    outArray.forEach(function(inArray){
+                        inArray.forEach(function(e){
+                            var n;
+                            var location = new AMap.LngLat(e[0],e[1]);
+                            if(countMap.has(location)){
+                                n=countMap.get(location);
+                            }else{
+                                n=[];
+                            }
+                            n.push({
+                                'id': userID,
+                                'attr': 0
+                            });
+                            countMap.set(location,n);
+                        },this)
+                    },this)
+                }
+                
+                var heatmapdata = [];
+                countMap.forEach(function(value,key,map) {
+                heatmapdata.push({
+                        'lng': key.lng,
+                        'lat': key.lat,
+                        'count': value.length,
+                        'info':value
+                    })
+                });
+                target.loadHeatMap(heatmapdata);
+            });
     }
 }
 export {
