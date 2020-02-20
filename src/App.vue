@@ -3,6 +3,7 @@
     <div class="inside">
       <div id="container" class="mymap inmap" v-bind:class="{ mapranging: isMapranging}"></div>
       <img id="toolButton" class="floatToolBar" src="./img/tools.png" v-show="unfold" v-on:click="unfoldBox" />
+      <img id="toolButton2" class="floatToolBar" src="./img/tools.png" v-on:click="initPath"/>
       <div id="toolBox" style="left:-20%;" class="floatToolBar" v-show="!unfold">
         <p class="boxtext boxtitle">热力图设置</p>
         <div class="boxitem">
@@ -74,12 +75,17 @@ import dataInfo from './dataInfo.vue';
 
 export default {
   mounted(){
+    console.log("mounted")
       this.loadmap();     //加载地图和相关组件
+    this.$api.path.getPathJson({}).then(res => {
+      this.pathData = res.data;
+ });
   },
   data () {
   return {
     map:'',
     heatmap:'',
+    pathData:'',
     heatmapdata:'',
     minicolor:'blue',//图例三种颜色
     midiumcolor:'rgb(0, 255, 0)',
@@ -270,6 +276,27 @@ export default {
     this.heatmap.setDataSet({
         data: heatmapdata
     });
+    },
+    initPath(){
+      var jsonPath = this.pathData;
+      for(var userId in jsonPath){
+        var path = []
+        var selectedPeople = jsonPath[userId];
+        if(typeof(selectedPeople) == "undefined" ) continue;
+        for(var i=0; i<selectedPeople.length; i++){
+          path.push(new AMap.LngLat(selectedPeople[i][0][0],selectedPeople[i][0][1]))
+        }
+        // 创建折线实例
+var polyline = new AMap.Polyline({
+    path: path,  
+    borderWeight: 2, // 线条宽度，默认为 1
+    strokeColor: 'red', // 线条颜色
+    lineJoin: 'round' // 折线拐点连接处样式
+});
+// 将折线添加至地图实例
+this.map.add(polyline);
+      }
+
     }
   }
 }

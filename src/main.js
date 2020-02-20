@@ -1,6 +1,6 @@
 //CommonJS模块化写法
-var say = require('./util');
-say();
+// var say = require('./util');
+// say();
 
 /*es6模块化写法
 import say from './util';
@@ -12,7 +12,8 @@ import './style/common.scss';
 import App from './App.vue';
 import dataInfo from './dataInfo.vue';
 import { dataGenerator } from './dataGenerator.js'
-
+import api from './axios/index'
+Vue.use(api)
 var app = new Vue({
     el: '#app',
     template: '<App/>',
