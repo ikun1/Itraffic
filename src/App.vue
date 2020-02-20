@@ -132,37 +132,12 @@ export default {
   },
   methods: {
     loadmap(){
-      this.heatmapdata = dataGenerator.generator(50000,100);
       this.map = new AMap.Map('container', {
         zoom: 12,
         mapStyle: 'amap://styles/whitesmoke',
         center: [116.418261, 39.921984]
       });
       var map = this.map;
-      var heatmap = this.heatmap;
-      var cache = this;
-      var generatePoint = this.generatePoint;
-      AMap.plugin(["AMap.Heatmap"], function () {
-          //初始化heatmap对象
-          heatmap = new AMap.Heatmap(map, {
-              radius: 25, //给定半径
-              opacity: [0, 0.8],
-              gradient:{
-                  0.5: 'blue',
-                  0.65: 'rgb(117,211,248)',
-                  0.7: 'rgb(0, 255, 0)',
-                  0.9: '#ffea00',
-                  1.0: 'red'
-              }
-              
-          });
-          //设置数据集：该数据为随机生成的用户数据
-          heatmap.setDataSet({
-              data: cache.heatmapdata
-          });
-          cache.heatmap = heatmap;
-          console.log(heatmap);
-      },this);
 
       //判断浏览区是否支持canvas
       function isSupportCanvas() {
@@ -172,12 +147,37 @@ export default {
 
       this.map.setFeatures(['bg','point','building']);
 
-      this.map.on('complete',function(){
-        this.initColor();
-      },this)
       this.map.on('click',function(){
         this.foldBox();
       },this);
+      var cache = this;
+      AMap.plugin(["AMap.Heatmap"], function () {
+      //初始化heatmap对象
+      cache.heatmap = new AMap.Heatmap(map, {
+          radius: 25, //给定半径
+          opacity: [0, 0.8],
+          gradient:{
+              0.5: 'blue',
+              0.65: 'rgb(117,211,248)',
+              0.7: 'rgb(0, 255, 0)',
+              0.9: '#ffea00',
+              1.0: 'red'
+          }
+          
+      });
+      dataGenerator.formatter(cache);
+      });
+    },
+    loadHeatMap(heatmapdata){
+      this.heatmapdata = heatmapdata;
+      var heatmap = this.heatmap;
+      var cache = this;
+      heatmap.setDataSet({
+          data: heatmapdata
+      });
+      this.heatmap = heatmap;
+      this.initColor();
+      console.log(heatmapdata);
     },
     initColor(){
       //计算热力图图例

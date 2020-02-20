@@ -8,7 +8,7 @@ var dataGenerator = {
             name:'群体1',
             color:'rgb(153,50,204)',
             info:[]
-        },
+        },/*
         {
             name:'群体2',
             color:'rgb(70,130,180)',
@@ -28,10 +28,12 @@ var dataGenerator = {
             name:'群体5',
             color:'rgb(250,128,114)',
             info:[]
-        },
+        },*/
     ],
     generator(ammount, average) {
         //ammount为总人数，average为每个基站平均人数,attrs为人群聚类数
+        return this.formatter();
+        this.originData = [];
         var attrs = this.attrs.length;
         var heatmapData = [];
         var x = 116.40964;
@@ -74,8 +76,44 @@ var dataGenerator = {
             return false;
           }
       },
-    formatter(){
-        d3.csv("/dist/data.csv", function(data) {console.log(data)});
+    formatter(target){
+        //读取数据并转换为热力格式
+        d3.json("/src/data/analyze.json")
+            .then(function(data){
+                var countMap = new Map();
+                var heatmapData = [];
+                for(var userID in data){
+                    console.log(data[userID]);
+                    var outArray = data[userID];
+                    outArray.forEach(function(inArray){
+                        inArray.forEach(function(e){
+                            var n;
+                            var location = new AMap.LngLat(e[0],e[1]);
+                            if(countMap.has(location)){
+                                n=countMap.get(location);
+                            }else{
+                                n=[];
+                            }
+                            n.push({
+                                'id': userID,
+                                'attr': 0
+                            });
+                            countMap.set(location,n);
+                        },this)
+                    },this)
+                }
+                
+                var heatmapdata = [];
+                countMap.forEach(function(value,key,map) {
+                heatmapdata.push({
+                        'lng': key.lng,
+                        'lat': key.lat,
+                        'count': value.length,
+                        'info':value
+                    })
+                });
+                target.loadHeatMap(heatmapdata);
+            });
     }
 }
 export {
