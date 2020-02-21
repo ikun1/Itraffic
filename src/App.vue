@@ -4,6 +4,16 @@
       <div id="container" class="mymap inmap" v-bind:class="{ mapranging: isMapranging}"></div>
       <img id="toolButton" class="floatToolBar" src="./img/tools.png" v-show="unfold" v-on:click="unfoldBox" />
       <img id="toolButton2" class="floatToolBar" src="./img/tools.png" v-on:click="initPath"/>
+      <div id=statusOfMap class="floatStatus">
+        <div class="dropdown dropdown2">
+          <button class="dropbtn">图层</button>
+          <div class="dropdown-content">
+            <a v-bind:class="{ isShowed:status.heatmap }" v-on:click="changeStatus('heatmap')">密度分析</a>
+            <a v-bind:class="{ isShowed:status.arrest }" v-on:click="changeStatus('arrest')"> 驻点分析</a>
+            <a v-bind:class="{ isShowed:status.path }" v-on:click="changeStatus('path')">出行分析</a>
+          </div>
+        </div>
+      </div>
       <div id="toolBox" style="left:-20%;" class="floatToolBar" v-show="!unfold">
         <p class="boxtext boxtitle">热力图设置</p>
         <div class="boxitem">
@@ -12,7 +22,7 @@
             <p class="boxtext boxsubtitle" style="width:200px">2020/2/17</p>
           </div>
           <div class="fillbox">
-            <input type="range" value="50" min="0" max="100" step="1" class="slider" />
+            <input type="range"  v-model="nowdataindex" v-on:change="reloadHeatMap" min="0" max="1" step="1" class="slider" />
           </div>
         </div>
         <div class="boxitem">
@@ -93,10 +103,17 @@ export default {
     mininumber:'0',//图例三种数字
     midiumnumber:'0',
     maxnumber:'0',
+    nowdataindex:0,
     unfold:true,//是否折叠热力工具窗
     datasee:false,//是否显示数据分析窗
     isMapranging:false,//是否处于范围选取状态
     ammount:0,//个体数量
+    status:{
+      //分析图层集
+      heatmap:true,//热力图（密度分析）
+      arrest:false,//驻点分析
+      path:false//路径分析
+    },
     rangestate:{//选取圆形范围
       begin:'',
       end:'',
@@ -141,7 +158,7 @@ export default {
       this.map = new AMap.Map('container', {
         zoom: 12,
         mapStyle: 'amap://styles/whitesmoke',
-        center: [116.418261, 39.921984]
+        center: [123.438261, 41.821984]
       });
       var map = this.map;
 
@@ -169,10 +186,21 @@ export default {
               0.9: '#ffea00',
               1.0: 'red'
           }
-          
       });
-      dataGenerator.formatter(cache);
+      dataGenerator.formatter(cache,cache.nowdataindex);
       });
+    },
+    changeStatus(layerName){
+      this.status[layerName] = !this.status[layerName];
+      if(this.status.heatmap){
+        this.heatmap.show();
+        console.log("wvar");
+      }else{
+        this.heatmap.hide();
+      }
+    },
+    reloadHeatMap(){
+      dataGenerator.formatter(this,this.nowdataindex);
     },
     loadHeatMap(heatmapdata){
       this.heatmapdata = heatmapdata;
@@ -183,7 +211,6 @@ export default {
       });
       this.heatmap = heatmap;
       this.initColor();
-      console.log(heatmapdata);
     },
     initColor(){
       //计算热力图图例

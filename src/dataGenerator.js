@@ -76,17 +76,49 @@ var dataGenerator = {
             return false;
           }
       },
-    formatter(target){
+    formatter_arrest(target,index){
         //读取数据并转换为热力格式
-        d3.json("/src/data/analyze.json")
+        console.log("/src/data/arrest" + index + ".json");
+        d3.json("/src/data/arrest" + index + ".json")
             .then(function(data){
+                console.log(data);
+                var countMap = new Map();
+                
+                for(var userID in data){
+                    var outArray = data[userID];
+                    outArray.forEach(function(inArray){
+                        //
+                    },this)
+                }
+                
+                var arrestData = [];
+                countMap.forEach(function(value,key,map) {
+                arrestData.push({
+                        'lng': key.lng,
+                        'lat': key.lat,
+                        'count': value.length,
+                        'info':value
+                    })
+                });
+                target.loadHeatMap(arrestData);
+            });
+    },
+    formatter(target,index){
+        //读取数据并转换为热力格式
+        console.log("/src/data/trip" + index + ".json");
+        d3.json("/src/data/trip" + index + ".json")
+            .then(function(data){
+                console.log(data);
                 var countMap = new Map();
                 var heatmapData = [];
                 for(var userID in data){
                     var outArray = data[userID];
-                    outArray.forEach(function(inArray){
-                        inArray.forEach(function(e){
+                    outArray.forEach(function(e,index){
                             var n;
+                            if(isNaN(e[0])){
+                                console.log(userID);
+                                console.log(index);
+                            }
                             var location = new AMap.LngLat(e[0],e[1]);
                             if(countMap.has(location)){
                                 n=countMap.get(location);
@@ -98,7 +130,6 @@ var dataGenerator = {
                                 'attr': 0
                             });
                             countMap.set(location,n);
-                        },this)
                     },this)
                 }
                 
