@@ -82,25 +82,39 @@ var dataGenerator = {
         d3.json("/src/data/arrest" + index + ".json")
             .then(function(data){
                 console.log(data);
-                var countMap = new Map();
-                
-                for(var userID in data){
-                    var outArray = data[userID];
-                    outArray.forEach(function(inArray){
-                        //
-                    },this)
-                }
-                
                 var arrestData = [];
-                countMap.forEach(function(value,key,map) {
-                arrestData.push({
-                        'lng': key.lng,
-                        'lat': key.lat,
-                        'count': value.length,
-                        'info':value
-                    })
-                });
-                target.loadHeatMap(arrestData);
+                var min = 10000;
+                var max = 0;
+                for(var userID in data){
+                    //一个ID
+                    var outArray = data[userID];
+                    var userData = {
+                        id:userID,
+                        arrests:[]
+                    }
+                    outArray.forEach(function(inArray){
+                        //一组驻点，遍历求出大圆半径
+                        var location = inArray[0];
+                        var anArrest = {
+                            timestamps:[],
+                            location:new AMap.LngLat(location[0],location[1])
+                        }
+                        inArray.forEach(function(point){
+                            //一个点
+                            anArrest.timestamps.push(point[2]);
+                        },this);
+                        var length = anArrest.timestamps.length;
+                        if(length > max){
+                            max = length;
+                        }
+                        if(length < min){
+                            min = length;
+                        }
+                        userData.arrests.push(anArrest);
+                    },this)
+                    arrestData.push(userData);
+                }
+                target.loadArrestData(arrestData,min,max);
             });
     },
     formatter(target,index){

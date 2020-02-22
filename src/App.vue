@@ -96,7 +96,7 @@ export default {
     map:'',
     heatmap:'',
     pathData:'',
-    heatmapdata:'',
+    heatmapdata:'',//热力图基础数据
     minicolor:'blue',//图例三种颜色
     midiumcolor:'rgb(0, 255, 0)',
     maxcolor:'red',
@@ -108,6 +108,8 @@ export default {
     datasee:false,//是否显示数据分析窗
     isMapranging:false,//是否处于范围选取状态
     ammount:0,//个体数量
+    arrestData:'',//驻点基础数据
+    arrestCircles:[],//驻点显示圆圈合集
     status:{
       //分析图层集
       heatmap:true,//热力图（密度分析）
@@ -188,15 +190,24 @@ export default {
           }
       });
       dataGenerator.formatter(cache,cache.nowdataindex);
+      dataGenerator.formatter_arrest(cache,0);
       });
     },
     changeStatus(layerName){
       this.status[layerName] = !this.status[layerName];
       if(this.status.heatmap){
         this.heatmap.show();
-        console.log("wvar");
       }else{
         this.heatmap.hide();
+      }
+      if(this.status.arrest){
+        this.arrestCircles.forEach(function(circle){
+          circle.show();
+        })
+      }else{
+        this.arrestCircles.forEach(function(circle){
+          circle.hide();
+        })
       }
     },
     reloadHeatMap(){
@@ -210,24 +221,35 @@ export default {
           data: heatmapdata
       });
       this.heatmap = heatmap;
-      this.initColor();
     },
-    initColor(){
-      //计算热力图图例
-      var dataset = this.heatmap.getDataSet().data;
-      var gradient = this.heatmap.options.gradient;
-      this.minicolor=gradient[0.5];
-      this.midiumcolor=gradient[0.7];
-      this.maxcolor=gradient[1.0];
+    loadArrestData(arrestData,min,max){
+      this.arrestData = arrestData;
+      var scale = d3.scaleLinear().domain([min,max]).range([1,129])
+      arrestData.forEach(function(user){
+        user.arrests.forEach(function(arrest){
+          var circle = new AMap.Circle({
+            center: arrest.location,  // 圆心位置
+            radius: 100, // 圆半径
+            fillColor: 'rgba(1, 88, ' + scale(arrest.timestamps.length) + ', 0.6)',   // 圆形填充颜色
+            strokeColor: '#fff', // 描边颜色
+            strokeWeight: 1, // 描边宽度
+          });
+          this.arrestCircles.push(circle);
+          this.map.add(circle);
+          circle.hide();
+        },this)
+      },this);
+      this.initColor(scale,min,max);
+    },
+    initColor(scale,min,max){
+      //计算驻点图例
+      this.minicolor='rgba(1, 88, ' + scale(min) + ', 1)';
+      this.midiumcolor='rgba(1, 88, ' + scale((min+max)/2) + ', 1)';
+      this.maxcolor='rgba(1, 88, ' + scale(max) + ', 1)';
       //将数据集排序，取出最大值,生成图例
-      dataset.sort(function(a,b){
-        return a.count-b.count;
-      });
-      var max = dataset[dataset.length - 1].count;
-      this.mininumber = Math.round(max * 0.5);
-      this.midiumnumber = Math.round(max * 0.7);
-      this.maxnumber =  Math.round(max * 1.0);
-
+      this.mininumber = min;
+      this.midiumnumber = Math.round((min+max)/2);
+      this.maxnumber =  max;
     },
     unfoldBox(){
       //展开盒子
