@@ -73,6 +73,17 @@
         </div>
         <dataInfo ref="dataInfoBox" @func="drawData"/>
       </div>
+      <div class="input-card">
+    <h4>轨迹回放控制</h4>
+    <div class="input-item">
+        <input type="button" class="btn" value="开始动画" id="start" v-on:click="startAnimation"/>
+        <input type="button" class="btn" value="暂停动画" id="pause" v-on:click="pauseAnimation"/>
+    </div>
+    <div class="input-item">
+        <input type="button" class="btn" value="继续动画" id="resume" v-on:click="resumeAnimation"/>
+        <input type="button" class="btn" value="停止动画" id="stop" v-on:click="stopAnimation"/>
+    </div>
+</div>
     </div>
   </div>
 </template>
@@ -95,6 +106,8 @@ export default {
   return {
     map:'',
     heatmap:'',
+    marker:'',//绘制轨迹的logo
+    lineArr:'',//已移动过的路径
     pathData:'',
     heatmapdata:'',//热力图基础数据
     minicolor:'blue',//图例三种颜色
@@ -327,25 +340,54 @@ export default {
     });
     },
     initPath(){
-      var jsonPath = this.pathData;
-      for(var userId in jsonPath){
+    var jsonPath = this.pathData;
+    var getFirst = true;
+    for (var userId in jsonPath) {
         var path = []
         var selectedPeople = jsonPath[userId];
-        if(typeof(selectedPeople) == "undefined" ) continue;
-        for(var i=0; i<selectedPeople.length; i++){
-          path.push(new AMap.LngLat(selectedPeople[i][0][0],selectedPeople[i][0][1]))
+        if (typeof (selectedPeople) == "undefined") continue;
+        for (var i = 0; i < selectedPeople.length; i++) {
+            if (getFirst) {
+                this.lineArr = path;
+                getFirst = false;
+            }
+            path.push(new AMap.LngLat(selectedPeople[i][0], selectedPeople[i][1]))
         }
         // 创建折线实例
-var polyline = new AMap.Polyline({
-    path: path,  
-    borderWeight: 2, // 线条宽度，默认为 1
-    strokeColor: 'red', // 线条颜色
-    lineJoin: 'round' // 折线拐点连接处样式
-});
-// 将折线添加至地图实例
-this.map.add(polyline);
-      }
+        var polyline = new AMap.Polyline({
+            map: this.map,
+            path: path,
+            showDir: true,
+            strokeColor: "#28F",  //线颜色
+            // strokeOpacity: 1,     //线透明度
+            strokeWeight: 6,      //线宽
+            // strokeStyle: "solid"  //线样式
+        });
 
+    }
+    this.marker = new AMap.Marker({
+        map: this.map,
+        position: [116.478935, 39.997761],
+        icon: "https://webapi.amap.com/images/car.png",
+        offset: new AMap.Pixel(-26, -13),
+        autoRotation: true,
+        angle: -90,
+    });
+    this.marker.on('moving', function (e) {
+        //passedPolyline.setPath(e.passedPath);
+    });
+    },
+    startAnimation () {
+        this.marker.moveAlong(this.lineArr, 200);
+    },
+    pauseAnimation () {
+        this.marker.pauseMove();
+    },
+    resumeAnimation () {
+        this.marker.resumeMove();
+    },
+    stopAnimation () {
+        this.marker.stopMove();
     }
   }
 }
