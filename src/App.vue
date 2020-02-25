@@ -106,8 +106,11 @@ export default {
   return {
     map:'',
     heatmap:'',
+    geocoder:'', 
+    passedPolyline:'',//已移动过的路径
+    infoWindow:'',//信息悬浮框
     marker:'',//绘制轨迹的logo
-    lineArr:'',//已移动过的路径
+    lineArr:'',//移动路径
     pathData:'',
     heatmapdata:'',//热力图基础数据
     minicolor:'blue',//图例三种颜色
@@ -365,6 +368,15 @@ export default {
         });
 
     }
+    this.passedPolyline = new AMap.Polyline({
+        map: this.map,
+        // path: lineArr,
+        position: [116.478935, 39.997761],
+        strokeColor: "#AF5",  //线颜色
+        // strokeOpacity: 1,     //线透明度
+        strokeWeight: 6,      //线宽
+        // strokeStyle: "solid"  //线样式
+    });
     this.marker = new AMap.Marker({
         map: this.map,
         position: [116.478935, 39.997761],
@@ -373,9 +385,41 @@ export default {
         autoRotation: true,
         angle: -90,
     });
+    this.infoWindow = new AMap.InfoWindow({
+        autoMove: true,
+        offset: {x: 0, y: -30}
+    });
+    
+    this.infoWindow.setContent(this.createContent());
+		this.infoWindow.open(this.map, this.marker.getPosition());
     this.marker.on('moving', function (e) {
+      //console.log(passedPolyline)
         //passedPolyline.setPath(e.passedPath);
     });
+    },
+    createContent(){
+      //生成悬浮框内容
+      var address;
+      var geocoder;
+      AMap.plugin('AMap.Geocoder', function() {
+    geocoder = new AMap.Geocoder({
+        radius: 1000 //范围，默认：500
+    });
+    geocoder.getAddress([116.478935, 39.997761], function(status, result) {
+            if (status === 'complete'&&result.regeocode) {
+              console.log(result.regeocode.formattedAddress)
+                address = result.regeocode.formattedAddress;
+            }else{
+                log.error('根据经纬度查询地址失败')
+            }
+        });
+    })
+       console.log(address)
+      var s = [];
+        s.push("<b>名称：" + "460020095006349317"+"</b>");
+        s.push("地址：" + address);
+        s.push("状态：" + "state");
+        return s.join("<br>");
     },
     startAnimation () {
         this.marker.moveAlong(this.lineArr, 200);
