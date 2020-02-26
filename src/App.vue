@@ -107,6 +107,7 @@ export default {
     map:'',
     heatmap:'',
     geocoder:'', 
+    address:'',
     passedPolyline:'',//已移动过的路径
     infoWindow:'',//信息悬浮框
     marker:'',//绘制轨迹的logo
@@ -208,6 +209,13 @@ export default {
       dataGenerator.formatter(cache,cache.nowdataindex);
       dataGenerator.formatter_arrest(cache,0);
       });
+
+      AMap.plugin('AMap.Geocoder', function() {
+        cache.geocoder = new AMap.Geocoder({
+        radius: 1000 //范围，默认：500
+      });
+    })
+
     },
     changeStatus(layerName){
       this.status[layerName] = !this.status[layerName];
@@ -389,37 +397,37 @@ export default {
         autoMove: true,
         offset: {x: 0, y: -30}
     });
-    
-    this.infoWindow.setContent(this.createContent());
+    console.log(this.createContent(this.getAddressFunc))
+    this.infoWindow.setContent(this.createContent(this.getAddressFunc));
 		this.infoWindow.open(this.map, this.marker.getPosition());
     this.marker.on('moving', function (e) {
       //console.log(passedPolyline)
         //passedPolyline.setPath(e.passedPath);
     });
     },
-    createContent(){
-      //生成悬浮框内容
-      var address;
-      var geocoder;
-      AMap.plugin('AMap.Geocoder', function() {
-    geocoder = new AMap.Geocoder({
-        radius: 1000 //范围，默认：500
-    });
-    geocoder.getAddress([116.478935, 39.997761], function(status, result) {
+    getAddressFunc(){
+        var cache = this;
+        this.geocoder.getAddress([116.478935, 39.997761], function(status, result) {
             if (status === 'complete'&&result.regeocode) {
               console.log(result.regeocode.formattedAddress)
-                address = result.regeocode.formattedAddress;
+                cache.address = result.regeocode.formattedAddress;
             }else{
                 log.error('根据经纬度查询地址失败')
             }
-        });
-    })
-       console.log(address)
-      var s = [];
-        s.push("<b>名称：" + "460020095006349317"+"</b>");
-        s.push("地址：" + address);
-        s.push("状态：" + "state");
-        return s.join("<br>");
+        })
+
+    },
+    createContent(callback){
+      //生成悬浮框内容
+      setTimeout(function() {
+          var s = []; 
+          s.push("<b>名称：" + "460020095006349317"+"</b>");
+          s.push("地址：" + this.address);
+          s.push("状态：" + "state");
+          callback()
+          return s.join("<br>");
+      }, 1000)
+      
     },
     startAnimation () {
         this.marker.moveAlong(this.lineArr, 200);
@@ -435,8 +443,6 @@ export default {
     }
   }
 }
-
-
 
 </script>
 <style scoped>

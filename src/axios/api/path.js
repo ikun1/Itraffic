@@ -5,7 +5,7 @@ const getPathJson = data => {
   return $getJson('/static/path.json',data)
 }
 
-  //导出接口
-  export default {
-    getPathJson,
-    }
+//导出接口
+export default {
+  getPathJson,
+}
