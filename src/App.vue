@@ -97,10 +97,10 @@ import dataInfo from './dataInfo.vue';
 export default {
   mounted(){
     console.log("mounted")
-      this.loadmap();     //加载地图和相关组件
+    this.loadmap();     //加载地图和相关组件
     this.$api.path.getPathJson({}).then(res => {
-      this.pathData = res.data;
- });
+    this.pathData = res.data;
+    });
   },
   data () {
   return {
@@ -387,7 +387,7 @@ export default {
     });
     this.marker = new AMap.Marker({
         map: this.map,
-        position: [116.478935, 39.997761],
+        position: [123.4119873,41.8078804],
         icon: "https://webapi.amap.com/images/car.png",
         offset: new AMap.Pixel(-26, -13),
         autoRotation: true,
@@ -397,37 +397,32 @@ export default {
         autoMove: true,
         offset: {x: 0, y: -30}
     });
-    console.log(this.createContent(this.getAddressFunc))
-    this.infoWindow.setContent(this.createContent(this.getAddressFunc));
-		this.infoWindow.open(this.map, this.marker.getPosition());
+    //console.log(this.createContent())
+    this.createInfroWin();
+		var self = this;
     this.marker.on('moving', function (e) {
-      //console.log(passedPolyline)
-        //passedPolyline.setPath(e.passedPath);
+      self.passedPolyline.setPath(e.passedPath);
     });
     },
-    getAddressFunc(){
+    createInfroWin(){
         var cache = this;
-        this.geocoder.getAddress([116.478935, 39.997761], function(status, result) {
+        var address;
+        this.geocoder.getAddress([123.4119873,41.8078804], function(status, result) {
             if (status === 'complete'&&result.regeocode) {
               console.log(result.regeocode.formattedAddress)
-                cache.address = result.regeocode.formattedAddress;
+                address = result.regeocode.formattedAddress;
+                var s = []; 
+                s.push("<b>名称：" + "460020095006349317"+"</b>");
+                s.push("地址：" + address);
+                s.push("状态：" + "state");
+                var rel =  s.join("<br>");
+                //console.log(cache.infoWindow)
+                cache.infoWindow.setContent(rel)
+                cache.infoWindow.open(cache.map, cache.marker.getPosition());
             }else{
                 log.error('根据经纬度查询地址失败')
             }
         })
-
-    },
-    createContent(callback){
-      //生成悬浮框内容
-      setTimeout(function() {
-          var s = []; 
-          s.push("<b>名称：" + "460020095006349317"+"</b>");
-          s.push("地址：" + this.address);
-          s.push("状态：" + "state");
-          callback()
-          return s.join("<br>");
-      }, 1000)
-      
     },
     startAnimation () {
         this.marker.moveAlong(this.lineArr, 200);
