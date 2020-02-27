@@ -177,6 +177,7 @@ export default {
       this.map = new AMap.Map('container', {
         zoom: 12,
         mapStyle: 'amap://styles/whitesmoke',
+        features: ['bg', 'road', 'building', 'point'],
         center: [123.438261, 41.821984]
       });
       var map = this.map;
@@ -186,8 +187,6 @@ export default {
           var elem = document.createElement('canvas');
           return !!(elem.getContext && elem.getContext('2d'));
       }
-
-      this.map.setFeatures(['bg','point','building']);
 
       this.map.on('click',function(){
         this.foldBox();
@@ -352,30 +351,18 @@ export default {
     },
     initPath(){
     var jsonPath = this.pathData;
-    var getFirst = true;
+    console.log(jsonPath)
     for (var userId in jsonPath) {
-        var path = []
         var selectedPeople = jsonPath[userId];
         if (typeof (selectedPeople) == "undefined") continue;
-        for (var i = 0; i < selectedPeople.length; i++) {
-            if (getFirst) {
-                this.lineArr = path;
-                getFirst = false;
-            }
-            path.push(new AMap.LngLat(selectedPeople[i][0], selectedPeople[i][1]))
+        for(var pathSeg in selectedPeople){
+          console.log(selectedPeople[pathSeg]['path'])
+            this.createPath(selectedPeople[pathSeg]['path'])
         }
-        // 创建折线实例
-        var polyline = new AMap.Polyline({
-            map: this.map,
-            path: path,
-            showDir: true,
-            strokeColor: "#28F",  //线颜色
-            // strokeOpacity: 1,     //线透明度
-            strokeWeight: 6,      //线宽
-            // strokeStyle: "solid"  //线样式
-        });
-
+        break;
     }
+    },
+    initMarker(){
     this.passedPolyline = new AMap.Polyline({
         map: this.map,
         // path: lineArr,
@@ -403,6 +390,27 @@ export default {
     this.marker.on('moving', function (e) {
       self.passedPolyline.setPath(e.passedPath);
     });
+    },
+    createPath(data){
+      var path = []
+      for (var i = 0; i < data.length; i++) {
+            // if (getFirst) {
+            //     this.lineArr = path;
+            //     getFirst = false;
+            // }
+            path.push(new AMap.LngLat(data[i][0], data[i][1]))
+        }
+        // 创建折线实例
+        var polyline = new AMap.Polyline({
+            map: this.map,
+            path: path,
+            showDir: true,
+            strokeColor: "#28F",  //线颜色
+            // strokeOpacity: 1,     //线透明度
+            strokeWeight: 6,      //线宽
+            // strokeStyle: "solid"  //线样式
+        });
+
     },
     createInfroWin(){
         var cache = this;
