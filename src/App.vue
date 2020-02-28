@@ -2,9 +2,9 @@
   <div class="outmap outside">
     <div class="inside">
       <div id="container" class="mymap inmap" v-bind:class="{ mapranging: isMapranging}"></div>
-      <img id="toolButton" class="floatToolBar toolButton" v-bind:class="{ isShowed:status.heatmap }" v-bind:style="{left:countLeft(0)}" src="./img/tools.png" v-show="unfold" v-on:click="unfoldBox" />
-      <img id="toolButton2" class="floatToolBar toolButton"  v-bind:class="{ isShowed:status.arrest }" v-bind:style="{left:countLeft(1)}" src="./img/tools.png" v-show="unfold" v-on:click="initPath"/>
-      <img id="arrestButton" class="floatToolBar toolButton" v-bind:class="{ isShowed:status.path }" v-bind:style="{left:countLeft(2)}" src="./img/tools.png" v-show="unfold" />
+      <img id="toolButton" class="floatToolBar toolButton" v-bind:class="{ hide:!status.heatmap }" v-bind:style="{left:countLeft(0)}" src="./img/heatmaptool.png" v-show="unfold" v-on:click="unfoldBox('toolBox')" />
+      <img id="toolButton2" class="floatToolBar toolButton"  v-bind:class="{ hide:!status.path }" v-bind:style="{left:countLeft(1)}" src="./img/pathtool.png" v-show="unfold" v-on:click="initPath"/>
+      <img id="arrestButton" class="floatToolBar toolButton" v-bind:class="{ hide:!status.arrest }" v-bind:style="{left:countLeft(2)}" src="./img/arresttool.png" v-show="unfold" v-on:click="unfoldBox('arrestDialog')"/>
       <div id=statusOfMap class="floatStatus">
         <div class="dropdown dropdown2">
           <button class="dropbtn">图层</button>
@@ -15,7 +15,7 @@
           </div>
         </div>
       </div>
-      <arrestDialog  ref="arrestDialog" v-bind:left="leftOfArrest"/>
+      <arrestDialog  id="arrestDialog" ref="arrestDialog" v-bind:left="leftOfArrest"/>
       <div id="toolBox" style="left:-20%;" class="floatToolBar" v-show="!unfold">
         <p class="boxtext boxtitle">热力图设置</p>
         <div class="boxitem">
@@ -212,12 +212,11 @@ export default {
         }
       }
       if(index > 1){
-        if(this.status.arrest){
+        if(this.status.path){
           left = left + 40;
         }
       }
-      console.log(left);
-      return left;
+      return left + "px";
     },
     changeStatus(layerName){
       this.status[layerName] = !this.status[layerName];
@@ -278,16 +277,24 @@ export default {
       target.midiumnumber = Math.round((min+max)/2);
       target.maxnumber =  max;
     },
-    unfoldBox(){
+    unfoldBox(boxType){
       //展开盒子
       this.unfold = false;
-      d3.select("#toolBox").transition().style("left", "0%");
+      d3.select("#"+boxType).transition().style("left", "0%");
     },
     foldBox(){
       if(!this.unfold){
-        var target = this;
-      d3.select("#toolBox").transition().style("left", "-20%").on('end', function(){
-        target.unfold = true;
+        this.foldTargetBox("#toolBox");
+        this.foldTargetBox("#arrestDialog");
+      }
+    },
+    foldTargetBox(target){
+      var cache = this;
+      var toolBox = d3.select(target);
+      var left = toolBox.style("left");
+      if(left == "0%"){
+      toolBox.transition().style("left", "-20%").on('end', function(){
+        cache.unfold = true;
       });
       }
     },
