@@ -11,6 +11,7 @@ import Vue from 'vue';
 import './style/common.scss';
 import App from './App.vue';
 import dataInfo from './dataInfo.vue';
+import arrestDialog from './arrestDialog.vue';
 import { dataGenerator } from './dataGenerator.js'
 import api from './axios/index'
 Vue.use(api)

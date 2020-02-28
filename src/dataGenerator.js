@@ -3,6 +3,7 @@ import * as d3 from 'd3';//引入d3
 var dataGenerator = {
     //随机数据生成器
     originData: [],//初始数据
+    arrestData:'',
     attrs: [
         {
             name: '群体1',
@@ -79,6 +80,7 @@ var dataGenerator = {
     formatter_arrest(target, index) {
         //读取数据并转换为热力格式
         console.log("/src/data/arrest" + index + ".json");
+        var cache = this;
         d3.json("/src/data/arrest" + index + ".json")
             .then(function (data) {
                 console.log(data);
@@ -92,18 +94,24 @@ var dataGenerator = {
                         id: userID,
                         arrests: []
                     }
-                    outArray.forEach(function (inArray) {
+                    outArray.forEach(function (inArray,index) {
                         //一组驻点，遍历求出大圆半径
                         var location = inArray[0];
                         var anArrest = {
                             timestamps: [],
-                            location: new AMap.LngLat(location[0], location[1])
+                            location: new AMap.LngLat(location[0], location[1]),
+                            hours:0
                         }
                         inArray.forEach(function (point) {
                             //一个点
                             anArrest.timestamps.push(point[2]);
                         }, this);
-                        var length = anArrest.timestamps.length;
+                        var length = cache.arrestData[userID][index];
+                        anArrest.hours = length;
+                        if (typeof(length) == "undefined"){
+                            console.log(userID);
+                            console.log(index);
+                        }
                         if (length > max) {
                             max = length;
                         }
@@ -158,6 +166,14 @@ var dataGenerator = {
                 });
                 target.loadHeatMap(heatmapdata);
             });
+    },
+    mergeData(target,index){
+        var cache = this;
+        d3.json("/src/data/lastDict" + index + ".json")
+            .then(function(data){
+                cache.arrestData = data;
+                cache.formatter_arrest(target,index);
+        })
     }
 }
 export {

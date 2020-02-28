@@ -42,17 +42,24 @@ p.title{
     line-height: 65px;
 }
 
-
+.toolButton{
+  width:30px;
+  height:30px;
+  top:15px;
+}
 
 #toolButton{
     left: 15px;
     top:15px;
-    width:30px;
-    height:30px;
 }
 
-#toolButton:hover{
+.toolButton:hover{
     transform:scale(1.2); 
+}
+
+#arrestButton{
+  left: 95px;
+  top:15px;
 }
 
 #toolButton2{
@@ -93,6 +100,12 @@ p.title{
   }
 
   #toolBox{
+    width:20%;
+    background-color: black;
+    border-radius:5px;
+    justify-content: center;
+  }
+  .toolBox{
     width:20%;
     background-color: black;
     border-radius:5px;

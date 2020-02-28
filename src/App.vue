@@ -2,8 +2,9 @@
   <div class="outmap outside">
     <div class="inside">
       <div id="container" class="mymap inmap" v-bind:class="{ mapranging: isMapranging}"></div>
-      <img id="toolButton" class="floatToolBar" src="./img/tools.png" v-show="unfold" v-on:click="unfoldBox" />
-      <img id="toolButton2" class="floatToolBar" src="./img/tools.png" v-on:click="initPath"/>
+      <img id="toolButton" class="floatToolBar toolButton" v-bind:class="{ isShowed:status.heatmap }" v-bind:style="{left:countLeft(0)}" src="./img/tools.png" v-show="unfold" v-on:click="unfoldBox" />
+      <img id="toolButton2" class="floatToolBar toolButton"  v-bind:class="{ isShowed:status.arrest }" v-bind:style="{left:countLeft(1)}" src="./img/tools.png" v-show="unfold" v-on:click="initPath"/>
+      <img id="arrestButton" class="floatToolBar toolButton" v-bind:class="{ isShowed:status.path }" v-bind:style="{left:countLeft(2)}" src="./img/tools.png" v-show="unfold" />
       <div id=statusOfMap class="floatStatus">
         <div class="dropdown dropdown2">
           <button class="dropbtn">图层</button>
@@ -14,6 +15,7 @@
           </div>
         </div>
       </div>
+      <arrestDialog  ref="arrestDialog" v-bind:left="leftOfArrest"/>
       <div id="toolBox" style="left:-20%;" class="floatToolBar" v-show="!unfold">
         <p class="boxtext boxtitle">热力图设置</p>
         <div class="boxitem">
@@ -42,17 +44,6 @@
           <div class="fillbox">
             <input type="range" value="50" min="0" max="100" step="1" class="slider" />
           </div>
-        </div>
-        <div class="boxitem">
-          <p class="boxtext boxsubtitle">图例:</p>
-          <svg width="100%" height="30px" version="1.1" xmlns="http://www.w3.org/2000/svg">
-            <line x1="5%" y1="10" x2="35%" y2="10" v-bind:style="{ stroke: minicolor }" class="colorline" />
-            <line x1="35%" y1="10" x2="65%" y2="10" v-bind:style="{ stroke: midiumcolor }" class="colorline" />
-            <line x1="65%" y1="10" x2="95%" y2="10" v-bind:style="{ stroke: maxcolor }" class="colorline" />
-            <text x="20%" y="30" v-bind:fill="minicolor" class="colortext">{{mininumber}}</text>
-            <text x="50%" y="30" v-bind:fill="midiumcolor" class="colortext">{{midiumnumber}}</text>
-            <text x="80%" y="30" v-bind:fill="maxcolor" class="colortext">{{maxnumber}}</text>
-          </svg>
         </div>
         <div class="boxitem">
           <div style="width:100%; align-items:center;display:flex;">
@@ -93,6 +84,7 @@ import AMap from 'AMap';   //在页面中引入高德地图
 import * as d3 from 'd3';//引入d3
 import { dataGenerator } from './dataGenerator.js'
 import dataInfo from './dataInfo.vue';
+import arrestDialog from './arrestDialog.vue';
 
 export default {
   mounted(){
@@ -114,12 +106,6 @@ export default {
     lineArr:'',//移动路径
     pathData:'',
     heatmapdata:'',//热力图基础数据
-    minicolor:'blue',//图例三种颜色
-    midiumcolor:'rgb(0, 255, 0)',
-    maxcolor:'red',
-    mininumber:'0',//图例三种数字
-    midiumnumber:'0',
-    maxnumber:'0',
     nowdataindex:0,
     unfold:true,//是否折叠热力工具窗
     datasee:false,//是否显示数据分析窗
@@ -127,6 +113,7 @@ export default {
     ammount:0,//个体数量
     arrestData:'',//驻点基础数据
     arrestCircles:[],//驻点显示圆圈合集
+    leftOfArrest:'-20%',
     status:{
       //分析图层集
       heatmap:true,//热力图（密度分析）
@@ -170,7 +157,8 @@ export default {
   }
 },
   components:{
-    dataInfo
+    dataInfo,
+    arrestDialog
   },
   methods: {
     loadmap(){
@@ -207,7 +195,7 @@ export default {
           }
       });
       dataGenerator.formatter(cache,cache.nowdataindex);
-      dataGenerator.formatter_arrest(cache,0);
+      dataGenerator.mergeData(cache,1);
       });
 
       AMap.plugin('AMap.Geocoder', function() {
@@ -216,6 +204,21 @@ export default {
       });
     })
 
+    },
+    countLeft(index){
+      var left = 15;
+      if(index > 0){
+        if(this.status.heatmap){
+          left = left + 40;
+        }
+      }
+      if(index > 1){
+        if(this.status.arrest){
+          left = left + 40;
+        }
+      }
+      console.log(left);
+      return left;
     },
     changeStatus(layerName){
       this.status[layerName] = !this.status[layerName];
@@ -254,7 +257,7 @@ export default {
           var circle = new AMap.Circle({
             center: arrest.location,  // 圆心位置
             radius: 100, // 圆半径
-            fillColor: 'rgba(1, 88, ' + scale(arrest.timestamps.length) + ', 0.6)',   // 圆形填充颜色
+            fillColor: 'rgba(1, 88, ' + scale(arrest.hours) + ', 0.6)',   // 圆形填充颜色
             strokeColor: '#fff', // 描边颜色
             strokeWeight: 1, // 描边宽度
           });
@@ -267,13 +270,14 @@ export default {
     },
     initColor(scale,min,max){
       //计算驻点图例
-      this.minicolor='rgba(1, 88, ' + scale(min) + ', 1)';
-      this.midiumcolor='rgba(1, 88, ' + scale((min+max)/2) + ', 1)';
-      this.maxcolor='rgba(1, 88, ' + scale(max) + ', 1)';
+      var target = this.$refs.arrestDialog;
+      target.minicolor='rgba(1, 88, ' + scale(min) + ', 1)';
+      target.midiumcolor='rgba(1, 88, ' + scale((min+max)/2) + ', 1)';
+      target.maxcolor='rgba(1, 88, ' + scale(max) + ', 1)';
       //将数据集排序，取出最大值,生成图例
-      this.mininumber = min;
-      this.midiumnumber = Math.round((min+max)/2);
-      this.maxnumber =  max;
+      target.mininumber = min;
+      target.midiumnumber = Math.round((min+max)/2);
+      target.maxnumber =  max;
     },
     unfoldBox(){
       //展开盒子
