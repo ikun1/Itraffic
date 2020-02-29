@@ -15,7 +15,7 @@
           </div>
         </div>
       </div>
-      <arrestDialog  id="arrestDialog" ref="arrestDialog" v-bind:left="leftOfArrest"/>
+      <arrestDialog  v-show="!unfold" id="arrestDialog" ref="arrestDialog"  @range="reactRange" v-bind:left="leftOfArrest"/>
       <div id="toolBox" style="left:-20%;" class="floatToolBar" v-show="!unfold">
         <p class="boxtext boxtitle">热力图设置</p>
         <div class="boxitem">
@@ -48,7 +48,7 @@
         <div class="boxitem">
           <div style="width:100%; align-items:center;display:flex;">
             <p class="boxtext boxsubtitle">范围分析</p>
-            <img id="rangeButton" class="boxtext boxsubtitle" src="./img/range.png" v-on:click="reactRange" />
+            <img id="rangeButton" class="boxtext boxsubtitle" src="./img/range.png" v-on:click="reactRange("heatmap")" />
           </div>
         </div>
       </div>
@@ -110,10 +110,12 @@ export default {
     unfold:true,//是否折叠热力工具窗
     datasee:false,//是否显示数据分析窗
     isMapranging:false,//是否处于范围选取状态
+    reactRangeType:'',//范围响应状态
     ammount:0,//个体数量
     arrestData:'',//驻点基础数据
     arrestCircles:[],//驻点显示圆圈合集
     leftOfArrest:'-20%',
+    scale:'',//颜色比例尺
     status:{
       //分析图层集
       heatmap:true,//热力图（密度分析）
@@ -247,11 +249,19 @@ export default {
       });
       this.heatmap = heatmap;
     },
-    loadArrestData(arrestData,min,max){
+    initArrestData(arrestData,min,max){
       this.arrestData = arrestData;
-      var scale = d3.scaleLinear().domain([min,max]).range([1,129])
+      this.scale = d3.scaleLinear().domain([min,max]).range([1,129])
+      this.initColor(this.scale,min,max);
+      this.loadArrestData(arrestData);
+    },
+    loadArrestData(arrestData){
+      this.arrestCircles.forEach(function(circle){
+        this.map.remove(circle);
+      },this);
       arrestData.forEach(function(user){
         user.arrests.forEach(function(arrest){
+          var scale = this.scale;
           var circle = new AMap.Circle({
             center: arrest.location,  // 圆心位置
             radius: 100, // 圆半径
@@ -261,10 +271,11 @@ export default {
           });
           this.arrestCircles.push(circle);
           this.map.add(circle);
+          if(!this.status.arrest){
           circle.hide();
+          }
         },this)
       },this);
-      this.initColor(scale,min,max);
     },
     initColor(scale,min,max){
       //计算驻点图例
@@ -298,10 +309,11 @@ export default {
       });
       }
     },
-    reactRange(){
+    reactRange(type){
       //圈选范围响应
       this.unfold = true;
       this.isMapranging=true;
+      this.reactRangeType = type;
       var rangestate = this.rangestate;
       var map = this.map;
       var isTouching = false;
@@ -319,7 +331,7 @@ export default {
           map.off('mousemove',moveEvent);
           this.map.panTo(this.rangestate.circle.center);
           this.isMapranging = false;
-          this.countInfo();
+          this.countInfo(this.reactRangeType);
         }
         isTouching = !isTouching;
       }
@@ -332,27 +344,55 @@ export default {
       this.map.on('mousedown',downEvent,this);
       this.map.on('mousemove',moveEvent,this);
     },
-    countInfo(){
+    countInfo(type){
       //计算圈选范围详细信息
       var center = this.rangestate.circle.getCenter();
       var radius = this.rangestate.circle.getRadius();
       var count = 0;
       var typeinfo = JSON.parse(JSON.stringify(dataGenerator.attrs));//克隆一份对象，不影响原值
-      this.heatmapdata.forEach(v=>{  
-        //遍历所有点，找出在圆范围的点
-        var point = new AMap.LngLat(v.lng,v.lat);
-        if(dataGenerator.isInCircle(point,center,radius)){
-          v.info.forEach(h=>{
-            typeinfo[h.attr].info.push({
-              id:h.id,
-              location:point
-            });
-            count++;
-          },this);
-        }
-      },this);
+      if(type == "heatmap"){
+        this.heatmapdata.forEach(v=>{  
+          //遍历所有点，找出在圆范围的点
+          var point = new AMap.LngLat(v.lng,v.lat);
+          if(dataGenerator.isInCircle(point,center,radius)){
+            v.info.forEach(h=>{
+              typeinfo[h.attr].info.push({
+                id:h.id,
+                location:point
+              });
+              count++;
+            },this);
+          }
+        },this);
+      }else if(type == "arrest"){
+        var newData = [];
+          this.arrestData.forEach(user=>{  
+          //遍历所有点，找出在圆范围的点
+          var newArrest = [];
+          for(var i = 0;i<user.arrests.length;i++){
+            var a = user.arrests[i];
+            if(dataGenerator.isInCircle(a.location,center,radius)){
+              newArrest.push(a);
+            }
+          }
+          if(newArrest.length > 0){
+          typeinfo[user.attr].info.push({
+            id:user.id,
+            arrests:newArrest,
+            attr:user.attr
+          });
+          newData.push({
+            id:user.id,
+            arrests:newArrest,
+            attr:user.attr
+          });
+          }
+        },this);
+        console.log(newData);
+        this.loadArrestData(newData);
+      }
       this.ammount = count;
-      this.$refs.dataInfoBox.countInfo(typeinfo);
+      this.$refs.dataInfoBox.countInfo(type,typeinfo);
       d3.select("#infoBox").transition().style("left", "80%");
     },
     drawData(heatmapdata){

@@ -32,25 +32,27 @@ export default {
         }
     },
     methods:{
-        countInfo(typeinfo){
-            this.checkedIDs = [];
-            var summary = 0;
-            for(var i=0;i<typeinfo.length;i++){
-               summary = summary + typeinfo[i].info.length; 
-               this.isunfold[i] = false;
+        countInfo(type,typeinfo){
+            if(type == "heatmap"){
+                this.checkedIDs = [];
+                var summary = 0;
+                for(var i=0;i<typeinfo.length;i++){
+                summary = summary + typeinfo[i].info.length; 
+                this.isunfold[i] = false;
+                }
+                for(var i=0;i<typeinfo.length;i++){
+                    var e = typeinfo[i];
+                var percent = Math.round((e.info.length/summary) * 100);
+                    e.percent = percent;
+                    this.checkedIDs.push([]);
+                    e.info.forEach(h=>{
+                        this.checkedIDs[i].push(h);
+                    },this);
+                }
+                this.typeinfo = [];
+                this.typeinfo = typeinfo;
+                this.initHeatData();
             }
-            for(var i=0;i<typeinfo.length;i++){
-                var e = typeinfo[i];
-               var percent = Math.round((e.info.length/summary) * 100);
-                e.percent = percent;
-                this.checkedIDs.push([]);
-                e.info.forEach(h=>{
-                    this.checkedIDs[i].push(h);
-                },this);
-            }
-            this.typeinfo = [];
-            this.typeinfo = typeinfo;
-            this.initHeatData();
         },
         showIDs(index){
             this.$set(this.isunfold,index,!this.isunfold[index]);

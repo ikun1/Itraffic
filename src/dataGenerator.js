@@ -92,7 +92,8 @@ var dataGenerator = {
                     var outArray = data[userID];
                     var userData = {
                         id: userID,
-                        arrests: []
+                        arrests: [],
+                        attr:0
                     }
                     outArray.forEach(function (inArray,index) {
                         //一组驻点，遍历求出大圆半径
@@ -122,7 +123,7 @@ var dataGenerator = {
                     }, this)
                     arrestData.push(userData);
                 }
-                target.loadArrestData(arrestData, min, max);
+                target.initArrestData(arrestData, min, max);
             });
     },
     formatter(target, index) {
