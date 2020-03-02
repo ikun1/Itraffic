@@ -7,6 +7,7 @@ export const $getJson = function (method) {
         url: method,
         dataType: "json",
         crossDomain: true,
+        charset: "gbk",
         cache: false
       }).then(res => {
         resolve(res)

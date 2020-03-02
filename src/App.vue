@@ -85,6 +85,8 @@ import * as d3 from 'd3';//引入d3
 import { dataGenerator } from './dataGenerator.js'
 import dataInfo from './dataInfo.vue';
 import arrestDialog from './arrestDialog.vue';
+import { pathColor } from './util.js';
+import { drawTable } from './tripTable.js';
 
 export default {
   mounted(){
@@ -93,6 +95,7 @@ export default {
     this.$api.path.getPathJson({}).then(res => {
     this.pathData = res.data;
     });
+    
   },
   data () {
   return {
@@ -405,13 +408,13 @@ export default {
     console.log(jsonPath)
     for (var userId in jsonPath) {
         var selectedPeople = jsonPath[userId];
+        
         if (typeof (selectedPeople) == "undefined") continue;
         for(var pathSeg in selectedPeople){
-          console.log(selectedPeople[pathSeg]['path'])
-            this.createPath(selectedPeople[pathSeg]['path'])
+          this.createPath(selectedPeople[pathSeg])
         }
-        break;
     }
+    drawTable();
     },
     initMarker(){
     this.passedPolyline = new AMap.Polyline({
@@ -444,24 +447,24 @@ export default {
     },
     createPath(data){
       var path = []
-      for (var i = 0; i < data.length; i++) {
+      for (var i = 0; i < data['path'].length; i++) {
             // if (getFirst) {
             //     this.lineArr = path;
             //     getFirst = false;
             // }
-            path.push(new AMap.LngLat(data[i][0], data[i][1]))
+            path.push(new AMap.LngLat(data['path'][i][0], data['path'][i][1]))
         }
         // 创建折线实例
         var polyline = new AMap.Polyline({
             map: this.map,
             path: path,
             showDir: true,
-            strokeColor: "#28F",  //线颜色
+            strokeColor: pathColor(data['mode']),  //线颜色"#28F"
             // strokeOpacity: 1,     //线透明度
             strokeWeight: 6,      //线宽
             // strokeStyle: "solid"  //线样式
         });
-
+        
     },
     createInfroWin(){
         var cache = this;
