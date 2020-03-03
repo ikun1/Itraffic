@@ -42,7 +42,7 @@ function drawStackTable() {
         .order(d3.stackOrderNone)
         .offset(d3.stackOffsetNone)
         (dataset)
-    .map(d => (d.forEach(v => v.key = d.key), d))
+        .map(d => (d.forEach(v => v.key = d.key), d))
     //var series = stack(dataset)
 
     var color = d3.scaleOrdinal()
@@ -51,8 +51,10 @@ function drawStackTable() {
         .unknown("#ccc")
 
     var x = d3.scaleBand()
-        .domain(dataset.map(d => {console.log(d) 
-            return d.time}))
+        .domain(dataset.map(d => {
+            console.log(d)
+            return d.time
+        }))
         .range([margin.left, width - margin.right])
         .padding(0.1)
 
@@ -60,15 +62,17 @@ function drawStackTable() {
         .domain([0, d3.max(series, d => d3.max(d, d => d[1]))])
         .rangeRound([height - margin.bottom, margin.top])
 
-    var xAxis = g => g
+    var gx = stackSvg.append("g")
+    var gy = stackSvg.append("g")
+    var xAxis = gx
         .attr("transform", `translate(0,${height - margin.bottom})`)
         .call(d3.axisBottom(x).tickSizeOuter(0))
-        .call(g => g.selectAll(".domain").remove())
+        .call(gx => gx.selectAll(".domain").remove())
 
-    var yAxis = g => g
+    var yAxis = gy
         .attr("transform", `translate(${margin.left},0)`)
         .call(d3.axisLeft(y))
-        .call(g => g.selectAll(".domain").remove())
+        .call(gy => gy.selectAll(".domain").remove())
 
     console.log(series)
     stackSvg.append("g")
@@ -85,7 +89,7 @@ function drawStackTable() {
         .attr("width", x.bandwidth())
         .append("title")
         .text(d => `${d.data.time} ${d.key}
-${d.data[d.key]}`);
+        ${d.data[d.key]}`);
 
 
 
