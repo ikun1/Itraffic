@@ -52,18 +52,7 @@
           </div>
         </div>
       </div>
-      <div id="infoBox" style="left:100%;" class="floatToolBar" >
-        <p class="boxtext boxtitle">范围分析</p>
-        <div style="width:100%">
-          <p class="boxtext boxsubtitle">选定面积:</p>
-          <p class="boxtext boxsubtitle" style="width:200px">{{rangestate.rangeArea}}km²</p>
-        </div>
-        <div style="width:100%">
-          <p class="boxtext boxsubtitle">个体数量:</p>
-          <p class="boxtext boxsubtitle" style="width:200px">{{ammount}}</p>
-        </div>
-        <dataInfo ref="dataInfoBox" @func="drawData"/>
-      </div>
+      <dataInfo ref="dataInfoBox" @func="drawData"/>
       <div class="input-card">
     <h4>轨迹回放控制</h4>
     <div class="input-item">
@@ -377,9 +366,9 @@ export default {
             if(dataGenerator.isInCircle(a.location,center,radius)){
               newArrest.push(a);
             }
-            count++;
           }
           if(newArrest.length > 0){
+          count++;
           typeinfo[user.attr].info.push({
             id:user.id,
             arrests:newArrest,
@@ -392,11 +381,10 @@ export default {
           });
           }
         },this);
-        console.log(newData);
+        console.log(count);
         this.loadArrestData(newData);
       }
-      this.ammount = count;
-      this.$refs.dataInfoBox.countInfo(type,typeinfo);
+      this.$refs.dataInfoBox.countInfo(type,typeinfo,this.rangestate.rangeArea,count);
       d3.select("#infoBox").transition().style("left", "80%");
     },
     drawData(heatmapdata){

@@ -1,4 +1,14 @@
 <template>
+      <div id="infoBox" style="left:100%;" class="floatToolBar" >
+        <p class="boxtext boxtitle">范围分析</p>
+        <div style="width:100%">
+          <p class="boxtext boxsubtitle">选定面积:</p>
+          <p class="boxtext boxsubtitle" style="width:200px">{{rangeArea}}km²</p>
+        </div>
+        <div style="width:100%">
+          <p class="boxtext boxsubtitle">个体数量:</p>
+          <p class="boxtext boxsubtitle" style="width:200px">{{ammount}}</p>
+        </div>
     <div id="infoList" class="strbox">
         <div class="centeritems"  v-for="(typeitem,index) in typeinfo">
         <input type="checkbox" checked="checked" class="checkbox" v-on:change="changeGroups(index,$event)" />
@@ -15,6 +25,7 @@
         </div>
         </div>
     </div>
+      </div>
 </template>
 
 <script>
@@ -30,12 +41,16 @@ export default {
             checkedIDs:[],
             heatMap:'',
             arrestData:'',
-            type:''
+            type:'',
+            rangeArea:0,
+            ammount:0
         }
     },
     methods:{
-        countInfo(type,typeinfo){
+        countInfo(type,typeinfo,rangeArea,ammount){
             this.type = type;
+            this.rangeArea = rangeArea;
+            this.ammount = ammount;
             this.checkedIDs = [];
             var summary = 0;
             for(var i=0;i<typeinfo.length;i++){
@@ -56,7 +71,7 @@ export default {
             if(type == "heatmap"){
                 this.initHeatData();
             }else if (type == "arrest"){
-                this.arrestData = typeinfo;
+                this.arrestData = JSON.parse(JSON.stringify(typeinfo));//克隆一份对象，不影响原值
             }
         },
         showIDs(index){
@@ -84,18 +99,22 @@ export default {
         },
         changeIDs(item,event){
             //ID选中改变时触发
-            var n;
-            if(this.heatMap.has(item.location)){
-                n=this.heatMap.get(item.location);
-            }else{
-                n=0;
+            if(this.type=="heatmap"){
+                var n;
+                if(this.heatMap.has(item.location)){
+                    n=this.heatMap.get(item.location);
+                }else{
+                    n=0;
+                }
+                if(event.target.checked){
+                    this.heatMap.set(item.location,n+1)
+                }else{
+                    this.heatMap.set(item.location,n-1)
+                }
+                this.fromDataToHeat();
+            }else if (this.type=="arrest"){
+                console.log(this.arrestData);
             }
-            if(event.target.checked){
-                this.heatMap.set(item.location,n+1)
-            }else{
-                this.heatMap.set(item.location,n-1)
-            }
-            this.fromDataToHeat();
         },
         changeGroups(index,event){
             this.checkedIDs[index].splice(0,this.checkedIDs[index].length);
