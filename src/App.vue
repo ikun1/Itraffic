@@ -48,7 +48,7 @@
         <div class="boxitem">
           <div style="width:100%; align-items:center;display:flex;">
             <p class="boxtext boxsubtitle">范围分析</p>
-            <img id="rangeButton" class="boxtext boxsubtitle" src="./img/range.png" v-on:click="reactRange("heatmap")" />
+            <img id="rangeButton" class="boxtext boxsubtitle" src="./img/range.png" v-on:click="reactRange('heatmap')" />
           </div>
         </div>
       </div>
@@ -377,6 +377,7 @@ export default {
             if(dataGenerator.isInCircle(a.location,center,radius)){
               newArrest.push(a);
             }
+            count++;
           }
           if(newArrest.length > 0){
           typeinfo[user.attr].info.push({
