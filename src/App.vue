@@ -52,7 +52,7 @@
           </div>
         </div>
       </div>
-      <dataInfo ref="dataInfoBox" @func="drawData"/>
+      <dataInfo ref="dataInfoBox" @refreshArrest="loadArrestData" @func="drawData"/>
       <div class="input-card">
     <h4>轨迹回放控制</h4>
     <div class="input-item">

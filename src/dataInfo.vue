@@ -43,7 +43,8 @@ export default {
             arrestData:'',
             type:'',
             rangeArea:0,
-            ammount:0
+            ammount:0,
+            arrestMap:''
         }
     },
     methods:{
@@ -72,6 +73,13 @@ export default {
                 this.initHeatData();
             }else if (type == "arrest"){
                 this.arrestData = JSON.parse(JSON.stringify(typeinfo));//克隆一份对象，不影响原值
+                var arrestMap = new Map();
+                this.typeinfo.forEach(g=>{
+                    g.info.forEach(item=>{
+                        arrestMap.set(item.id,item);
+                    })
+                })
+                this.arrestMap = arrestMap;
             }
         },
         showIDs(index){
@@ -113,19 +121,37 @@ export default {
                 }
                 this.fromDataToHeat();
             }else if (this.type=="arrest"){
-                console.log(this.arrestData);
+                this.reloadArrestData();
             }
+        },
+        reloadArrestData(){
+            var newArrestData = [];
+                this.checkedIDs.forEach(function(group,index){
+                    if(group.length != 0){
+                        group.forEach(function(item){
+                            var itemData = this.arrestMap.get(item.id);
+                            newArrestData.push(itemData);
+                        },this)
+
+                    }
+                },this)
+                console.log(newArrestData);
+                this.$emit('refreshArrest',newArrestData);
         },
         changeGroups(index,event){
             this.checkedIDs[index].splice(0,this.checkedIDs[index].length);
-            if(event.target.checked){
-                this.typeinfo[index].info.forEach(h=>{
-                    this.checkedIDs[index].push(h);
-                },this);
-            }else{
+                if(event.target.checked){
+                    this.typeinfo[index].info.forEach(h=>{
+                        this.checkedIDs[index].push(h);
+                    },this);
+                }else{
 
+                }
+            if(this.type == "heatMap"){
+                this.initHeatData();
+            }else if (this.type == "arrest"){
+                this.reloadArrestData();
             }
-            this.initHeatData();
         },
         fromDataToHeat(){
             //重绘函数
