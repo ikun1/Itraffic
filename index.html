@@ -9,14 +9,17 @@
 </head>
 
 <body>
+  <div class="container-fluid" style="display: block;">
   <div id="gridMapHoverBox"
     style="position:absolute; border: 1px solid #00965e; z-index: 99; font-size: 10px; background:#fff"></div>
-  <div id="topbar" class="shadow-sm">
-    <img id="logo" src="./src/img/logo.png" />
-    <p class="title">时空大数据分析系统</p>
+  <div id="topbar" class="shadow-sm media ">
+    <img id="logo" class="mr-3 w-10 img-responsive" src="./src/img/logo.png" />
+    <div class="media-body">
+    <p class="title mt-0">时空大数据分析系统</p></div>
   </div>
   <div id="app">
   </div>
+</div>
   <!--<script src="//a.amap.com/jsapi_demos/static/resource/heatmapData.js"></script>-->
   <script type="text/javascript"
     src="http://webapi.amap.com/maps?v=1.4.15&key=a5dee79891e57bc6a9d0905370bb32a2&callback=init"></script>

@@ -1,7 +1,8 @@
 <template>
-  <div class="outmap outside">
+  <div class="outmap">
     <div class="inside">
       <div id="container" class="mymap inmap" v-bind:class="{ mapranging: isMapranging}"></div>
+      <func-menu style="display:absolute"/>
       <img id="toolButton" class="floatToolBar toolButton" v-bind:class="{ hide:!status.heatmap }" v-bind:style="{left:countLeft(0)}" src="./img/heatmaptool.png" v-show="unfold" v-on:click="unfoldBox('toolBox')" />
       <img id="toolButton2" class="floatToolBar toolButton"  v-bind:class="{ hide:!status.path }" v-bind:style="{left:countLeft(1)}" src="./img/pathtool.png" v-show="unfold" v-on:click="initPath"/>
       <img id="arrestButton" class="floatToolBar toolButton" v-bind:class="{ hide:!status.arrest }" v-bind:style="{left:countLeft(2)}" src="./img/arresttool.png" v-show="unfold" v-on:click="unfoldBox('arrestDialog')"/>
@@ -53,7 +54,7 @@
         </div>
       </div>
       <dataInfo ref="dataInfoBox" @refreshArrest="loadArrestData" @func="drawData"/>
-      <div class="input-card">
+      <!-- <div class="input-card">
     <h4>轨迹回放控制</h4>
     <div class="input-item">
         <input type="button" class="btn" value="开始动画" id="start" v-on:click="startAnimation"/>
@@ -63,7 +64,7 @@
         <input type="button" class="btn" value="继续动画" id="resume" v-on:click="resumeAnimation"/>
         <input type="button" class="btn" value="停止动画" id="stop" v-on:click="stopAnimation"/>
     </div>
-</div>
+</div> -->
     </div>
   </div>
 </template>
@@ -74,12 +75,16 @@ import * as d3 from 'd3';//引入d3
 import { dataGenerator } from './dataGenerator.js'
 import dataInfo from './dataInfo.vue';
 import arrestDialog from './arrestDialog.vue';
+import funcMenu from './funcMenu.vue'
 import { pathColor } from './util.js';
 import { drawTable } from './tripTable.js';
+import 'bootstrap/dist/js/bootstrap.js';
+import 'bootstrap/dist/css/bootstrap.css';
 
 export default {
   mounted(){
-    console.log("mounted")
+    console.log("mounted");
+    //d3.select(".quick-menu").style("display", "absolute");
     this.loadmap();     //加载地图和相关组件
     this.$api.path.getPathJson({}).then(res => {
     this.pathData = res.data;
@@ -152,7 +157,8 @@ export default {
 },
   components:{
     dataInfo,
-    arrestDialog
+    arrestDialog,
+    funcMenu
   },
   methods: {
     loadmap(){
@@ -196,6 +202,8 @@ export default {
         radius: 1000 //范围，默认：500
       });
     })
+
+    d3.select(".quick-menu").style("position", "absolute");
 
     },
     countLeft(index){
