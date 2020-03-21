@@ -1,6 +1,6 @@
 var path = require('path');
 var webpack = require('webpack');
-var VueLoaderPlugin = require('vue-loader/lib/plugin')
+var VueLoaderPlugin = require('vue-loader/lib/plugin');
 
 module.exports = {
     entry: ['babel-polyfill', './src/main.js'], // 项目的入口文件，webpack会从main.js开始，把所有依赖的js都加载打包
@@ -75,7 +75,7 @@ module.exports = {
             },
             {
                 test: /\.(eot|svg|ttf|woff|woff2)\w*/,
-                loader: 'file-loader?publicPath=/static/res/&outputPath=font/'
+                loader: 'file-loader'
             },]
     },
     plugins: [
