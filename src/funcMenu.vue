@@ -1,7 +1,7 @@
 <template>
   <quick-menu :menu-count="count" 
         :icon-class="icons" 
-        :menu-url-list="list">
+        :menu-url-list="list" @process=print>
   </quick-menu>
 </template>
 <script>
@@ -15,8 +15,8 @@ export default {
   data() {
       return {
         count:3,
-        icons:["fa fa-github","fa fa-comment",
-               "fa fa-code"],
+        icons:["fa icon-pathtool","fa icon-arresttool",
+               "fa icon-heatmaptool"],
         list:["http://jd.com",
             "http://jd.com",
             "http://jd.com"],
@@ -25,6 +25,41 @@ export default {
         position:'top-right',
         isOpenNewTab:false
       }
+  },
+   methods:{
+      print(key){
+        console.log(key)
+      }
+
   }
 }    
 </script>
+<style>
+.icon-heatmaptool:before 
+{
+  content: "";
+  display: block;
+  height: 40px;
+  width: 40px;
+  background: url(./img/heatmaptool.png) no-repeat;
+  background-size: 100%;
+}
+.icon-pathtool:before 
+{
+  content: "";
+  display: block;
+  height: 40px;
+  width: 40px;
+  background: url(./img/pathtool.png) no-repeat;
+  background-size: 100%;
+}
+.icon-arresttool:before 
+{
+  content: "";
+  display: block;
+  height: 40px;
+  width: 40px;
+  background: url(./img/arresttool.png) no-repeat;
+  background-size: 100%;
+}
+</style>

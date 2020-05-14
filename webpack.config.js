@@ -79,6 +79,13 @@ module.exports = {
             },]
     },
     plugins: [
-        new VueLoaderPlugin()
+        new VueLoaderPlugin(),
+        new webpack.ProvidePlugin({
+            $: "jquery",
+            jQuery: "jquery",
+            "Tether": "tether",
+            "window.Tether": "tether",
+            Popper:['popper.js','default']
+          })
       ]
 };

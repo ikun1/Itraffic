@@ -78,6 +78,7 @@ import arrestDialog from './arrestDialog.vue';
 import funcMenu from './funcMenu.vue'
 import { pathColor } from './util.js';
 import { drawTable } from './tripTable.js';
+import $ from 'jquery';
 import 'bootstrap/dist/js/bootstrap.js';
 import 'bootstrap/dist/css/bootstrap.css';
 
