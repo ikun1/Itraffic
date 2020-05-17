@@ -165,7 +165,7 @@ export default {
     loadmap(){
       this.map = new AMap.Map('container', {
         zoom: 12,
-        mapStyle: 'amap://styles/whitesmoke',
+        mapStyle: 'amap://styles/399846b22d60cd9dddca38485ce139d2',
         features: ['bg', 'road', 'building', 'point'],
         center: [123.438261, 41.821984]
       });
@@ -184,7 +184,7 @@ export default {
       AMap.plugin(["AMap.Heatmap"], function () {
       //初始化heatmap对象
       cache.heatmap = new AMap.Heatmap(map, {
-          radius: 25, //给定半径
+          radius: 40, //给定半径
           opacity: [0, 0.8],
           gradient:{
               0.5: 'blue',
@@ -265,7 +265,7 @@ export default {
           var scale = this.scale;
           var circle = new AMap.Circle({
             center: arrest.location,  // 圆心位置
-            radius: 100, // 圆半径
+            radius: 200, // 圆半径
             fillColor: 'rgba(1, 88, ' + scale(arrest.hours) + ', 0.6)',   // 圆形填充颜色
             strokeColor: '#fff', // 描边颜色
             strokeWeight: 1, // 描边宽度

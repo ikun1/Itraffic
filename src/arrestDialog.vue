@@ -1,4 +1,4 @@
-  <template>
+<template>
       <div v-bind:style="{left : left}"  class="floatToolBar toolBox">
         <p class="boxtext boxtitle">驻点分析工具</p>
         <div class="boxitem">
@@ -46,10 +46,9 @@
           </div>
         </div>
       </div>
-      </template>
+</template>
 
-      <script>
-
+<script>
 export default {
     mounted(){
 

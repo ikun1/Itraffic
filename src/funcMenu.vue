@@ -20,7 +20,7 @@ export default {
         list:["http://jd.com",
             "http://jd.com",
             "http://jd.com"],
-        backgroundColor:'#42A5F5',
+        backgroundColor:'#3e8e41',
         color:'#eee',
         position:'top-right',
         isOpenNewTab:false
