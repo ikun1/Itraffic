@@ -1,5 +1,5 @@
 <template>
-      <div id="infoBox" style="left:100%;" class="floatToolBar" >
+      <div v-bind:id="ids" style="left:100%;" class="floatToolBar infoBox" >
         <p class="boxtext boxtitle">范围分析</p>
         <div style="width:100%">
           <p class="boxtext boxsubtitle">选定面积:</p>
@@ -169,9 +169,9 @@ export default {
         
     },
     props:{
-        /*typeinfo:{
-            type:Array
-        }*/
+        ids:{
+            type:String
+        }
     }
 }
 </script>

@@ -28,7 +28,14 @@ export default {
   },
    methods:{
       print(key){
-        console.log(key)
+        if(key == 0){
+           this.$emit('react',"path");
+        } else if (key == 1){
+          this.$emit('react',"arrest");
+        }else if(key == 2)
+        {
+          this.$emit('react',"heatmap");
+        }
       }
 
   }

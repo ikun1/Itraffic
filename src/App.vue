@@ -2,10 +2,8 @@
   <div class="outmap">
     <div class="inside">
       <div id="container" class="mymap inmap" v-bind:class="{ mapranging: isMapranging}"></div>
-      <func-menu style="display:absolute"/>
-      <img id="toolButton" class="floatToolBar toolButton" v-bind:class="{ hide:!status.heatmap }" v-bind:style="{left:countLeft(0)}" src="./img/heatmaptool.png" v-show="unfold" v-on:click="unfoldBox('toolBox')" />
-      <img id="toolButton2" class="floatToolBar toolButton"  v-bind:class="{ hide:!status.path }" v-bind:style="{left:countLeft(1)}" src="./img/pathtool.png" v-show="unfold" v-on:click="initPath"/>
-      <img id="arrestButton" class="floatToolBar toolButton" v-bind:class="{ hide:!status.arrest }" v-bind:style="{left:countLeft(2)}" src="./img/arresttool.png" v-show="unfold" v-on:click="unfoldBox('arrestDialog')"/>
+      <func-menu @react="clickTools" style="display:absolute"/>
+      <!--<img id="toolButton" class="floatToolBar toolButton" v-bind:class="{ hide:!status.heatmap }" v-bind:style="{left:countLeft(0)}" src="./img/heatmaptool.png" v-show="unfold" v-on:click="unfoldBox('toolBox')" />-->
       <div id=statusOfMap class="floatStatus">
         <div class="dropdown dropdown2">
           <button class="dropbtn">图层</button>
@@ -53,7 +51,8 @@
           </div>
         </div>
       </div>
-      <dataInfo ref="dataInfoBox" @refreshArrest="loadArrestData" @func="drawData"/>
+      <dataInfo ref="dataInfoBox" ids="myinfoBox" @refreshArrest="loadArrestData" @func="drawData"/>
+      <dataInfo ref="dataInfoBox" ids="infoBox" @refreshArrest="loadArrestData" @func="drawData"/>
       <!-- <div class="input-card">
     <h4>轨迹回放控制</h4>
     <div class="input-item">
@@ -89,6 +88,8 @@ export default {
     this.loadmap();     //加载地图和相关组件
     this.$api.path.getPathJson({}).then(res => {
     this.pathData = res.data;
+    this.initPath();//初始化路径分析移动到这里
+    this.changeStatus('path');
     });
     
   },
@@ -114,9 +115,10 @@ export default {
     arrestCircles:[],//驻点显示圆圈合集
     leftOfArrest:'-20%',
     scale:'',//颜色比例尺
+    mypolyline:[],//路径线路集
     status:{
       //分析图层集
-      heatmap:true,//热力图（密度分析）
+      heatmap:false,//热力图（密度分析）
       arrest:false,//驻点分析
       path:false//路径分析
     },
@@ -237,6 +239,26 @@ export default {
           circle.hide();
         })
       }
+      if(this.status.path){
+        this.mypolyline.forEach(function(po){
+          po.show()
+        });
+      }else{
+        this.mypolyline.forEach(function(po){
+          po.hide()
+        });
+      }
+
+    },
+    clickTools(layerName){
+      if(layerName == "path")
+        {
+          d3.select("#infoBox").transition().style("left", "80%");
+        }else if(layerName == "arrest"){
+          this.unfoldBox('arrestDialog');
+        }else if(layerName == "heatmap"){
+          this.unfoldBox('toolBox');
+        }
     },
     reloadHeatMap(){
       dataGenerator.formatter(this,this.nowdataindex);
@@ -394,7 +416,7 @@ export default {
         this.loadArrestData(newData);
       }
       this.$refs.dataInfoBox.countInfo(type,typeinfo,this.rangestate.rangeArea,count);
-      d3.select("#infoBox").transition().style("left", "80%");
+      d3.select("#myinfoBox").transition().style("left", "80%");
     },
     drawData(heatmapdata){
     this.heatmap.setDataSet({
@@ -462,6 +484,7 @@ export default {
             strokeWeight: 6,      //线宽
             // strokeStyle: "solid"  //线样式
         });
+        this.mypolyline.push(polyline);
         
     },
     createInfroWin(){
