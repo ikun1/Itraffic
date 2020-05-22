@@ -1,0 +1,5192 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.411987,
+                    41.80788
+                ]
+            },
+            "properties": {
+                "imsi": "460020095006349317",
+                "lastTime": 0.4166666666666667,
+                "frequency": 3,
+                "address": "辽宁省沈阳市和平区抚顺路",
+                "business": "西塔,北市场,昆山",
+                "beginTime": "20181003000554",
+                "endTime": "20181003003118"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.412087,
+                    41.78801
+                ]
+            },
+            "properties": {
+                "imsi": "460020095006349317",
+                "lastTime": 0.25,
+                "frequency": 4,
+                "address": "辽宁省沈阳市和平区六经街1号",
+                "business": "八经,南市,和平北大街",
+                "beginTime": "20181003010526",
+                "endTime": "20181003012124"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.467956,
+                    41.771412
+                ]
+            },
+            "properties": {
+                "imsi": "460020095006349317",
+                "lastTime": 1.1333333333333333,
+                "frequency": 2,
+                "address": "辽宁省沈阳市沈河区泉园二路16巷-7号",
+                "business": "泉园,长青,南塔",
+                "beginTime": "20181003190133",
+                "endTime": "20181003201006"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.412857,
+                    41.804699
+                ]
+            },
+            "properties": {
+                "imsi": "460020095006349317",
+                "lastTime": 2.95,
+                "frequency": 10,
+                "address": "辽宁省沈阳市和平区南京北街39号",
+                "business": "市府大路/市府,北市场,西塔",
+                "beginTime": "20181003204700",
+                "endTime": "20181003234419"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.40873,
+                    41.808861
+                ]
+            },
+            "properties": {
+                "imsi": "460000095093938695",
+                "lastTime": 15.633333333333333,
+                "frequency": 37,
+                "address": "辽宁省沈阳市和平区哈尔滨路11号",
+                "business": "西塔,昆山,华山",
+                "beginTime": "20181003010405",
+                "endTime": "20181003164217"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.439636,
+                    41.80489
+                ]
+            },
+            "properties": {
+                "imsi": "460000095093938695",
+                "lastTime": 2.8166666666666664,
+                "frequency": 13,
+                "address": "辽宁省沈阳市沈河区令闻街34号",
+                "business": "朱剪炉,市府大路/市府,奉天街沿线",
+                "beginTime": "20181003210531",
+                "endTime": "20181003235526"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.443153,
+                    41.81736
+                ]
+            },
+            "properties": {
+                "imsi": "460020095040329737",
+                "lastTime": 7.283333333333333,
+                "frequency": 11,
+                "address": "辽宁省沈阳市沈河区北站ＣＢＤ商圈惠工街136号",
+                "business": "小北,惠工,北站",
+                "beginTime": "20181003133959",
+                "endTime": "20181003205709"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.411987,
+                    41.80788
+                ]
+            },
+            "properties": {
+                "imsi": "460020095040329737",
+                "lastTime": 2.466666666666667,
+                "frequency": 6,
+                "address": "辽宁省沈阳市和平区抚顺路",
+                "business": "西塔,北市场,昆山",
+                "beginTime": "20181003211158",
+                "endTime": "20181003234007"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.398613,
+                    41.73864
+                ]
+            },
+            "properties": {
+                "imsi": "460020095002685457",
+                "lastTime": 0.1,
+                "frequency": 7,
+                "address": "辽宁省沈阳市和平区和祥街",
+                "business": "长白",
+                "beginTime": "20181003090248",
+                "endTime": "20181003090923"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.41542,
+                    41.803631
+                ]
+            },
+            "properties": {
+                "imsi": "460020095002685457",
+                "lastTime": 7.283333333333333,
+                "frequency": 41,
+                "address": "辽宁省沈阳市和平区丹东路2号",
+                "business": "市府大路/市府,北市场,和平北大街",
+                "beginTime": "20181003154856",
+                "endTime": "20181003230633"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.40873,
+                    41.808861
+                ]
+            },
+            "properties": {
+                "imsi": "460070095024650259",
+                "lastTime": 3.3666666666666667,
+                "frequency": 44,
+                "address": "辽宁省沈阳市和平区哈尔滨路11号",
+                "business": "西塔,昆山,华山",
+                "beginTime": "20181003001008",
+                "endTime": "20181003033230"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.359962,
+                    41.832939
+                ]
+            },
+            "properties": {
+                "imsi": "460070095024650259",
+                "lastTime": 11.983333333333333,
+                "frequency": 147,
+                "address": "辽宁省沈阳市皇姑区锦水北街",
+                "business": "向工,塔湾,昆山",
+                "beginTime": "20181003035628",
+                "endTime": "20181003155611"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.399139,
+                    41.82085
+                ]
+            },
+            "properties": {
+                "imsi": "460070095024650259",
+                "lastTime": 2.4,
+                "frequency": 24,
+                "address": "辽宁省沈阳市皇姑区岐山中路77",
+                "business": "塔湾,昆山,华山",
+                "beginTime": "20181003213113",
+                "endTime": "20181003235609"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.390648,
+                    41.797081
+                ]
+            },
+            "properties": {
+                "imsi": "460020095025669655",
+                "lastTime": 14.666666666666666,
+                "frequency": 9,
+                "address": "辽宁省沈阳市铁西区北二东路",
+                "business": "霁虹,胜利,兴工街",
+                "beginTime": "20181003000847",
+                "endTime": "20181003144857"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.280327,
+                    41.7715
+                ]
+            },
+            "properties": {
+                "imsi": "460020095025669655",
+                "lastTime": 0.0,
+                "frequency": 1,
+                "address": "辽宁省沈阳市铁西区云海路",
+                "business": "迎宾路,于洪广场",
+                "beginTime": "20181003161500",
+                "endTime": "20181003161500"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.385628,
+                    41.793308
+                ]
+            },
+            "properties": {
+                "imsi": "460020095025669655",
+                "lastTime": 2.0833333333333335,
+                "frequency": 11,
+                "address": "辽宁省沈阳市铁西区东西广场地下通道",
+                "business": "中华路,胜利,兴工街",
+                "beginTime": "20181003165348",
+                "endTime": "20181003185937"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.398018,
+                    41.80838
+                ]
+            },
+            "properties": {
+                "imsi": "460020095025669655",
+                "lastTime": 3.8333333333333335,
+                "frequency": 14,
+                "address": "辽宁省沈阳市皇姑区珠江街77号-7号-4门",
+                "business": "三洞桥,兴工北街,华山",
+                "beginTime": "20181003194644",
+                "endTime": "20181003233711"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.410233,
+                    41.794472
+                ]
+            },
+            "properties": {
+                "imsi": "460020095026670626",
+                "lastTime": 17.25,
+                "frequency": 49,
+                "address": "辽宁省沈阳市和平区柳州街21号",
+                "business": "太原街,中山路,和平北大街",
+                "beginTime": "20181003063657",
+                "endTime": "20181003235207"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.439987,
+                    41.814659
+                ]
+            },
+            "properties": {
+                "imsi": "460000095091180583",
+                "lastTime": 23.9,
+                "frequency": 23,
+                "address": "辽宁省沈阳市沈河区惠工街126号",
+                "business": "小北,北站,惠工",
+                "beginTime": "20181003000214",
+                "endTime": "20181003235621"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.41069,
+                    41.805889
+                ]
+            },
+            "properties": {
+                "imsi": "460020095040749610",
+                "lastTime": 5.166666666666667,
+                "frequency": 42,
+                "address": "辽宁省沈阳市和平区延边街17号",
+                "business": "西塔,市府大路/市府,北市场",
+                "beginTime": "20181003000757",
+                "endTime": "20181003051803"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.332512,
+                    41.819901
+                ]
+            },
+            "properties": {
+                "imsi": "460020095040749610",
+                "lastTime": 0.016666666666666666,
+                "frequency": 2,
+                "address": "辽宁省沈阳市铁西区",
+                "business": "卫工,启工",
+                "beginTime": "20181003210921",
+                "endTime": "20181003211031"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.413361,
+                    41.826012
+                ]
+            },
+            "properties": {
+                "imsi": "460020095040749610",
+                "lastTime": 0.08333333333333333,
+                "frequency": 4,
+                "address": "辽宁省沈阳市皇姑区黄河南大街58号",
+                "business": "北行,辽大,北陵大街",
+                "beginTime": "20181003214221",
+                "endTime": "20181003214735"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.412857,
+                    41.804699
+                ]
+            },
+            "properties": {
+                "imsi": "460020095040749610",
+                "lastTime": 1.2833333333333332,
+                "frequency": 15,
+                "address": "辽宁省沈阳市和平区南京北街39号",
+                "business": "市府大路/市府,北市场,西塔",
+                "beginTime": "20181003221648",
+                "endTime": "20181003233418"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.393623,
+                    41.794701
+                ]
+            },
+            "properties": {
+                "imsi": "460070095040136238",
+                "lastTime": 0.0,
+                "frequency": 1,
+                "address": "辽宁省沈阳市和平区昆明北街52号",
+                "business": "太原街,胜利,中山路",
+                "beginTime": "20181003000140",
+                "endTime": "20181003000140"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.421143,
+                    41.87368
+                ]
+            },
+            "properties": {
+                "imsi": "460070095040136238",
+                "lastTime": 0.2833333333333333,
+                "frequency": 5,
+                "address": "辽宁省沈阳市皇姑区芙蓉山路9-甲-1号",
+                "business": "陵北,三台子,国奥现代城",
+                "beginTime": "20181003014019",
+                "endTime": "20181003015727"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.430122,
+                    41.892899
+                ]
+            },
+            "properties": {
+                "imsi": "460070095040136238",
+                "lastTime": 0.7166666666666667,
+                "frequency": 3,
+                "address": "辽宁省沈阳市皇姑区",
+                "business": "陵北",
+                "beginTime": "20181003131254",
+                "endTime": "20181003135642"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.45739,
+                    41.832851
+                ]
+            },
+            "properties": {
+                "imsi": "460070095040136238",
+                "lastTime": 0.0,
+                "frequency": 1,
+                "address": "辽宁省沈阳市皇姑区崇山东路4-1号楼",
+                "business": "鸭绿江街,长客总站,上园",
+                "beginTime": "20181003235149",
+                "endTime": "20181003235149"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.419312,
+                    41.786308
+                ]
+            },
+            "properties": {
+                "imsi": "460000095064919090",
+                "lastTime": 18.766666666666666,
+                "frequency": 14,
+                "address": "辽宁省沈阳市沈河区金廊商圈南三经街7号",
+                "business": "北三经街/三经街,二经,南市",
+                "beginTime": "20181003013434",
+                "endTime": "20181003202056"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.406212,
+                    41.790089
+                ]
+            },
+            "properties": {
+                "imsi": "460000095064919090",
+                "lastTime": 1.7333333333333334,
+                "frequency": 7,
+                "address": "辽宁省沈阳市和平区北二马路",
+                "business": "太原街,和平北大街,马路湾",
+                "beginTime": "20181003203443",
+                "endTime": "20181003221924"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.408707,
+                    41.806381
+                ]
+            },
+            "properties": {
+                "imsi": "460000095064919090",
+                "lastTime": 0.0,
+                "frequency": 1,
+                "address": "辽宁省沈阳市和平区延边街6-6号",
+                "business": "西塔,市府大路/市府,北市场",
+                "beginTime": "20181003234624",
+                "endTime": "20181003234624"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.396843,
+                    41.8787
+                ]
+            },
+            "properties": {
+                "imsi": "460070095098545714",
+                "lastTime": 5.2,
+                "frequency": 18,
+                "address": "辽宁省沈阳市于洪区丽江街",
+                "business": "黄河/黄河北大街,国奥现代城",
+                "beginTime": "20181003070519",
+                "endTime": "20181003121733"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.460571,
+                    41.81411
+                ]
+            },
+            "properties": {
+                "imsi": "460070095098545714",
+                "lastTime": 0.16666666666666666,
+                "frequency": 6,
+                "address": "辽宁省沈阳市大东区清泉路88号",
+                "business": "大北,津桥,东北大马路",
+                "beginTime": "20181003233138",
+                "endTime": "20181003234220"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.41597,
+                    41.807781
+                ]
+            },
+            "properties": {
+                "imsi": "460020095001775162",
+                "lastTime": 21.65,
+                "frequency": 119,
+                "address": "辽宁省沈阳市和平区发舒巷9号",
+                "business": "北市场,西塔,昆山",
+                "beginTime": "20181003004607",
+                "endTime": "20181003222520"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.4077,
+                    41.914761
+                ]
+            },
+            "properties": {
+                "imsi": "460020095025511997",
+                "lastTime": 2.25,
+                "frequency": 4,
+                "address": "辽宁省沈阳市沈北新区济学路",
+                "business": "沈阳师范大学,道义,黄河/黄河北大街",
+                "beginTime": "20181003074515",
+                "endTime": "20181003100113"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.47126,
+                    41.802799
+                ]
+            },
+            "properties": {
+                "imsi": "460020095025511997",
+                "lastTime": 0.45,
+                "frequency": 4,
+                "address": "辽宁省沈阳市大东区小东路241号",
+                "business": "小东,中街,津桥",
+                "beginTime": "20181003131221",
+                "endTime": "20181003134010"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.40934,
+                    41.915527
+                ]
+            },
+            "properties": {
+                "imsi": "460020095025511997",
+                "lastTime": 6.533333333333333,
+                "frequency": 21,
+                "address": "辽宁省沈阳市沈北新区毓秀路",
+                "business": "沈阳师范大学,道义,黄河/黄河北大街",
+                "beginTime": "20181003155123",
+                "endTime": "20181003222416"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.781349,
+                    41.39994
+                ]
+            },
+            "properties": {
+                "imsi": "460020095019213379",
+                "lastTime": 0.0,
+                "frequency": 1,
+                "address": "辽宁省本溪市明山区",
+                "business": "",
+                "beginTime": "20181003162436",
+                "endTime": "20181003162436"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.412331,
+                    41.776279
+                ]
+            },
+            "properties": {
+                "imsi": "460020095019213379",
+                "lastTime": 1.9833333333333334,
+                "frequency": 16,
+                "address": "辽宁省沈阳市和平区十五纬路3号-甲-1号",
+                "business": "光荣街,十四纬路,文艺路",
+                "beginTime": "20181003213034",
+                "endTime": "20181003232944"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.448822,
+                    41.788368
+                ]
+            },
+            "properties": {
+                "imsi": "460020095027690570",
+                "lastTime": 7.2,
+                "frequency": 14,
+                "address": "辽宁省沈阳市沈河区南乐郊路64-2号",
+                "business": "小南街/小南,大南/大南街,滨河",
+                "beginTime": "20181003013707",
+                "endTime": "20181003084938"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.380218,
+                    41.796291
+                ]
+            },
+            "properties": {
+                "imsi": "460020095027690570",
+                "lastTime": 0.18333333333333332,
+                "frequency": 10,
+                "address": "辽宁省沈阳市铁西区北三东路8号",
+                "business": "北二路,兴工街,兴工北街",
+                "beginTime": "20181003085830",
+                "endTime": "20181003091000"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.414368,
+                    41.788399
+                ]
+            },
+            "properties": {
+                "imsi": "460020095027690570",
+                "lastTime": 0.7833333333333333,
+                "frequency": 12,
+                "address": "辽宁省沈阳市和平区北五经街36号",
+                "business": "南市,八经,北三经街/三经街",
+                "beginTime": "20181003124459",
+                "endTime": "20181003133225"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.443932,
+                    41.78249
+                ]
+            },
+            "properties": {
+                "imsi": "460020095027690570",
+                "lastTime": 0.15,
+                "frequency": 9,
+                "address": "辽宁省沈阳市沈河区翰林路12-1号",
+                "business": "风雨坛,滨河,小南街/小南",
+                "beginTime": "20181003232127",
+                "endTime": "20181003233101"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.623787,
+                    42.170719
+                ]
+            },
+            "properties": {
+                "imsi": "460020095050670159",
+                "lastTime": 0.0,
+                "frequency": 1,
+                "address": "辽宁省铁岭市铁岭县",
+                "business": "",
+                "beginTime": "20181003092726",
+                "endTime": "20181003092726"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.413597,
+                    41.820782
+                ]
+            },
+            "properties": {
+                "imsi": "460020095050670159",
+                "lastTime": 1.2333333333333334,
+                "frequency": 5,
+                "address": "辽宁省沈阳市皇姑区岐山中路26",
+                "business": "北行,昆山,北陵",
+                "beginTime": "20181003202502",
+                "endTime": "20181003213943"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.411781,
+                    41.802952
+                ]
+            },
+            "properties": {
+                "imsi": "460000095005571676",
+                "lastTime": 2.6,
+                "frequency": 16,
+                "address": "辽宁省沈阳市和平区北市二街50号",
+                "business": "市府大路/市府,八经,北市场",
+                "beginTime": "20181003000212",
+                "endTime": "20181003023820"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.391296,
+                    41.864689
+                ]
+            },
+            "properties": {
+                "imsi": "460000095005571676",
+                "lastTime": 0.0,
+                "frequency": 1,
+                "address": "辽宁省沈阳市于洪区北固山路36号-8-1门",
+                "business": "黄河/黄河北大街,国奥现代城,陵西",
+                "beginTime": "20181003040952",
+                "endTime": "20181003040952"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.416672,
+                    41.810242
+                ]
+            },
+            "properties": {
+                "imsi": "460000095005571676",
+                "lastTime": 5.35,
+                "frequency": 33,
+                "address": "辽宁省沈阳市和平区绥化西街18号",
+                "business": "昆山,北市场,西塔",
+                "beginTime": "20181003182714",
+                "endTime": "20181003234902"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.419434,
+                    41.876739
+                ]
+            },
+            "properties": {
+                "imsi": "460020095002752094",
+                "lastTime": 0.2833333333333333,
+                "frequency": 6,
+                "address": "辽宁省沈阳市皇姑区桃山北路4号",
+                "business": "陵北,三台子,黄河/黄河北大街",
+                "beginTime": "20181003120018",
+                "endTime": "20181003121734"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.413117,
+                    41.897072
+                ]
+            },
+            "properties": {
+                "imsi": "460020095002752094",
+                "lastTime": 0.0,
+                "frequency": 1,
+                "address": "辽宁省沈阳市皇姑区三台子立交桥",
+                "business": "沈阳师范大学,黄河/黄河北大街,道义",
+                "beginTime": "20181003184503",
+                "endTime": "20181003184503"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.40773,
+                    41.859249
+                ]
+            },
+            "properties": {
+                "imsi": "460020095002752094",
+                "lastTime": 0.0,
+                "frequency": 2,
+                "address": "辽宁省沈阳市于洪区白山东路",
+                "business": "黄河/黄河北大街,北陵,三台子",
+                "beginTime": "20181003234723",
+                "endTime": "20181003234744"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.398773,
+                    41.656631
+                ]
+            },
+            "properties": {
+                "imsi": "460000095007687263",
+                "lastTime": 14.15,
+                "frequency": 31,
+                "address": "辽宁省沈阳市浑南区创新路",
+                "business": "白塔",
+                "beginTime": "20181003000152",
+                "endTime": "20181003141132"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.382637,
+                    41.672539
+                ]
+            },
+            "properties": {
+                "imsi": "460000095007687263",
+                "lastTime": 0.0,
+                "frequency": 1,
+                "address": "辽宁省沈阳市苏家屯区银杏路",
+                "business": "",
+                "beginTime": "20181003235219",
+                "endTime": "20181003235219"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.331863,
+                    41.656551
+                ]
+            },
+            "properties": {
+                "imsi": "460020095020826206",
+                "lastTime": 10.95,
+                "frequency": 19,
+                "address": "辽宁省沈阳市苏家屯区月季街2号",
+                "business": "临湖,解放,湖西",
+                "beginTime": "20181003004000",
+                "endTime": "20181003113730"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.345818,
+                    41.663959
+                ]
+            },
+            "properties": {
+                "imsi": "460020095020826206",
+                "lastTime": 5.133333333333334,
+                "frequency": 20,
+                "address": "辽宁省沈阳市苏家屯区牡丹街32-5门",
+                "business": "解放,临湖",
+                "beginTime": "20181003120554",
+                "endTime": "20181003171444"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.41069,
+                    41.805889
+                ]
+            },
+            "properties": {
+                "imsi": "460020095020826206",
+                "lastTime": 1.2833333333333332,
+                "frequency": 15,
+                "address": "辽宁省沈阳市和平区延边街17号",
+                "business": "西塔,市府大路/市府,北市场",
+                "beginTime": "20181003223140",
+                "endTime": "20181003234911"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    122.828049,
+                    41.089474
+                ]
+            },
+            "properties": {
+                "imsi": "460020095053216865",
+                "lastTime": 0.0,
+                "frequency": 1,
+                "address": "辽宁省鞍山市铁西区",
+                "business": "",
+                "beginTime": "20181003145303",
+                "endTime": "20181003145303"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.404114,
+                    41.796719
+                ]
+            },
+            "properties": {
+                "imsi": "460020095053216865",
+                "lastTime": 1.4,
+                "frequency": 9,
+                "address": "辽宁省沈阳市和平区太原街商圈北五马路11号",
+                "business": "北六马路,中山路,太原街",
+                "beginTime": "20181003161643",
+                "endTime": "20181003174057"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.408707,
+                    41.806381
+                ]
+            },
+            "properties": {
+                "imsi": "460020095053216865",
+                "lastTime": 2.1666666666666665,
+                "frequency": 21,
+                "address": "辽宁省沈阳市和平区延边街6-6号",
+                "business": "西塔,市府大路/市府,北市场",
+                "beginTime": "20181003183223",
+                "endTime": "20181003204310"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.404114,
+                    41.796719
+                ]
+            },
+            "properties": {
+                "imsi": "460020095053216865",
+                "lastTime": 0.9666666666666667,
+                "frequency": 4,
+                "address": "辽宁省沈阳市和平区太原街商圈北五马路11号",
+                "business": "北六马路,中山路,太原街",
+                "beginTime": "20181003204924",
+                "endTime": "20181003214737"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.32415,
+                    41.815029
+                ]
+            },
+            "properties": {
+                "imsi": "460020095025588848",
+                "lastTime": 0.06666666666666667,
+                "frequency": 2,
+                "address": "辽宁省沈阳市铁西区牛心屯三路1号-3门",
+                "business": "卫工,启工",
+                "beginTime": "20181003183106",
+                "endTime": "20181003183556"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.404114,
+                    41.796719
+                ]
+            },
+            "properties": {
+                "imsi": "460020095025588848",
+                "lastTime": 1.6166666666666667,
+                "frequency": 13,
+                "address": "辽宁省沈阳市和平区太原街商圈北五马路11号",
+                "business": "北六马路,中山路,太原街",
+                "beginTime": "20181003220708",
+                "endTime": "20181003234431"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.409912,
+                    41.77734
+                ]
+            },
+            "properties": {
+                "imsi": "460000095083470449",
+                "lastTime": 23.766666666666666,
+                "frequency": 6,
+                "address": "辽宁省沈阳市和平区光荣街41号",
+                "business": "光荣街,十四纬路,南五马路",
+                "beginTime": "20181003000850",
+                "endTime": "20181003235533"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.403069,
+                    41.798691
+                ]
+            },
+            "properties": {
+                "imsi": "460070095024575626",
+                "lastTime": 11.6,
+                "frequency": 19,
+                "address": "辽宁省沈阳市和平区北六马路",
+                "business": "北六马路,太原街,市府大路/市府",
+                "beginTime": "20181003092015",
+                "endTime": "20181003205632"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.400886,
+                    41.80547
+                ]
+            },
+            "properties": {
+                "imsi": "460000095064990351",
+                "lastTime": 7.3,
+                "frequency": 11,
+                "address": "辽宁省沈阳市和平区安图街8号311",
+                "business": "西塔,市府大路/市府,胜利",
+                "beginTime": "20181003001739",
+                "endTime": "20181003073624"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.413597,
+                    41.820782
+                ]
+            },
+            "properties": {
+                "imsi": "460000095064990351",
+                "lastTime": 12.616666666666667,
+                "frequency": 54,
+                "address": "辽宁省沈阳市皇姑区岐山中路26",
+                "business": "北行,昆山,北陵",
+                "beginTime": "20181003091041",
+                "endTime": "20181003214821"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.411781,
+                    41.802952
+                ]
+            },
+            "properties": {
+                "imsi": "460020095003040400",
+                "lastTime": 8.916666666666666,
+                "frequency": 10,
+                "address": "辽宁省沈阳市和平区北市二街50号",
+                "business": "市府大路/市府,八经,北市场",
+                "beginTime": "20181003063144",
+                "endTime": "20181003152740"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.413658,
+                    41.816898
+                ]
+            },
+            "properties": {
+                "imsi": "460000095018240151",
+                "lastTime": 23.75,
+                "frequency": 62,
+                "address": "辽宁省沈阳市皇姑区昆山中路34号",
+                "business": "昆山,北陵,北行",
+                "beginTime": "20181003000901",
+                "endTime": "20181003235446"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.401771,
+                    41.79084
+                ]
+            },
+            "properties": {
+                "imsi": "460020095021709464",
+                "lastTime": 9.033333333333333,
+                "frequency": 104,
+                "address": "辽宁省沈阳市和平区南京北街161号",
+                "business": "太原街,中山路,中华路",
+                "beginTime": "20181003000704",
+                "endTime": "20181003090914"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    122.844879,
+                    42.101181
+                ]
+            },
+            "properties": {
+                "imsi": "460020095021709464",
+                "lastTime": 0.0,
+                "frequency": 1,
+                "address": "辽宁省沈阳市新民市",
+                "business": "",
+                "beginTime": "20181003111856",
+                "endTime": "20181003111856"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.484177,
+                    41.794941
+                ]
+            },
+            "properties": {
+                "imsi": "460020095013629082",
+                "lastTime": 20.283333333333335,
+                "frequency": 64,
+                "address": "辽宁省沈阳市大东区长安路33号",
+                "business": "长安,滂江街,大东路",
+                "beginTime": "20181003020218",
+                "endTime": "20181003222011"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    122.40538,
+                    41.438599
+                ]
+            },
+            "properties": {
+                "imsi": "460020095042630820",
+                "lastTime": 0.0,
+                "frequency": 1,
+                "address": "辽宁省鞍山市台安县梅老线",
+                "business": "",
+                "beginTime": "20181003204916",
+                "endTime": "20181003204916"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.40873,
+                    41.808861
+                ]
+            },
+            "properties": {
+                "imsi": "460020095042630820",
+                "lastTime": 1.7,
+                "frequency": 7,
+                "address": "辽宁省沈阳市和平区哈尔滨路11号",
+                "business": "西塔,昆山,华山",
+                "beginTime": "20181003215621",
+                "endTime": "20181003233848"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.41404,
+                    41.797169
+                ]
+            },
+            "properties": {
+                "imsi": "460020095025609903",
+                "lastTime": 2.3833333333333333,
+                "frequency": 54,
+                "address": "辽宁省沈阳市和平区和平北大街33号",
+                "business": "和平北大街,八经,中山路",
+                "beginTime": "20181003000212",
+                "endTime": "20181003022521"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.411987,
+                    41.80788
+                ]
+            },
+            "properties": {
+                "imsi": "460020095025609903",
+                "lastTime": 21.266666666666666,
+                "frequency": 26,
+                "address": "辽宁省沈阳市和平区抚顺路",
+                "business": "西塔,北市场,昆山",
+                "beginTime": "20181003023342",
+                "endTime": "20181003235015"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.355148,
+                    41.79036
+                ]
+            },
+            "properties": {
+                "imsi": "460020095051970226",
+                "lastTime": 7.666666666666667,
+                "frequency": 5,
+                "address": "辽宁省沈阳市铁西区景星南街48号",
+                "business": "七路,贵和,兴华",
+                "beginTime": "20181003002736",
+                "endTime": "20181003080738"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.443489,
+                    41.770809
+                ]
+            },
+            "properties": {
+                "imsi": "460020095051970226",
+                "lastTime": 2.1666666666666665,
+                "frequency": 3,
+                "address": "辽宁省沈阳市沈河区小南街276号",
+                "business": "文艺路,滨河,文化路",
+                "beginTime": "20181003091308",
+                "endTime": "20181003112326"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.394043,
+                    41.799049
+                ]
+            },
+            "properties": {
+                "imsi": "460020095051970226",
+                "lastTime": 4.6,
+                "frequency": 5,
+                "address": "辽宁省沈阳市和平区胜利北街辅路",
+                "business": "胜利,太原街,霁虹",
+                "beginTime": "20181003130006",
+                "endTime": "20181003173655"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.40873,
+                    41.808861
+                ]
+            },
+            "properties": {
+                "imsi": "460020095051970226",
+                "lastTime": 2.5666666666666664,
+                "frequency": 8,
+                "address": "辽宁省沈阳市和平区哈尔滨路11号",
+                "business": "西塔,昆山,华山",
+                "beginTime": "20181003204816",
+                "endTime": "20181003232307"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.389008,
+                    41.81945
+                ]
+            },
+            "properties": {
+                "imsi": "460000095009824436",
+                "lastTime": 1.6,
+                "frequency": 9,
+                "address": "辽宁省沈阳市皇姑区华山路109号",
+                "business": "华山,昆山,塔湾",
+                "beginTime": "20181003081142",
+                "endTime": "20181003094828"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.40416,
+                    41.818588
+                ]
+            },
+            "properties": {
+                "imsi": "460000095009824436",
+                "lastTime": 11.1,
+                "frequency": 41,
+                "address": "辽宁省沈阳市皇姑区长江街商圈乌江街5号",
+                "business": "昆山,北行,华山",
+                "beginTime": "20181003095130",
+                "endTime": "20181003205742"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.407883,
+                    41.794079
+                ]
+            },
+            "properties": {
+                "imsi": "460000095009824436",
+                "lastTime": 0.0,
+                "frequency": 2,
+                "address": "辽宁省沈阳市和平区北二马路78号",
+                "business": "太原街,中山路,和平北大街",
+                "beginTime": "20181003231020",
+                "endTime": "20181003231023"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.283836,
+                    41.76004
+                ]
+            },
+            "properties": {
+                "imsi": "460070095006117569",
+                "lastTime": 17.1,
+                "frequency": 25,
+                "address": "辽宁省沈阳市铁西区",
+                "business": "杨士",
+                "beginTime": "20181003000412",
+                "endTime": "20181003171043"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.432022,
+                    41.803921
+                ]
+            },
+            "properties": {
+                "imsi": "460070095006117569",
+                "lastTime": 1.4666666666666668,
+                "frequency": 15,
+                "address": "辽宁省沈阳市沈河区市府大路286-3号",
+                "business": "惠工,奉天街沿线,市府大路/市府",
+                "beginTime": "20181003222615",
+                "endTime": "20181003235501"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.405571,
+                    41.811432
+                ]
+            },
+            "properties": {
+                "imsi": "460020095098336977",
+                "lastTime": 8.0,
+                "frequency": 6,
+                "address": "辽宁省沈阳市皇姑区长江街商圈长江南街2号",
+                "business": "三洞桥,华山,昆山",
+                "beginTime": "20181003151149",
+                "endTime": "20181003231242"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.544708,
+                    42.44474
+                ]
+            },
+            "properties": {
+                "imsi": "460020095044852955",
+                "lastTime": 13.866666666666667,
+                "frequency": 48,
+                "address": "辽宁省铁岭市调兵山市中央大街辅路",
+                "business": "兀术街,站南路",
+                "beginTime": "20181003000709",
+                "endTime": "20181003135958"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.545319,
+                    42.45396
+                ]
+            },
+            "properties": {
+                "imsi": "460020095044852955",
+                "lastTime": 2.2666666666666666,
+                "frequency": 6,
+                "address": "辽宁省铁岭市调兵山市站北路",
+                "business": "兀术街,站南路",
+                "beginTime": "20181003184920",
+                "endTime": "20181003210521"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.411987,
+                    41.80788
+                ]
+            },
+            "properties": {
+                "imsi": "460020095044852955",
+                "lastTime": 0.016666666666666666,
+                "frequency": 2,
+                "address": "辽宁省沈阳市和平区抚顺路",
+                "business": "西塔,北市场,昆山",
+                "beginTime": "20181003235006",
+                "endTime": "20181003235137"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    122.434967,
+                    42.31403
+                ]
+            },
+            "properties": {
+                "imsi": "460020095040671966",
+                "lastTime": 0.0,
+                "frequency": 1,
+                "address": "辽宁省阜新市彰武县S211",
+                "business": "",
+                "beginTime": "20181003153409",
+                "endTime": "20181003153409"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.389473,
+                    41.785271
+                ]
+            },
+            "properties": {
+                "imsi": "460020095040671966",
+                "lastTime": 0.05,
+                "frequency": 2,
+                "address": "辽宁省沈阳市和平区兰州南街68号",
+                "business": "太原街,民主,胜利大街",
+                "beginTime": "20181003230804",
+                "endTime": "20181003231133"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.411987,
+                    41.80788
+                ]
+            },
+            "properties": {
+                "imsi": "460020095040671966",
+                "lastTime": 0.25,
+                "frequency": 5,
+                "address": "辽宁省沈阳市和平区抚顺路",
+                "business": "西塔,北市场,昆山",
+                "beginTime": "20181003233516",
+                "endTime": "20181003235057"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.367508,
+                    41.794079
+                ]
+            },
+            "properties": {
+                "imsi": "460000095083402469",
+                "lastTime": 0.0,
+                "frequency": 1,
+                "address": "辽宁省沈阳市铁西区小北四东路",
+                "business": "铁西广场,兴华,贵和",
+                "beginTime": "20181003130239",
+                "endTime": "20181003130239"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.349373,
+                    41.792721
+                ]
+            },
+            "properties": {
+                "imsi": "460000095083402469",
+                "lastTime": 2.5166666666666666,
+                "frequency": 11,
+                "address": "辽宁省沈阳市铁西区绣工东街29号",
+                "business": "保工街,齐贤,七路",
+                "beginTime": "20181003204008",
+                "endTime": "20181003231117"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.40226,
+                    41.797089
+                ]
+            },
+            "properties": {
+                "imsi": "460020095024525542",
+                "lastTime": 16.366666666666667,
+                "frequency": 11,
+                "address": "辽宁省沈阳市和平区北五马路",
+                "business": "北六马路,太原街,中山路",
+                "beginTime": "20181003021432",
+                "endTime": "20181003183652"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.373077,
+                    41.82954
+                ]
+            },
+            "properties": {
+                "imsi": "460000095060523239",
+                "lastTime": 0.016666666666666666,
+                "frequency": 3,
+                "address": "辽宁省沈阳市皇姑区太白山路110-3号",
+                "business": "昆山,舍利塔,塔湾",
+                "beginTime": "20181003000100",
+                "endTime": "20181003000253"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.387733,
+                    41.78233
+                ]
+            },
+            "properties": {
+                "imsi": "460000095060523239",
+                "lastTime": 0.0,
+                "frequency": 2,
+                "address": "辽宁省沈阳市和平区南五马路84号",
+                "business": "太原街,南五马路,胜利",
+                "beginTime": "20181003175943",
+                "endTime": "20181003175957"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.374519,
+                    41.76561
+                ]
+            },
+            "properties": {
+                "imsi": "460000095060523239",
+                "lastTime": 0.0,
+                "frequency": 1,
+                "address": "辽宁省沈阳市和平区胜利南街395号",
+                "business": "砂山,胜利,砂阳路",
+                "beginTime": "20181003235517",
+                "endTime": "20181003235517"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    122.841392,
+                    41.995739
+                ]
+            },
+            "properties": {
+                "imsi": "460020095081880808",
+                "lastTime": 16.166666666666668,
+                "frequency": 23,
+                "address": "辽宁省沈阳市新民市",
+                "business": "",
+                "beginTime": "20181003001626",
+                "endTime": "20181003162627"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.411987,
+                    41.80788
+                ]
+            },
+            "properties": {
+                "imsi": "460020095081880808",
+                "lastTime": 0.65,
+                "frequency": 3,
+                "address": "辽宁省沈阳市和平区抚顺路",
+                "business": "西塔,北市场,昆山",
+                "beginTime": "20181003231710",
+                "endTime": "20181003235631"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.409447,
+                    41.81963
+                ]
+            },
+            "properties": {
+                "imsi": "460000095073912558",
+                "lastTime": 21.583333333333332,
+                "frequency": 47,
+                "address": "辽宁省沈阳市皇姑区岐山中路",
+                "business": "昆山,北行,华山",
+                "beginTime": "20181003021947",
+                "endTime": "20181003235458"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    122.419647,
+                    41.395081
+                ]
+            },
+            "properties": {
+                "imsi": "460020095029764850",
+                "lastTime": 0.0,
+                "frequency": 1,
+                "address": "辽宁省鞍山市台安县",
+                "business": "",
+                "beginTime": "20181003084919",
+                "endTime": "20181003084919"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.434937,
+                    41.775982
+                ]
+            },
+            "properties": {
+                "imsi": "460020095029764850",
+                "lastTime": 3.3666666666666667,
+                "frequency": 27,
+                "address": "辽宁省沈阳市沈河区文艺路72号",
+                "business": "文艺路,青年大街,文化路",
+                "beginTime": "20181003140449",
+                "endTime": "20181003172654"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.422836,
+                    41.812431
+                ]
+            },
+            "properties": {
+                "imsi": "460020095029764850",
+                "lastTime": 1.6666666666666665,
+                "frequency": 17,
+                "address": "辽宁省沈阳市和平区永远巷9号",
+                "business": "北京街,北站,惠工",
+                "beginTime": "20181003221525",
+                "endTime": "20181003235600"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.368332,
+                    41.805481
+                ]
+            },
+            "properties": {
+                "imsi": "460000095084492531",
+                "lastTime": 19.416666666666668,
+                "frequency": 23,
+                "address": "辽宁省沈阳市铁西区北二中路7号-甲2门",
+                "business": "笃工,北二路,兴华",
+                "beginTime": "20181003034117",
+                "endTime": "20181003230629"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.395691,
+                    41.790138
+                ]
+            },
+            "properties": {
+                "imsi": "460000095083818745",
+                "lastTime": 23.866666666666667,
+                "frequency": 79,
+                "address": "辽宁省沈阳市和平区太原北街95号",
+                "business": "太原街,中华路,民主",
+                "beginTime": "20181003000028",
+                "endTime": "20181003235236"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.401314,
+                    41.818489
+                ]
+            },
+            "properties": {
+                "imsi": "460020095000646396",
+                "lastTime": 0.016666666666666666,
+                "frequency": 3,
+                "address": "辽宁省沈阳市皇姑区珠江街138号",
+                "business": "昆山,塔湾,华山",
+                "beginTime": "20181003000123",
+                "endTime": "20181003000302"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.356491,
+                    41.831402
+                ]
+            },
+            "properties": {
+                "imsi": "460020095000646396",
+                "lastTime": 0.55,
+                "frequency": 33,
+                "address": "辽宁省沈阳市皇姑区向工街88号",
+                "business": "昆山,向工,塔湾",
+                "beginTime": "20181003013440",
+                "endTime": "20181003020758"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.337303,
+                    41.8153
+                ]
+            },
+            "properties": {
+                "imsi": "460020095000646396",
+                "lastTime": 0.05,
+                "frequency": 3,
+                "address": "辽宁省沈阳市铁西区北二西路29号",
+                "business": "卫工,启工",
+                "beginTime": "20181003112143",
+                "endTime": "20181003112536"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.434547,
+                    41.816292
+                ]
+            },
+            "properties": {
+                "imsi": "460020095000646396",
+                "lastTime": 0.0,
+                "frequency": 1,
+                "address": "辽宁省沈阳市沈河区金廊商圈北站路112号",
+                "business": "北站,惠工,辽河",
+                "beginTime": "20181003171456",
+                "endTime": "20181003171456"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.37896,
+                    41.816769
+                ]
+            },
+            "properties": {
+                "imsi": "460020095000646396",
+                "lastTime": 0.016666666666666666,
+                "frequency": 6,
+                "address": "辽宁省沈阳市皇姑区天山路302号",
+                "business": "寿泉,昆山,华山",
+                "beginTime": "20181003235344",
+                "endTime": "20181003235518"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.412857,
+                    41.804699
+                ]
+            },
+            "properties": {
+                "imsi": "460000095063881983",
+                "lastTime": 18.2,
+                "frequency": 9,
+                "address": "辽宁省沈阳市和平区南京北街39号",
+                "business": "市府大路/市府,北市场,西塔",
+                "beginTime": "20181003052920",
+                "endTime": "20181003234128"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.341797,
+                    41.660858
+                ]
+            },
+            "properties": {
+                "imsi": "460000095093417729",
+                "lastTime": 10.083333333333334,
+                "frequency": 27,
+                "address": "辽宁省沈阳市苏家屯区龙柏路1号楼",
+                "business": "解放,临湖,湖西",
+                "beginTime": "20181003000218",
+                "endTime": "20181003100740"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.395218,
+                    41.79211
+                ]
+            },
+            "properties": {
+                "imsi": "460000095093417729",
+                "lastTime": 3.2333333333333334,
+                "frequency": 8,
+                "address": "辽宁省沈阳市和平区太原北街84号-甲-2",
+                "business": "中山路,中华路,太原街",
+                "beginTime": "20181003110409",
+                "endTime": "20181003141840"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.404251,
+                    41.803539
+                ]
+            },
+            "properties": {
+                "imsi": "460000095093417729",
+                "lastTime": 3.3,
+                "frequency": 10,
+                "address": "辽宁省沈阳市和平区西塔街64号",
+                "business": "西塔,市府大路/市府,太原街",
+                "beginTime": "20181003144916",
+                "endTime": "20181003180731"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.395882,
+                    41.795799
+                ]
+            },
+            "properties": {
+                "imsi": "460000095093417729",
+                "lastTime": 1.1666666666666667,
+                "frequency": 9,
+                "address": "辽宁省沈阳市和平区太原街商圈北三马路1号",
+                "business": "太原街,胜利,中山路",
+                "beginTime": "20181003185103",
+                "endTime": "20181003200147"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.401459,
+                    41.806438
+                ]
+            },
+            "properties": {
+                "imsi": "460000095093417729",
+                "lastTime": 2.6,
+                "frequency": 14,
+                "address": "辽宁省沈阳市和平区和龙路18号-1门",
+                "business": "西塔,华山,三洞桥",
+                "beginTime": "20181003210551",
+                "endTime": "20181003234249"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.379646,
+                    41.86771
+                ]
+            },
+            "properties": {
+                "imsi": "460020095003693826",
+                "lastTime": 12.183333333333334,
+                "frequency": 2,
+                "address": "辽宁省沈阳市于洪区宁江街",
+                "business": "塔湾",
+                "beginTime": "20181003013852",
+                "endTime": "20181003135049"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.412857,
+                    41.804699
+                ]
+            },
+            "properties": {
+                "imsi": "460020095003693826",
+                "lastTime": 8.316666666666666,
+                "frequency": 38,
+                "address": "辽宁省沈阳市和平区南京北街39号",
+                "business": "市府大路/市府,北市场,西塔",
+                "beginTime": "20181003150016",
+                "endTime": "20181003231935"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    122.350792,
+                    41.404968
+                ]
+            },
+            "properties": {
+                "imsi": "460020095002765063",
+                "lastTime": 0.0,
+                "frequency": 1,
+                "address": "辽宁省鞍山市台安县G1(京哈高速)",
+                "business": "",
+                "beginTime": "20181003143044",
+                "endTime": "20181003143044"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.33139,
+                    41.665421
+                ]
+            },
+            "properties": {
+                "imsi": "460020095002765063",
+                "lastTime": 2.216666666666667,
+                "frequency": 12,
+                "address": "辽宁省沈阳市苏家屯区青松西路52-5号楼",
+                "business": "湖西,解放,临湖",
+                "beginTime": "20181003160110",
+                "endTime": "20181003181503"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.42086,
+                    41.819061
+                ]
+            },
+            "properties": {
+                "imsi": "460020095002765063",
+                "lastTime": 0.4166666666666667,
+                "frequency": 4,
+                "address": "辽宁省沈阳市皇姑区金廊商圈北陵大街16巷-2号",
+                "business": "北陵,昆山,北陵大街",
+                "beginTime": "20181003232729",
+                "endTime": "20181003235320"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.464638,
+                    41.80677
+                ]
+            },
+            "properties": {
+                "imsi": "460000095090191628",
+                "lastTime": 2.95,
+                "frequency": 14,
+                "address": "辽宁省沈阳市大东区小什字街147号",
+                "business": "小津桥,大什字街,小什字街",
+                "beginTime": "20181003123741",
+                "endTime": "20181003153540"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    122.526863,
+                    41.48016
+                ]
+            },
+            "properties": {
+                "imsi": "460020095009127182",
+                "lastTime": 0.03333333333333333,
+                "frequency": 2,
+                "address": "辽宁省鞍山市台安县",
+                "business": "",
+                "beginTime": "20181003101634",
+                "endTime": "20181003101858"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.41217,
+                    41.81525
+                ]
+            },
+            "properties": {
+                "imsi": "460020095009127182",
+                "lastTime": 2.75,
+                "frequency": 17,
+                "address": "辽宁省沈阳市皇姑区昆山中路43巷10号",
+                "business": "昆山,北行,华山",
+                "beginTime": "20181003185923",
+                "endTime": "20181003214425"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.450317,
+                    41.780781
+                ]
+            },
+            "properties": {
+                "imsi": "460000095074423059",
+                "lastTime": 9.033333333333333,
+                "frequency": 9,
+                "address": "辽宁省沈阳市沈河区五爱商圈南通天街52号",
+                "business": "小南街/小南,滨河,大南/大南街",
+                "beginTime": "20181003003601",
+                "endTime": "20181003093815"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.347801,
+                    41.552269
+                ]
+            },
+            "properties": {
+                "imsi": "460000095074423059",
+                "lastTime": 0.0,
+                "frequency": 1,
+                "address": "辽宁省沈阳市苏家屯区",
+                "business": "",
+                "beginTime": "20181003111102",
+                "endTime": "20181003111102"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.441238,
+                    41.76775
+                ]
+            },
+            "properties": {
+                "imsi": "460000095074423059",
+                "lastTime": 3.75,
+                "frequency": 9,
+                "address": "辽宁省沈阳市沈河区文化路103甲11",
+                "business": "五爱街,南塔,文化路",
+                "beginTime": "20181003180519",
+                "endTime": "20181003215111"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.417633,
+                    41.892288
+                ]
+            },
+            "properties": {
+                "imsi": "460000095063856923",
+                "lastTime": 3.2,
+                "frequency": 25,
+                "address": "辽宁省沈阳市皇姑区蔷薇河北街",
+                "business": "黄河/黄河北大街,陵北,三台子",
+                "beginTime": "20181003001218",
+                "endTime": "20181003032440"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.411987,
+                    41.80788
+                ]
+            },
+            "properties": {
+                "imsi": "460000095063856923",
+                "lastTime": 0.48333333333333334,
+                "frequency": 4,
+                "address": "辽宁省沈阳市和平区抚顺路",
+                "business": "西塔,北市场,昆山",
+                "beginTime": "20181003231901",
+                "endTime": "20181003234846"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.40979,
+                    41.802589
+                ]
+            },
+            "properties": {
+                "imsi": "460000095084437788",
+                "lastTime": 17.916666666666668,
+                "frequency": 12,
+                "address": "辽宁省沈阳市和平区延边街45号",
+                "business": "市府大路/市府,西塔,八经",
+                "beginTime": "20181003051734",
+                "endTime": "20181003231314"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.414291,
+                    41.83049
+                ]
+            },
+            "properties": {
+                "imsi": "460000095071779102",
+                "lastTime": 13.266666666666667,
+                "frequency": 38,
+                "address": "辽宁省沈阳市皇姑区金廊商圈黄河南大街85号",
+                "business": "泰山,新乐,北陵",
+                "beginTime": "20181003001521",
+                "endTime": "20181003133122"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.426354,
+                    41.81868
+                ]
+            },
+            "properties": {
+                "imsi": "460000095071779102",
+                "lastTime": 0.05,
+                "frequency": 2,
+                "address": "辽宁省沈阳市皇姑区昆山东路",
+                "business": "北陵,北陵大街,北站",
+                "beginTime": "20181003172147",
+                "endTime": "20181003172518"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.408707,
+                    41.806381
+                ]
+            },
+            "properties": {
+                "imsi": "460000095071779102",
+                "lastTime": 1.3333333333333333,
+                "frequency": 9,
+                "address": "辽宁省沈阳市和平区延边街6-6号",
+                "business": "西塔,市府大路/市府,北市场",
+                "beginTime": "20181003181204",
+                "endTime": "20181003193253"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.413368,
+                    41.819061
+                ]
+            },
+            "properties": {
+                "imsi": "460000095071779102",
+                "lastTime": 1.4666666666666668,
+                "frequency": 9,
+                "address": "辽宁省沈阳市皇姑区黄河南大街",
+                "business": "昆山,北行,北陵",
+                "beginTime": "20181003195639",
+                "endTime": "20181003212527"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.414291,
+                    41.83049
+                ]
+            },
+            "properties": {
+                "imsi": "460000095071779102",
+                "lastTime": 0.65,
+                "frequency": 5,
+                "address": "辽宁省沈阳市皇姑区金廊商圈黄河南大街85号",
+                "business": "泰山,新乐,北陵",
+                "beginTime": "20181003220309",
+                "endTime": "20181003224241"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.40873,
+                    41.808861
+                ]
+            },
+            "properties": {
+                "imsi": "460000095074465569",
+                "lastTime": 1.0666666666666667,
+                "frequency": 10,
+                "address": "辽宁省沈阳市和平区哈尔滨路11号",
+                "business": "西塔,昆山,华山",
+                "beginTime": "20181003000542",
+                "endTime": "20181003011000"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.513008,
+                    41.747181
+                ]
+            },
+            "properties": {
+                "imsi": "460000095074465569",
+                "lastTime": 0.38333333333333336,
+                "frequency": 4,
+                "address": "辽宁省沈阳市浑南区浑南中路",
+                "business": "长青",
+                "beginTime": "20181003205921",
+                "endTime": "20181003212246"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.51162,
+                    41.749458
+                ]
+            },
+            "properties": {
+                "imsi": "460000095074465569",
+                "lastTime": 0.0,
+                "frequency": 1,
+                "address": "辽宁省沈阳市浑南区学城路",
+                "business": "长青",
+                "beginTime": "20181003223548",
+                "endTime": "20181003223548"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.389839,
+                    41.800751
+                ]
+            },
+            "properties": {
+                "imsi": "460020095009713959",
+                "lastTime": 23.616666666666667,
+                "frequency": 45,
+                "address": "辽宁省沈阳市铁西区霁虹街22巷-2号",
+                "business": "霁虹,兴工街,兴工北街",
+                "beginTime": "20181003000738",
+                "endTime": "20181003234537"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.348671,
+                    41.404812
+                ]
+            },
+            "properties": {
+                "imsi": "460000095083457844",
+                "lastTime": 0.0,
+                "frequency": 1,
+                "address": "辽宁省辽阳市灯塔市",
+                "business": "",
+                "beginTime": "20181003145033",
+                "endTime": "20181003145033"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.40065,
+                    41.79916
+                ]
+            },
+            "properties": {
+                "imsi": "460000095083457844",
+                "lastTime": 2.6833333333333336,
+                "frequency": 14,
+                "address": "辽宁省沈阳市和平区太原北街4号",
+                "business": "太原街,北六马路,市府大路/市府",
+                "beginTime": "20181003204838",
+                "endTime": "20181003232954"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    122.889633,
+                    41.514709
+                ]
+            },
+            "properties": {
+                "imsi": "460000095005561145",
+                "lastTime": 14.683333333333334,
+                "frequency": 6,
+                "address": "辽宁省沈阳市辽中区华泰路",
+                "business": "",
+                "beginTime": "20181003032723",
+                "endTime": "20181003180835"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.40065,
+                    41.79916
+                ]
+            },
+            "properties": {
+                "imsi": "460000095005561145",
+                "lastTime": 1.5166666666666666,
+                "frequency": 8,
+                "address": "辽宁省沈阳市和平区太原北街4号",
+                "business": "太原街,北六马路,市府大路/市府",
+                "beginTime": "20181003222409",
+                "endTime": "20181003235545"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.409462,
+                    41.792541
+                ]
+            },
+            "properties": {
+                "imsi": "460000095074424637",
+                "lastTime": 11.4,
+                "frequency": 104,
+                "address": "辽宁省沈阳市和平区柳州街38号",
+                "business": "太原街,和平北大街,中山路",
+                "beginTime": "20181003061550",
+                "endTime": "20181003174040"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.40873,
+                    41.808861
+                ]
+            },
+            "properties": {
+                "imsi": "460000095074424637",
+                "lastTime": 2.8666666666666667,
+                "frequency": 5,
+                "address": "辽宁省沈阳市和平区哈尔滨路11号",
+                "business": "西塔,昆山,华山",
+                "beginTime": "20181003203741",
+                "endTime": "20181003232956"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.41597,
+                    41.807781
+                ]
+            },
+            "properties": {
+                "imsi": "460000095007329090",
+                "lastTime": 23.766666666666666,
+                "frequency": 33,
+                "address": "辽宁省沈阳市和平区发舒巷9号",
+                "business": "北市场,西塔,昆山",
+                "beginTime": "20181003000451",
+                "endTime": "20181003235132"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.527092,
+                    41.821129
+                ]
+            },
+            "properties": {
+                "imsi": "460000095083499334",
+                "lastTime": 23.9,
+                "frequency": 49,
+                "address": "辽宁省沈阳市沈河区高官台街",
+                "business": "东陵路",
+                "beginTime": "20181003000048",
+                "endTime": "20181003235514"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.369148,
+                    41.766708
+                ]
+            },
+            "properties": {
+                "imsi": "460000095063979850",
+                "lastTime": 1.2833333333333332,
+                "frequency": 3,
+                "address": "辽宁省沈阳市铁西区滑翔路3-1",
+                "business": "凌空,胜利,砂阳路",
+                "beginTime": "20181003085527",
+                "endTime": "20181003101235"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.218208,
+                    41.858711
+                ]
+            },
+            "properties": {
+                "imsi": "460000095063979850",
+                "lastTime": 0.0,
+                "frequency": 3,
+                "address": "辽宁省沈阳市于洪区四环路辅路",
+                "business": "",
+                "beginTime": "20181003162040",
+                "endTime": "20181003162116"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.483856,
+                    41.80891
+                ]
+            },
+            "properties": {
+                "imsi": "460000095063979850",
+                "lastTime": 6.85,
+                "frequency": 75,
+                "address": "辽宁省沈阳市大东区珠林路228号",
+                "business": "珠林路,滂江街,龙之梦",
+                "beginTime": "20181003170501",
+                "endTime": "20181003235610"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.398323,
+                    41.81044
+                ]
+            },
+            "properties": {
+                "imsi": "460020095001645387",
+                "lastTime": 23.666666666666668,
+                "frequency": 49,
+                "address": "辽宁省沈阳市皇姑区长江街商圈天山路16号",
+                "business": "三洞桥,华山,兴工北街",
+                "beginTime": "20181003000306",
+                "endTime": "20181003234351"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.747581,
+                    41.433239
+                ]
+            },
+            "properties": {
+                "imsi": "460070095098504016",
+                "lastTime": 0.0,
+                "frequency": 1,
+                "address": "辽宁省本溪市溪湖区",
+                "business": "",
+                "beginTime": "20181003161227",
+                "endTime": "20181003161227"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.376282,
+                    41.802872
+                ]
+            },
+            "properties": {
+                "imsi": "460070095098504016",
+                "lastTime": 3.35,
+                "frequency": 16,
+                "address": "辽宁省沈阳市铁西区北二东路24号",
+                "business": "兴华,霁虹,北二路",
+                "beginTime": "20181003202845",
+                "endTime": "20181003235026"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.414261,
+                    41.80114
+                ]
+            },
+            "properties": {
+                "imsi": "460070095040239953",
+                "lastTime": 0.03333333333333333,
+                "frequency": 2,
+                "address": "辽宁省沈阳市和平区遂川路遂川北巷15号",
+                "business": "市府大路/市府,八经,和平北大街",
+                "beginTime": "20181003112045",
+                "endTime": "20181003112257"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.399368,
+                    41.75222
+                ]
+            },
+            "properties": {
+                "imsi": "460070095040239953",
+                "lastTime": 0.0,
+                "frequency": 1,
+                "address": "辽宁省沈阳市和平区南堤西路",
+                "business": "长白,南湖公园,文化路",
+                "beginTime": "20181003222159",
+                "endTime": "20181003222159"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.398773,
+                    41.656631
+                ]
+            },
+            "properties": {
+                "imsi": "460000095005565778",
+                "lastTime": 0.0,
+                "frequency": 2,
+                "address": "辽宁省沈阳市浑南区创新路",
+                "business": "白塔",
+                "beginTime": "20181003094116",
+                "endTime": "20181003094211"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.389191,
+                    41.785469
+                ]
+            },
+            "properties": {
+                "imsi": "460000095005565778",
+                "lastTime": 0.06666666666666667,
+                "frequency": 2,
+                "address": "辽宁省沈阳市和平区民族南街67号",
+                "business": "太原街,民主,胜利大街",
+                "beginTime": "20181003101902",
+                "endTime": "20181003102302"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.419281,
+                    41.80439
+                ]
+            },
+            "properties": {
+                "imsi": "460000095005565778",
+                "lastTime": 1.8,
+                "frequency": 13,
+                "address": "辽宁省沈阳市和平区皇寺路99-1号",
+                "business": "北市场,市府大路/市府,北三经街/三经街",
+                "beginTime": "20181003213236",
+                "endTime": "20181003232045"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.442299,
+                    41.759178
+                ]
+            },
+            "properties": {
+                "imsi": "460000095074467156",
+                "lastTime": 7.15,
+                "frequency": 7,
+                "address": "辽宁省沈阳市沈河区南塔街124号",
+                "business": "南塔,北文萃路,五爱街",
+                "beginTime": "20181003003741",
+                "endTime": "20181003074704"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.467072,
+                    41.833611
+                ]
+            },
+            "properties": {
+                "imsi": "460000095074467156",
+                "lastTime": 0.0,
+                "frequency": 1,
+                "address": "辽宁省沈阳市大东区上园路9号",
+                "business": "上园,沈铁路,鸭绿江街",
+                "beginTime": "20181003152729",
+                "endTime": "20181003152729"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.447731,
+                    41.754799
+                ]
+            },
+            "properties": {
+                "imsi": "460000095074467156",
+                "lastTime": 0.16666666666666666,
+                "frequency": 2,
+                "address": "辽宁省沈阳市沈河区北堤路",
+                "business": "南塔,五爱街,北文萃路",
+                "beginTime": "20181003213744",
+                "endTime": "20181003214814"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.46859,
+                    41.731312
+                ]
+            },
+            "properties": {
+                "imsi": "460000095084995924",
+                "lastTime": 0.0,
+                "frequency": 1,
+                "address": "辽宁省沈阳市浑南区孤家子路",
+                "business": "奥体,亿丰不夜城",
+                "beginTime": "20181003002243",
+                "endTime": "20181003002243"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.441727,
+                    41.784309
+                ]
+            },
+            "properties": {
+                "imsi": "460000095084995924",
+                "lastTime": 0.03333333333333333,
+                "frequency": 2,
+                "address": "辽宁省沈阳市沈河区风雨坛街89号",
+                "business": "小南街/小南,风雨坛,滨河",
+                "beginTime": "20181003235316",
+                "endTime": "20181003235547"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.717484,
+                    42.193451
+                ]
+            },
+            "properties": {
+                "imsi": "460020095068332375",
+                "lastTime": 0.0,
+                "frequency": 1,
+                "address": "辽宁省铁岭市铁岭县G1(京哈高速)",
+                "business": "",
+                "beginTime": "20181003193402",
+                "endTime": "20181003193402"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.41069,
+                    41.805889
+                ]
+            },
+            "properties": {
+                "imsi": "460020095068332375",
+                "lastTime": 2.25,
+                "frequency": 10,
+                "address": "辽宁省沈阳市和平区延边街17号",
+                "business": "西塔,市府大路/市府,北市场",
+                "beginTime": "20181003203705",
+                "endTime": "20181003225225"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.394112,
+                    41.80777
+                ]
+            },
+            "properties": {
+                "imsi": "460020095068332375",
+                "lastTime": 0.8666666666666667,
+                "frequency": 4,
+                "address": "辽宁省沈阳市铁西区兴工北街1",
+                "business": "兴工北街,三洞桥,兴工街",
+                "beginTime": "20181003230422",
+                "endTime": "20181003235714"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.386353,
+                    41.859718
+                ]
+            },
+            "properties": {
+                "imsi": "460020095098364762",
+                "lastTime": 2.7333333333333334,
+                "frequency": 2,
+                "address": "辽宁省沈阳市于洪区北江街",
+                "business": "陵西,黄河/黄河北大街,国奥现代城",
+                "beginTime": "20181003061601",
+                "endTime": "20181003090029"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.376251,
+                    41.83968
+                ]
+            },
+            "properties": {
+                "imsi": "460020095098364762",
+                "lastTime": 0.03333333333333333,
+                "frequency": 2,
+                "address": "辽宁省沈阳市皇姑区",
+                "business": "塔湾,舍利塔,昆山",
+                "beginTime": "20181003123436",
+                "endTime": "20181003123728"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.373192,
+                    41.793388
+                ]
+            },
+            "properties": {
+                "imsi": "460020095098364762",
+                "lastTime": 0.06666666666666667,
+                "frequency": 2,
+                "address": "辽宁省沈阳市铁西区北四东路40号7门",
+                "business": "云峰北街,爱工北街,兴工街",
+                "beginTime": "20181003170926",
+                "endTime": "20181003171358"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.386528,
+                    41.804008
+                ]
+            },
+            "properties": {
+                "imsi": "460020095098364762",
+                "lastTime": 2.4333333333333336,
+                "frequency": 8,
+                "address": "辽宁省沈阳市铁西区颂工街17号-3-4门",
+                "business": "霁虹,兴工街,兴工北街",
+                "beginTime": "20181003174535",
+                "endTime": "20181003201211"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.390389,
+                    41.859612
+                ]
+            },
+            "properties": {
+                "imsi": "460020095098364762",
+                "lastTime": 0.0,
+                "frequency": 1,
+                "address": "辽宁省沈阳市于洪区怒江北街",
+                "business": "陵西,黄河/黄河北大街,国奥现代城",
+                "beginTime": "20181003235108",
+                "endTime": "20181003235108"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.312218,
+                    41.56337
+                ]
+            },
+            "properties": {
+                "imsi": "460000095028482910",
+                "lastTime": 0.0,
+                "frequency": 1,
+                "address": "辽宁省沈阳市苏家屯区红永线",
+                "business": "",
+                "beginTime": "20181003000251",
+                "endTime": "20181003000251"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    122.846413,
+                    41.110332
+                ]
+            },
+            "properties": {
+                "imsi": "460000095028482910",
+                "lastTime": 0.0,
+                "frequency": 1,
+                "address": "辽宁省辽阳市辽阳县宁张线",
+                "business": "",
+                "beginTime": "20181003003837",
+                "endTime": "20181003003837"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.389374,
+                    41.796711
+                ]
+            },
+            "properties": {
+                "imsi": "460070095025649502",
+                "lastTime": 3.8166666666666664,
+                "frequency": 22,
+                "address": "辽宁省沈阳市铁西区北二东路1号",
+                "business": "霁虹,胜利,兴工街",
+                "beginTime": "20181003194736",
+                "endTime": "20181003233706"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    122.36438,
+                    41.76125
+                ]
+            },
+            "properties": {
+                "imsi": "460000095090758498",
+                "lastTime": 0.0,
+                "frequency": 2,
+                "address": "辽宁省锦州市黑山县",
+                "business": "",
+                "beginTime": "20181003050115",
+                "endTime": "20181003050116"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.393623,
+                    41.794701
+                ]
+            },
+            "properties": {
+                "imsi": "460000095090758498",
+                "lastTime": 1.4166666666666667,
+                "frequency": 29,
+                "address": "辽宁省沈阳市和平区昆明北街52号",
+                "business": "太原街,胜利,中山路",
+                "beginTime": "20181003223014",
+                "endTime": "20181003235556"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.41069,
+                    41.805889
+                ]
+            },
+            "properties": {
+                "imsi": "460070095021168998",
+                "lastTime": 10.766666666666667,
+                "frequency": 19,
+                "address": "辽宁省沈阳市和平区延边街17号",
+                "business": "西塔,市府大路/市府,北市场",
+                "beginTime": "20181003055225",
+                "endTime": "20181003163851"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.404114,
+                    41.796719
+                ]
+            },
+            "properties": {
+                "imsi": "460070095021168998",
+                "lastTime": 5.133333333333334,
+                "frequency": 23,
+                "address": "辽宁省沈阳市和平区太原街商圈北五马路11号",
+                "business": "北六马路,中山路,太原街",
+                "beginTime": "20181003172148",
+                "endTime": "20181003223036"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.408707,
+                    41.806381
+                ]
+            },
+            "properties": {
+                "imsi": "460070095021168998",
+                "lastTime": 0.35,
+                "frequency": 3,
+                "address": "辽宁省沈阳市和平区延边街6-6号",
+                "business": "西塔,市府大路/市府,北市场",
+                "beginTime": "20181003233039",
+                "endTime": "20181003235211"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    122.757019,
+                    41.510899
+                ]
+            },
+            "properties": {
+                "imsi": "460070095005469544",
+                "lastTime": 12.516666666666667,
+                "frequency": 19,
+                "address": "辽宁省沈阳市辽中区蒲安街",
+                "business": "",
+                "beginTime": "20181003001529",
+                "endTime": "20181003124655"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.154518,
+                    41.695511
+                ]
+            },
+            "properties": {
+                "imsi": "460020095004258157",
+                "lastTime": 12.866666666666667,
+                "frequency": 10,
+                "address": "辽宁省沈阳市铁西区浑河二十四街",
+                "business": "",
+                "beginTime": "20181003042452",
+                "endTime": "20181003171726"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.40065,
+                    41.79916
+                ]
+            },
+            "properties": {
+                "imsi": "460020095004258157",
+                "lastTime": 3.283333333333333,
+                "frequency": 30,
+                "address": "辽宁省沈阳市和平区太原北街4号",
+                "business": "太原街,北六马路,市府大路/市府",
+                "beginTime": "20181003190714",
+                "endTime": "20181003222513"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.402862,
+                    41.776169
+                ]
+            },
+            "properties": {
+                "imsi": "460000095084416880",
+                "lastTime": 0.11666666666666667,
+                "frequency": 2,
+                "address": "辽宁省沈阳市和平区中兴街23号",
+                "business": "马路湾,南五马路,南湖公园",
+                "beginTime": "20181003014623",
+                "endTime": "20181003015343"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.442688,
+                    41.778488
+                ]
+            },
+            "properties": {
+                "imsi": "460000095084416880",
+                "lastTime": 0.1,
+                "frequency": 3,
+                "address": "辽宁省沈阳市沈河区文艺路顺发巷19号",
+                "business": "小南街/小南,滨河,文艺路",
+                "beginTime": "20181003234413",
+                "endTime": "20181003235028"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.40873,
+                    41.808861
+                ]
+            },
+            "properties": {
+                "imsi": "460000095074476402",
+                "lastTime": 2.6666666666666665,
+                "frequency": 31,
+                "address": "辽宁省沈阳市和平区哈尔滨路11号",
+                "business": "西塔,昆山,华山",
+                "beginTime": "20181003000157",
+                "endTime": "20181003024226"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.399139,
+                    41.82085
+                ]
+            },
+            "properties": {
+                "imsi": "460000095074476402",
+                "lastTime": 4.95,
+                "frequency": 3,
+                "address": "辽宁省沈阳市皇姑区岐山中路77",
+                "business": "塔湾,昆山,华山",
+                "beginTime": "20181003024803",
+                "endTime": "20181003074521"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.400886,
+                    41.80547
+                ]
+            },
+            "properties": {
+                "imsi": "460000095074476402",
+                "lastTime": 5.316666666666666,
+                "frequency": 35,
+                "address": "辽宁省沈阳市和平区安图街8号311",
+                "business": "西塔,市府大路/市府,胜利",
+                "beginTime": "20181003183642",
+                "endTime": "20181003235542"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.426354,
+                    41.81868
+                ]
+            },
+            "properties": {
+                "imsi": "460020095025808757",
+                "lastTime": 8.766666666666667,
+                "frequency": 54,
+                "address": "辽宁省沈阳市皇姑区昆山东路",
+                "business": "北陵,北陵大街,北站",
+                "beginTime": "20181003003635",
+                "endTime": "20181003092304"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.459297,
+                    41.79668
+                ]
+            },
+            "properties": {
+                "imsi": "460020095025808757",
+                "lastTime": 3.9333333333333336,
+                "frequency": 30,
+                "address": "辽宁省沈阳市大东区东顺城街63-2号",
+                "business": "中街,小东,大东路",
+                "beginTime": "20181003094605",
+                "endTime": "20181003134230"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.411987,
+                    41.80788
+                ]
+            },
+            "properties": {
+                "imsi": "460020095025808757",
+                "lastTime": 4.116666666666666,
+                "frequency": 41,
+                "address": "辽宁省沈阳市和平区抚顺路",
+                "business": "西塔,北市场,昆山",
+                "beginTime": "20181003194229",
+                "endTime": "20181003235027"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    122.516739,
+                    42.37199
+                ]
+            },
+            "properties": {
+                "imsi": "460020095020693878",
+                "lastTime": 0.05,
+                "frequency": 2,
+                "address": "辽宁省阜新市彰武县新兴路",
+                "business": "西环路,中华路",
+                "beginTime": "20181003161828",
+                "endTime": "20181003162134"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.389481,
+                    41.813412
+                ]
+            },
+            "properties": {
+                "imsi": "460020095020693878",
+                "lastTime": 0.0,
+                "frequency": 1,
+                "address": "辽宁省沈阳市皇姑区黄浦江街3号",
+                "business": "皇姑屯,华山,亚明",
+                "beginTime": "20181003182227",
+                "endTime": "20181003182227"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.41597,
+                    41.807781
+                ]
+            },
+            "properties": {
+                "imsi": "460020095020693878",
+                "lastTime": 4.466666666666667,
+                "frequency": 11,
+                "address": "辽宁省沈阳市和平区发舒巷9号",
+                "business": "北市场,西塔,昆山",
+                "beginTime": "20181003191829",
+                "endTime": "20181003234727"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.387016,
+                    41.84882
+                ]
+            },
+            "properties": {
+                "imsi": "460000095080968055",
+                "lastTime": 2.2333333333333334,
+                "frequency": 2,
+                "address": "辽宁省沈阳市于洪区怒江北街56甲2",
+                "business": "陵西,黄河/黄河北大街,新乐",
+                "beginTime": "20181003023315",
+                "endTime": "20181003044752"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.479393,
+                    41.807098
+                ]
+            },
+            "properties": {
+                "imsi": "460000095080968055",
+                "lastTime": 0.0,
+                "frequency": 1,
+                "address": "辽宁省沈阳市大东区珠林路206号",
+                "business": "龙之梦,珠林路,滂江街",
+                "beginTime": "20181003053839",
+                "endTime": "20181003053839"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.409447,
+                    41.81963
+                ]
+            },
+            "properties": {
+                "imsi": "460000095080968055",
+                "lastTime": 0.0,
+                "frequency": 2,
+                "address": "辽宁省沈阳市皇姑区岐山中路",
+                "business": "昆山,北行,华山",
+                "beginTime": "20181003170731",
+                "endTime": "20181003170741"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.406593,
+                    41.857731
+                ]
+            },
+            "properties": {
+                "imsi": "460000095080968055",
+                "lastTime": 0.3,
+                "frequency": 3,
+                "address": "辽宁省沈阳市于洪区白山路6-5号",
+                "business": "黄河/黄河北大街,陵西,北陵",
+                "beginTime": "20181003223244",
+                "endTime": "20181003225108"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.341072,
+                    41.429482
+                ]
+            },
+            "properties": {
+                "imsi": "460020095019361156",
+                "lastTime": 13.15,
+                "frequency": 70,
+                "address": "辽宁省辽阳市灯塔市S101(沈营线)",
+                "business": "光明南路,天福,新区",
+                "beginTime": "20181003003930",
+                "endTime": "20181003134927"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.383926,
+                    41.776772
+                ]
+            },
+            "properties": {
+                "imsi": "460020095019361156",
+                "lastTime": 0.0,
+                "frequency": 1,
+                "address": "辽宁省沈阳市和平区南八马路16号",
+                "business": "太原街,南八马路,新华广场",
+                "beginTime": "20181003204407",
+                "endTime": "20181003204407"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.334343,
+                    41.422958
+                ]
+            },
+            "properties": {
+                "imsi": "460020095019361156",
+                "lastTime": 2.3333333333333335,
+                "frequency": 15,
+                "address": "辽宁省辽阳市灯塔市市府路",
+                "business": "烟台,兴民路,中兴路",
+                "beginTime": "20181003213535",
+                "endTime": "20181003235549"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.41597,
+                    41.807781
+                ]
+            },
+            "properties": {
+                "imsi": "460020095000526731",
+                "lastTime": 11.4,
+                "frequency": 44,
+                "address": "辽宁省沈阳市和平区发舒巷9号",
+                "business": "北市场,西塔,昆山",
+                "beginTime": "20181003013916",
+                "endTime": "20181003130342"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.435944,
+                    41.805698
+                ]
+            },
+            "properties": {
+                "imsi": "460020095000526731",
+                "lastTime": 0.9666666666666667,
+                "frequency": 7,
+                "address": "辽宁省沈阳市沈河区奉天街342-甲1",
+                "business": "朱剪炉,市府大路/市府,奉天街沿线",
+                "beginTime": "20181003135306",
+                "endTime": "20181003145148"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.404114,
+                    41.796719
+                ]
+            },
+            "properties": {
+                "imsi": "460020095000526731",
+                "lastTime": 1.75,
+                "frequency": 8,
+                "address": "辽宁省沈阳市和平区太原街商圈北五马路11号",
+                "business": "北六马路,中山路,太原街",
+                "beginTime": "20181003220318",
+                "endTime": "20181003234828"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.436256,
+                    41.814098
+                ]
+            },
+            "properties": {
+                "imsi": "460000095057074060",
+                "lastTime": 7.883333333333333,
+                "frequency": 18,
+                "address": "辽宁省沈阳市沈河区惠工街120号",
+                "business": "北站,惠工,小北",
+                "beginTime": "20181003001655",
+                "endTime": "20181003081053"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.982239,
+                    41.913761
+                ]
+            },
+            "properties": {
+                "imsi": "460000095057074060",
+                "lastTime": 0.0,
+                "frequency": 1,
+                "address": "辽宁省抚顺市顺城区",
+                "business": "",
+                "beginTime": "20181003090441",
+                "endTime": "20181003090441"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.524261,
+                    42.15691
+                ]
+            },
+            "properties": {
+                "imsi": "460020095000636300",
+                "lastTime": 0.0,
+                "frequency": 1,
+                "address": "辽宁省沈阳市沈北新区",
+                "business": "",
+                "beginTime": "20181003071641",
+                "endTime": "20181003071641"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.401222,
+                    41.859058
+                ]
+            },
+            "properties": {
+                "imsi": "460020095000636300",
+                "lastTime": 0.0,
+                "frequency": 1,
+                "address": "辽宁省沈阳市于洪区黑山路9-2号",
+                "business": "黄河/黄河北大街,陵西,北陵",
+                "beginTime": "20181003133126",
+                "endTime": "20181003133126"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.411911,
+                    41.810459
+                ]
+            },
+            "properties": {
+                "imsi": "460020095000636300",
+                "lastTime": 2.3833333333333333,
+                "frequency": 16,
+                "address": "辽宁省沈阳市和平区哈尔滨路36-2号",
+                "business": "昆山,西塔,北市场",
+                "beginTime": "20181003211426",
+                "endTime": "20181003233732"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.427322,
+                    41.8046
+                ]
+            },
+            "properties": {
+                "imsi": "460000095080958864",
+                "lastTime": 17.233333333333334,
+                "frequency": 30,
+                "address": "辽宁省沈阳市沈河区金廊商圈市府大路262号",
+                "business": "惠工,市府大路/市府,北京街",
+                "beginTime": "20181003001814",
+                "endTime": "20181003173309"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.414886,
+                    41.85252
+                ]
+            },
+            "properties": {
+                "imsi": "460000095080958864",
+                "lastTime": 3.0166666666666666,
+                "frequency": 13,
+                "address": "辽宁省沈阳市皇姑区黄河北大街",
+                "business": "北陵,黄河/黄河北大街,泰山",
+                "beginTime": "20181003174318",
+                "endTime": "20181003204420"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.408707,
+                    41.806381
+                ]
+            },
+            "properties": {
+                "imsi": "460000095080958864",
+                "lastTime": 0.03333333333333333,
+                "frequency": 3,
+                "address": "辽宁省沈阳市和平区延边街6-6号",
+                "business": "西塔,市府大路/市府,北市场",
+                "beginTime": "20181003224933",
+                "endTime": "20181003225138"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.41597,
+                    41.807781
+                ]
+            },
+            "properties": {
+                "imsi": "460020095001192336",
+                "lastTime": 9.333333333333334,
+                "frequency": 45,
+                "address": "辽宁省沈阳市和平区发舒巷9号",
+                "business": "北市场,西塔,昆山",
+                "beginTime": "20181003000706",
+                "endTime": "20181003092726"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.413368,
+                    41.819061
+                ]
+            },
+            "properties": {
+                "imsi": "460020095001192336",
+                "lastTime": 0.6666666666666666,
+                "frequency": 7,
+                "address": "辽宁省沈阳市皇姑区黄河南大街",
+                "business": "昆山,北行,北陵",
+                "beginTime": "20181003093709",
+                "endTime": "20181003101732"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.41597,
+                    41.807781
+                ]
+            },
+            "properties": {
+                "imsi": "460020095001192336",
+                "lastTime": 12.766666666666667,
+                "frequency": 75,
+                "address": "辽宁省沈阳市和平区发舒巷9号",
+                "business": "北市场,西塔,昆山",
+                "beginTime": "20181003110537",
+                "endTime": "20181003235223"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.41404,
+                    41.797169
+                ]
+            },
+            "properties": {
+                "imsi": "460000095080923032",
+                "lastTime": 0.7166666666666667,
+                "frequency": 26,
+                "address": "辽宁省沈阳市和平区和平北大街33号",
+                "business": "和平北大街,八经,中山路",
+                "beginTime": "20181003000646",
+                "endTime": "20181003005026"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.437988,
+                    41.748451
+                ]
+            },
+            "properties": {
+                "imsi": "460000095080923032",
+                "lastTime": 0.0,
+                "frequency": 1,
+                "address": "辽宁省沈阳市沈河区浑河大桥",
+                "business": "五爱街,三好街,五里河",
+                "beginTime": "20181003154218",
+                "endTime": "20181003154218"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.420036,
+                    41.77737
+                ]
+            },
+            "properties": {
+                "imsi": "460000095080923032",
+                "lastTime": 1.5333333333333332,
+                "frequency": 5,
+                "address": "辽宁省沈阳市和平区西滨河路16号",
+                "business": "十四纬路,领事馆,文艺路",
+                "beginTime": "20181003213412",
+                "endTime": "20181003230710"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.419151,
+                    41.75864
+                ]
+            },
+            "properties": {
+                "imsi": "460020095000586650",
+                "lastTime": 16.083333333333332,
+                "frequency": 37,
+                "address": "辽宁省沈阳市和平区三好街商圈文体西路3号",
+                "business": "南湖公园,三好街,文化路",
+                "beginTime": "20181003001026",
+                "endTime": "20181003161622"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.406212,
+                    41.790089
+                ]
+            },
+            "properties": {
+                "imsi": "460020095000586650",
+                "lastTime": 1.8833333333333333,
+                "frequency": 7,
+                "address": "辽宁省沈阳市和平区北二马路",
+                "business": "太原街,和平北大街,马路湾",
+                "beginTime": "20181003175025",
+                "endTime": "20181003194411"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.442299,
+                    41.759178
+                ]
+            },
+            "properties": {
+                "imsi": "460020095000586650",
+                "lastTime": 2.716666666666667,
+                "frequency": 3,
+                "address": "辽宁省沈阳市沈河区南塔街124号",
+                "business": "南塔,北文萃路,五爱街",
+                "beginTime": "20181003205017",
+                "endTime": "20181003233317"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.429962,
+                    41.795551
+                ]
+            },
+            "properties": {
+                "imsi": "460070095024644511",
+                "lastTime": 15.016666666666667,
+                "frequency": 38,
+                "address": "辽宁省沈阳市沈河区杏林街7-1号",
+                "business": "中山路,大西街,青年大街",
+                "beginTime": "20181003002549",
+                "endTime": "20181003152713"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.474693,
+                    41.794811
+                ]
+            },
+            "properties": {
+                "imsi": "460070095024644511",
+                "lastTime": 1.25,
+                "frequency": 19,
+                "address": "辽宁省沈阳市大东区东逸街29号",
+                "business": "大东路,滂江街,长安",
+                "beginTime": "20181003224120",
+                "endTime": "20181003235626"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.411987,
+                    41.80788
+                ]
+            },
+            "properties": {
+                "imsi": "460020095024652194",
+                "lastTime": 6.4,
+                "frequency": 14,
+                "address": "辽宁省沈阳市和平区抚顺路",
+                "business": "西塔,北市场,昆山",
+                "beginTime": "20181003050808",
+                "endTime": "20181003113231"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.40416,
+                    41.818588
+                ]
+            },
+            "properties": {
+                "imsi": "460020095024652194",
+                "lastTime": 1.4333333333333333,
+                "frequency": 12,
+                "address": "辽宁省沈阳市皇姑区长江街商圈乌江街5号",
+                "business": "昆山,北行,华山",
+                "beginTime": "20181003122204",
+                "endTime": "20181003134818"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.408562,
+                    41.92083
+                ]
+            },
+            "properties": {
+                "imsi": "460020095024652194",
+                "lastTime": 0.03333333333333333,
+                "frequency": 2,
+                "address": "辽宁省沈阳市沈北新区沈北路",
+                "business": "道义,沈阳师范大学",
+                "beginTime": "20181003170241",
+                "endTime": "20181003170539"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.40873,
+                    41.808861
+                ]
+            },
+            "properties": {
+                "imsi": "460020095024652194",
+                "lastTime": 0.0,
+                "frequency": 2,
+                "address": "辽宁省沈阳市和平区哈尔滨路11号",
+                "business": "西塔,昆山,华山",
+                "beginTime": "20181003213224",
+                "endTime": "20181003213308"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.411911,
+                    41.810459
+                ]
+            },
+            "properties": {
+                "imsi": "460000095009768355",
+                "lastTime": 4.433333333333334,
+                "frequency": 6,
+                "address": "辽宁省沈阳市和平区哈尔滨路36-2号",
+                "business": "昆山,西塔,北市场",
+                "beginTime": "20181003063725",
+                "endTime": "20181003110419"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.342812,
+                    41.774899
+                ]
+            },
+            "properties": {
+                "imsi": "460000095009768355",
+                "lastTime": 0.4166666666666667,
+                "frequency": 4,
+                "address": "辽宁省沈阳市铁西区艳欣街5号",
+                "business": "艳粉,路官,齐贤",
+                "beginTime": "20181003160228",
+                "endTime": "20181003162816"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.411911,
+                    41.810459
+                ]
+            },
+            "properties": {
+                "imsi": "460000095009768355",
+                "lastTime": 2.066666666666667,
+                "frequency": 6,
+                "address": "辽宁省沈阳市和平区哈尔滨路36-2号",
+                "business": "昆山,西塔,北市场",
+                "beginTime": "20181003180415",
+                "endTime": "20181003200910"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.349518,
+                    41.797279
+                ]
+            },
+            "properties": {
+                "imsi": "460000095090129828",
+                "lastTime": 9.683333333333334,
+                "frequency": 25,
+                "address": "辽宁省沈阳市铁西区保工南街1号",
+                "business": "保工街,齐贤,卫工",
+                "beginTime": "20181003001755",
+                "endTime": "20181003095930"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    122.351829,
+                    41.407028
+                ]
+            },
+            "properties": {
+                "imsi": "460000095090129828",
+                "lastTime": 0.0,
+                "frequency": 1,
+                "address": "辽宁省鞍山市台安县G1(京哈高速)",
+                "business": "",
+                "beginTime": "20181003131552",
+                "endTime": "20181003131552"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.359962,
+                    41.788849
+                ]
+            },
+            "properties": {
+                "imsi": "460000095090129828",
+                "lastTime": 0.1,
+                "frequency": 3,
+                "address": "辽宁省沈阳市铁西区南七中路18号",
+                "business": "兴华,贵和,七路",
+                "beginTime": "20181003225033",
+                "endTime": "20181003225723"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.398163,
+                    41.81435
+                ]
+            },
+            "properties": {
+                "imsi": "460000095040591270",
+                "lastTime": 10.816666666666666,
+                "frequency": 21,
+                "address": "辽宁省沈阳市皇姑区青云山路16号-4门",
+                "business": "亚明,华山,三洞桥",
+                "beginTime": "20181003000104",
+                "endTime": "20181003105044"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.312882,
+                    41.848709
+                ]
+            },
+            "properties": {
+                "imsi": "460000095040591270",
+                "lastTime": 5.433333333333334,
+                "frequency": 25,
+                "address": "辽宁省沈阳市于洪区G1501(西环线)",
+                "business": "",
+                "beginTime": "20181003112829",
+                "endTime": "20181003165429"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.41317,
+                    41.813549
+                ]
+            },
+            "properties": {
+                "imsi": "460000095040591270",
+                "lastTime": 6.45,
+                "frequency": 15,
+                "address": "辽宁省沈阳市皇姑区昆山中路43巷-14-1号",
+                "business": "昆山,西塔,华山",
+                "beginTime": "20181003172755",
+                "endTime": "20181003235529"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.389809,
+                    41.816269
+                ]
+            },
+            "properties": {
+                "imsi": "460000095040541608",
+                "lastTime": 5.7,
+                "frequency": 21,
+                "address": "辽宁省沈阳市皇姑区黄浦江街16号-1门",
+                "business": "华山,皇姑屯,昆山",
+                "beginTime": "20181003000004",
+                "endTime": "20181003054300"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.384537,
+                    41.542561
+                ]
+            },
+            "properties": {
+                "imsi": "460000095040541608",
+                "lastTime": 0.0,
+                "frequency": 1,
+                "address": "辽宁省沈阳市苏家屯区",
+                "business": "",
+                "beginTime": "20181003065639",
+                "endTime": "20181003065639"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.395218,
+                    41.78413
+                ]
+            },
+            "properties": {
+                "imsi": "460000095084494779",
+                "lastTime": 0.3333333333333333,
+                "frequency": 4,
+                "address": "辽宁省沈阳市和平区南宁南街15号楼",
+                "business": "太原街,民主,南五马路",
+                "beginTime": "20181003000502",
+                "endTime": "20181003002558"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.399139,
+                    41.82085
+                ]
+            },
+            "properties": {
+                "imsi": "460000095084494779",
+                "lastTime": 1.1166666666666667,
+                "frequency": 7,
+                "address": "辽宁省沈阳市皇姑区岐山中路77",
+                "business": "塔湾,昆山,华山",
+                "beginTime": "20181003154137",
+                "endTime": "20181003164845"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.391563,
+                    41.854561
+                ]
+            },
+            "properties": {
+                "imsi": "460000095084494779",
+                "lastTime": 0.43333333333333335,
+                "frequency": 2,
+                "address": "辽宁省沈阳市于洪区怒江北街",
+                "business": "陵西,黄河/黄河北大街,北陵",
+                "beginTime": "20181003212129",
+                "endTime": "20181003214745"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.397492,
+                    41.823189
+                ]
+            },
+            "properties": {
+                "imsi": "460000095084420542",
+                "lastTime": 8.883333333333333,
+                "frequency": 23,
+                "address": "辽宁省沈阳市皇姑区荆江街27号楼",
+                "business": "塔湾,昆山,北行",
+                "beginTime": "20181003002047",
+                "endTime": "20181003091420"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.411987,
+                    41.80788
+                ]
+            },
+            "properties": {
+                "imsi": "460000095084420542",
+                "lastTime": 2.0,
+                "frequency": 7,
+                "address": "辽宁省沈阳市和平区抚顺路",
+                "business": "西塔,北市场,昆山",
+                "beginTime": "20181003214410",
+                "endTime": "20181003234425"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.40873,
+                    41.808861
+                ]
+            },
+            "properties": {
+                "imsi": "460020095002693054",
+                "lastTime": 15.966666666666667,
+                "frequency": 229,
+                "address": "辽宁省沈阳市和平区哈尔滨路11号",
+                "business": "西塔,昆山,华山",
+                "beginTime": "20181003000137",
+                "endTime": "20181003155941"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.471191,
+                    41.80286
+                ]
+            },
+            "properties": {
+                "imsi": "460020095002693054",
+                "lastTime": 7.216666666666667,
+                "frequency": 32,
+                "address": "辽宁省沈阳市大东区小东路241号",
+                "business": "小东,中街,津桥",
+                "beginTime": "20181003164214",
+                "endTime": "20181003235539"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.390343,
+                    41.845661
+                ]
+            },
+            "properties": {
+                "imsi": "460020095088859075",
+                "lastTime": 1.1166666666666667,
+                "frequency": 6,
+                "address": "辽宁省沈阳市于洪区怒江北街18号-7-18门",
+                "business": "陵西,黄河/黄河北大街,新乐",
+                "beginTime": "20181003084253",
+                "endTime": "20181003095051"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.567787,
+                    41.93626
+                ]
+            },
+            "properties": {
+                "imsi": "460020095088859075",
+                "lastTime": 0.1,
+                "frequency": 2,
+                "address": "辽宁省沈阳市沈北新区乐业街",
+                "business": "辉山",
+                "beginTime": "20181003145543",
+                "endTime": "20181003150200"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.398239,
+                    41.851681
+                ]
+            },
+            "properties": {
+                "imsi": "460020095088859075",
+                "lastTime": 2.5166666666666666,
+                "frequency": 11,
+                "address": "辽宁省沈阳市于洪区长江北街66-5号",
+                "business": "陵西,黄河/黄河北大街,北陵",
+                "beginTime": "20181003211832",
+                "endTime": "20181003235024"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.418114,
+                    41.79105
+                ]
+            },
+            "properties": {
+                "imsi": "460020095004730821",
+                "lastTime": 0.03333333333333333,
+                "frequency": 2,
+                "address": "辽宁省沈阳市沈河区九纬路23号",
+                "business": "二经,北三经街/三经街,八经",
+                "beginTime": "20181003000220",
+                "endTime": "20181003000437"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.350617,
+                    41.694271
+                ]
+            },
+            "properties": {
+                "imsi": "460020095004730821",
+                "lastTime": 0.0,
+                "frequency": 1,
+                "address": "辽宁省沈阳市苏家屯区",
+                "business": "",
+                "beginTime": "20181003193211",
+                "endTime": "20181003193211"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.379852,
+                    41.791649
+                ]
+            },
+            "properties": {
+                "imsi": "460020095004730821",
+                "lastTime": 0.15,
+                "frequency": 3,
+                "address": "辽宁省沈阳市铁西区兴工北街106号4门",
+                "business": "兴工街,兴工北街,爱工北街",
+                "beginTime": "20181003234647",
+                "endTime": "20181003235608"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.19117,
+                    41.685341
+                ]
+            },
+            "properties": {
+                "imsi": "460000095062225863",
+                "lastTime": 0.0,
+                "frequency": 1,
+                "address": "辽宁省沈阳市铁西区",
+                "business": "",
+                "beginTime": "20181003183322",
+                "endTime": "20181003183322"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.399094,
+                    41.785931
+                ]
+            },
+            "properties": {
+                "imsi": "460000095062225863",
+                "lastTime": 0.2833333333333333,
+                "frequency": 7,
+                "address": "辽宁省沈阳市和平区南京南街3号",
+                "business": "太原街,中华路,马路湾",
+                "beginTime": "20181003230441",
+                "endTime": "20181003232222"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.42086,
+                    41.819061
+                ]
+            },
+            "properties": {
+                "imsi": "460000095079109575",
+                "lastTime": 8.15,
+                "frequency": 30,
+                "address": "辽宁省沈阳市皇姑区金廊商圈北陵大街16巷-2号",
+                "business": "北陵,昆山,北陵大街",
+                "beginTime": "20181003000632",
+                "endTime": "20181003081627"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    122.881271,
+                    41.141472
+                ]
+            },
+            "properties": {
+                "imsi": "460000095079109575",
+                "lastTime": 0.0,
+                "frequency": 1,
+                "address": "辽宁省鞍山市铁西区",
+                "business": "",
+                "beginTime": "20181003124940",
+                "endTime": "20181003124940"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.420052,
+                    41.847431
+                ]
+            },
+            "properties": {
+                "imsi": "460020095047591881",
+                "lastTime": 21.683333333333334,
+                "frequency": 83,
+                "address": "辽宁省沈阳市皇姑区神桥",
+                "business": "北陵,泰山,黄河/黄河北大街",
+                "beginTime": "20181003001005",
+                "endTime": "20181003215115"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.412857,
+                    41.804699
+                ]
+            },
+            "properties": {
+                "imsi": "460000095062189004",
+                "lastTime": 21.55,
+                "frequency": 13,
+                "address": "辽宁省沈阳市和平区南京北街39号",
+                "business": "市府大路/市府,北市场,西塔",
+                "beginTime": "20181003002435",
+                "endTime": "20181003215803"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.41684,
+                    41.82716
+                ]
+            },
+            "properties": {
+                "imsi": "460000095084486097",
+                "lastTime": 8.75,
+                "frequency": 13,
+                "address": "辽宁省沈阳市皇姑区嫩江街78巷-3号",
+                "business": "北陵,北陵大街,北行",
+                "beginTime": "20181003000109",
+                "endTime": "20181003084636"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.418869,
+                    41.795879
+                ]
+            },
+            "properties": {
+                "imsi": "460000095084486097",
+                "lastTime": 0.0,
+                "frequency": 2,
+                "address": "辽宁省沈阳市和平区北三经街16号",
+                "business": "北三经街/三经街,中山路,八经",
+                "beginTime": "20181003180812",
+                "endTime": "20181003180855"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.413368,
+                    41.819061
+                ]
+            },
+            "properties": {
+                "imsi": "460000095084486097",
+                "lastTime": 1.7333333333333334,
+                "frequency": 16,
+                "address": "辽宁省沈阳市皇姑区黄河南大街",
+                "business": "昆山,北行,北陵",
+                "beginTime": "20181003220759",
+                "endTime": "20181003235216"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    122.526863,
+                    41.48016
+                ]
+            },
+            "properties": {
+                "imsi": "460020095033733585",
+                "lastTime": 0.0,
+                "frequency": 1,
+                "address": "辽宁省鞍山市台安县",
+                "business": "",
+                "beginTime": "20181003111428",
+                "endTime": "20181003111428"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.414383,
+                    41.811699
+                ]
+            },
+            "properties": {
+                "imsi": "460020095033733585",
+                "lastTime": 2.5833333333333335,
+                "frequency": 5,
+                "address": "辽宁省沈阳市和平区南京北街",
+                "business": "昆山,西塔,北市场",
+                "beginTime": "20181003210348",
+                "endTime": "20181003233918"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    122.808929,
+                    41.97361
+                ]
+            },
+            "properties": {
+                "imsi": "460020095098800085",
+                "lastTime": 2.3333333333333335,
+                "frequency": 4,
+                "address": "辽宁省沈阳市新民市",
+                "business": "",
+                "beginTime": "20181003012045",
+                "endTime": "20181003034107"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.411987,
+                    41.80788
+                ]
+            },
+            "properties": {
+                "imsi": "460020095098800085",
+                "lastTime": 0.18333333333333332,
+                "frequency": 2,
+                "address": "辽宁省沈阳市和平区抚顺路",
+                "business": "西塔,北市场,昆山",
+                "beginTime": "20181003212337",
+                "endTime": "20181003213529"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.460739,
+                    41.80452
+                ]
+            },
+            "properties": {
+                "imsi": "460020095098800085",
+                "lastTime": 0.03333333333333333,
+                "frequency": 2,
+                "address": "辽宁省沈阳市大东区德增巷18号楼",
+                "business": "德增街,津桥,小津桥",
+                "beginTime": "20181003235233",
+                "endTime": "20181003235526"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.404251,
+                    41.803539
+                ]
+            },
+            "properties": {
+                "imsi": "460020095004751842",
+                "lastTime": 4.466666666666667,
+                "frequency": 7,
+                "address": "辽宁省沈阳市和平区西塔街64号",
+                "business": "西塔,市府大路/市府,太原街",
+                "beginTime": "20181003182942",
+                "endTime": "20181003225840"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.360481,
+                    41.796509
+                ]
+            },
+            "properties": {
+                "imsi": "460070095025648611",
+                "lastTime": 0.016666666666666666,
+                "frequency": 2,
+                "address": "辽宁省沈阳市铁西区景星北街27号-4门",
+                "business": "贵和,铁西广场,齐贤",
+                "beginTime": "20181003000831",
+                "endTime": "20181003000959"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.367691,
+                    41.81115
+                ]
+            },
+            "properties": {
+                "imsi": "460070095025648611",
+                "lastTime": 11.466666666666667,
+                "frequency": 12,
+                "address": "辽宁省沈阳市铁西区小北一中路",
+                "business": "北一路,笃工,北二路",
+                "beginTime": "20181003012520",
+                "endTime": "20181003125347"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.357559,
+                    41.813011
+                ]
+            },
+            "properties": {
+                "imsi": "460070095025648611",
+                "lastTime": 0.0,
+                "frequency": 1,
+                "address": "辽宁省沈阳市铁西区",
+                "business": "保工街,北一路,笃工",
+                "beginTime": "20181003235554",
+                "endTime": "20181003235554"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.398018,
+                    41.80838
+                ]
+            },
+            "properties": {
+                "imsi": "460020095040371174",
+                "lastTime": 11.9,
+                "frequency": 48,
+                "address": "辽宁省沈阳市皇姑区珠江街77号-7号-4门",
+                "business": "三洞桥,兴工北街,华山",
+                "beginTime": "20181003002258",
+                "endTime": "20181003121754"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.400322,
+                    41.826031
+                ]
+            },
+            "properties": {
+                "imsi": "460020095040371174",
+                "lastTime": 0.1,
+                "frequency": 4,
+                "address": "辽宁省沈阳市皇姑区大渡河街",
+                "business": "北行,辽大,昆山",
+                "beginTime": "20181003123053",
+                "endTime": "20181003123719"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.398323,
+                    41.81044
+                ]
+            },
+            "properties": {
+                "imsi": "460020095040371174",
+                "lastTime": 7.3,
+                "frequency": 17,
+                "address": "辽宁省沈阳市皇姑区长江街商圈天山路16号",
+                "business": "三洞桥,华山,兴工北街",
+                "beginTime": "20181003163521",
+                "endTime": "20181003235342"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.459,
+                    41.802132
+                ]
+            },
+            "properties": {
+                "imsi": "460070095048036852",
+                "lastTime": 9.816666666666666,
+                "frequency": 25,
+                "address": "辽宁省沈阳市大东区中街商圈东顺城街1号",
+                "business": "小津桥,大什字街,小东",
+                "beginTime": "20181003063638",
+                "endTime": "20181003162600"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.40979,
+                    41.802589
+                ]
+            },
+            "properties": {
+                "imsi": "460070095048036852",
+                "lastTime": 2.95,
+                "frequency": 13,
+                "address": "辽宁省沈阳市和平区延边街45号",
+                "business": "市府大路/市府,西塔,八经",
+                "beginTime": "20181003173944",
+                "endTime": "20181003203736"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.459602,
+                    41.801411
+                ]
+            },
+            "properties": {
+                "imsi": "460070095048036852",
+                "lastTime": 1.05,
+                "frequency": 4,
+                "address": "辽宁省沈阳市大东区津桥路3-1",
+                "business": "小津桥,大什字街,小东",
+                "beginTime": "20181003221130",
+                "endTime": "20181003231523"
+            }
+        }
+    ]
+}
