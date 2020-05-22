@@ -14,7 +14,8 @@
           </div>
         </div>
       </div>
-      <arrestDialog  v-show="!unfold" id="arrestDialog" ref="arrestDialog"  @range="reactRange" v-bind:left="leftOfArrest"/>
+      <arrestDialog  v-show="!unfold" id="arrestDialog" ref="arrestDialog" left="-20%" @range="reactRange"/>
+      <pathDialog  v-show="!unfold" id="pathDialog" ref="pathDialog" left="-20%" @showdiagram="showdiagram"/>
       <div id="toolBox" style="left:-20%;" class="floatToolBar" v-show="!unfold">
         <p class="boxtext boxtitle">热力图设置</p>
         <div class="boxitem">
@@ -47,12 +48,12 @@
         <div class="boxitem">
           <div style="width:100%; align-items:center;display:flex;">
             <p class="boxtext boxsubtitle">范围分析</p>
-            <img id="rangeButton" class="boxtext boxsubtitle" src="./img/range.png" v-on:click="reactRange('heatmap')" />
+            <img id="rangeButton" class="boxtext boxsubtitle rangeButton" src="./img/range.png" v-on:click="reactRange('heatmap')" />
           </div>
         </div>
       </div>
       <dataInfo ref="dataInfoBox" ids="myinfoBox" @refreshArrest="loadArrestData" @func="drawData"/>
-      <dataInfo ref="dataInfoBox" ids="infoBox" @refreshArrest="loadArrestData" @func="drawData"/>
+      <dataInfo ref="dataInfoBox"  ids="infoBox" @refreshArrest="loadArrestData" @func="drawData"/>
       <!-- <div class="input-card">
     <h4>轨迹回放控制</h4>
     <div class="input-item">
@@ -74,6 +75,7 @@ import * as d3 from 'd3';//引入d3
 import { dataGenerator } from './dataGenerator.js'
 import dataInfo from './dataInfo.vue';
 import arrestDialog from './arrestDialog.vue';
+import pathDialog from './pathDialog.vue';
 import funcMenu from './funcMenu.vue'
 import { pathColor } from './util.js';
 import { drawTable } from './tripTable.js';
@@ -113,7 +115,6 @@ export default {
     ammount:0,//个体数量
     arrestData:'',//驻点基础数据
     arrestCircles:[],//驻点显示圆圈合集
-    leftOfArrest:'-20%',
     scale:'',//颜色比例尺
     mypolyline:[],//路径线路集
     status:{
@@ -161,6 +162,7 @@ export default {
   components:{
     dataInfo,
     arrestDialog,
+    pathDialog,
     funcMenu
   },
   methods: {
@@ -253,7 +255,7 @@ export default {
     clickTools(layerName){
       if(layerName == "path")
         {
-          d3.select("#infoBox").transition().style("left", "80%");
+          this.unfoldBox('pathDialog');
         }else if(layerName == "arrest"){
           this.unfoldBox('arrestDialog');
         }else if(layerName == "heatmap"){
@@ -320,6 +322,7 @@ export default {
       if(!this.unfold){
         this.foldTargetBox("#toolBox");
         this.foldTargetBox("#arrestDialog");
+        this.foldTargetBox("#pathDialog");
       }
     },
     foldTargetBox(target){
@@ -331,6 +334,9 @@ export default {
         cache.unfold = true;
       });
       }
+    },
+    showdiagram(){
+      d3.select("#infoBox").transition().style("left", "80%");
     },
     reactRange(type){
       //圈选范围响应

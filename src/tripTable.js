@@ -23,7 +23,7 @@ var dataset = [
     }
 ];
 export function drawTable() {
-    d3.select("#infoBox").transition().style("left", "80%");
+    d3.select("#infoBox").transition().style("left", "100%");
     console.log(d3.select("#infoBox")["_groups"])
     d3.select("#infoBox")["_groups"][0][0].innerHTML = "";
     d3.select("#infoBox").style("background-color", "white")

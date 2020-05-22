@@ -1,6 +1,6 @@
 <template>
       <div v-bind:style="{left : left}"  class="floatToolBar toolBox">
-        <p class="boxtext boxtitle">驻点分析工具</p>
+        <p class="boxtext boxtitle">出行分析工具</p>
         <div class="boxitem">
           <div style="width:100%">
             <p class="boxtext boxsubtitle">日期:</p>
@@ -39,10 +39,10 @@
             <text x="80%" y="30" v-bind:fill="maxcolor" class="colortext">{{maxnumber}}</text>
           </svg>
         </div>
-        <div class="boxitem">
+        <div class="boxitem" style="padding-bottom: 30px;">
           <div style="width:100%; align-items:center;display:flex;">
-            <p class="boxtext boxsubtitle">范围分析</p>
-            <img id="rangeButton" v-on:click="reactRange" class="boxtext boxsubtitle rangeButton" src="./img/range.png"  />
+            <p class="boxtext boxsubtitle">图表分析</p>
+            <img id="pathButton" v-on:click="showdiagram" class="boxtext boxsubtitle rangeButton" src="./img/pathdiagram.png"  />
           </div>
         </div>
       </div>
@@ -64,8 +64,8 @@ export default {
         }
     },
     methods:{
-        reactRange(){
-          this.$emit('range',"arrest");
+        showdiagram(){
+          this.$emit('showdiagram',"path");
         }
     },
     props:{
