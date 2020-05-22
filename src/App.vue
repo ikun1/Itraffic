@@ -14,7 +14,7 @@
           </div>
         </div>
       </div>
-      <arrestDialog  v-show="!unfold" id="arrestDialog" ref="arrestDialog" left="-20%" @range="reactRange"/>
+      <arrestDialog  v-show="!unfold" id="arrestDialog" ref="arrestDialog" left="-20%" @range="reactRange" @time="trigeringTime"/>
       <pathDialog  v-show="!unfold" id="pathDialog" ref="pathDialog" left="-20%" @showdiagram="showdiagram"/>
       <div id="toolBox" style="left:-20%;" class="floatToolBar" v-show="!unfold">
         <p class="boxtext boxtitle">热力图设置</p>
@@ -116,7 +116,15 @@ export default {
     arrestData:'',//驻点基础数据
     arrestCircles:[],//驻点显示圆圈合集
     scale:'',//颜色比例尺
+    tscale:'',//人数颜色比例尺
     mypolyline:[],//路径线路集
+    timelapses:[],//时间划分驻点数据集
+    activeCircle:[],//时间数据中的活跃点
+    timeindex:0,//读入文件记号
+    frame:0,//时间帧代号
+    interval:'',//动画计时器 
+    activeMap:'',//圆点映射表
+    test:0,
     status:{
       //分析图层集
       heatmap:false,//热力图（密度分析）
@@ -200,6 +208,7 @@ export default {
       });
       dataGenerator.formatter(cache,cache.nowdataindex);
       dataGenerator.mergeData(cache,1);
+      dataGenerator.loadArrest(cache);
       });
 
       AMap.plugin('AMap.Geocoder', function() {
@@ -276,7 +285,27 @@ export default {
     },
     initArrestData(arrestData,min,max){
       this.arrestData = arrestData;
-      this.scale = d3.scaleLinear().domain([min,max]).range([1,129])
+
+      var color1=d3.rgb(81,122,68);
+      var color2=d3.rgb(217,76,106);
+
+      this.scale = function(arg){
+      var scaler=d3.scaleLinear().domain([min,max]).range([0,1])
+
+      var inter=d3.interpolate(color1,color2)
+        return inter(scaler(arg))
+        }
+
+        this.tscale = function(arg){
+      var scaler=d3.scaleLinear().domain([1,8]).range([0,1])
+
+      var inter=d3.interpolate(color1,color2)
+        return inter(scaler(arg))
+        }
+
+      //this.scale = d3.scaleLinear().domain([min,max]).range([248,81])
+      console.log(this.scale(min));
+      console.log(this.scale(max));
       this.initColor(this.scale,min,max);
       this.loadArrestData(arrestData);
     },
@@ -284,13 +313,15 @@ export default {
       this.arrestCircles.forEach(function(circle){
         this.map.remove(circle);
       },this);
+      this.arrestCircles.length=0;
       arrestData.forEach(function(user){
         user.arrests.forEach(function(arrest){
           var scale = this.scale;
           var circle = new AMap.Circle({
             center: arrest.location,  // 圆心位置
             radius: 200, // 圆半径
-            fillColor: 'rgba(1, 88, ' + scale(arrest.hours) + ', 0.6)',   // 圆形填充颜色
+            fillColor: scale(arrest.hours),   // 圆形填充颜色
+            fillOpacity:0.6,//圆形填充透明度
             strokeColor: '#fff', // 描边颜色
             strokeWeight: 1, // 描边宽度
           });
@@ -305,9 +336,9 @@ export default {
     initColor(scale,min,max){
       //计算驻点图例
       var target = this.$refs.arrestDialog;
-      target.minicolor='rgba(1, 88, ' + scale(min) + ', 1)';
-      target.midiumcolor='rgba(1, 88, ' + scale((min+max)/2) + ', 1)';
-      target.maxcolor='rgba(1, 88, ' + scale(max) + ', 1)';
+      target.minicolor=scale(min);
+      target.midiumcolor=((min+max)/2);
+      target.maxcolor=scale(max);
       //将数据集排序，取出最大值,生成图例
       target.mininumber = min;
       target.midiumnumber = Math.round((min+max)/2);
@@ -372,6 +403,126 @@ export default {
       }
       this.map.on('mousedown',downEvent,this);
       this.map.on('mousemove',moveEvent,this);
+    },
+    trigeringTime()
+    //时间演示开始
+    {
+      this.activeMap = new Map();
+
+       this.arrestCircles.forEach(function(circle){
+          circle.hide();
+        })
+        this.timeindex = 0;
+        this.freshArrest();
+        this.frame=0;
+      this.interval = setInterval(this.frameAction,100);
+    },
+    freshArrest(){
+      var index = this.timeindex;
+      var integer = parseInt(this.timeindex/2);
+      var decimal = this.timeindex - (integer*2);
+      var str;
+      if(decimal == 0){
+        str = String(integer) + ".0"
+      }else{
+        str = String(integer) + ".5"
+      }
+      var data = this.timelapses[str];
+      this.activeMap.forEach(function(factor){
+        factor.count = 0;
+      },this);
+      data.forEach(function(points){
+        var factor = this.activeMap.get(points[0]);
+        var tscale = this.tscale;
+        if($.isEmptyObject(factor)){
+          var ncircle = new AMap.Circle({
+              center: new AMap.LngLat(points[0],points[1]),  // 圆心位置
+              radius: 200, // 圆半径
+              fillColor: tscale(1),   // 圆形填充颜色
+              fillOpacity:0.6,
+              strokeColor: '#fff', // 描边颜色
+              strokeWeight: 1, // 描边宽度
+            });
+          this.map.add(ncircle);
+          ncircle.hide();
+        
+          var newfactor = {
+            drawCount:0,
+            count:1,
+            circle:ncircle,
+            isfadding:false,
+          }
+          this.activeMap.set(points[0],newfactor);
+        }else{
+          factor.count++;
+          if(factor.count>this.test){
+            this.test = factor.count;
+            console.log(factor);
+          }
+        }
+        },this)
+        
+      this.timeindex = index+1;
+      if(this.timeindex == this.timelapses.count){
+        clearInterval(this.interval);
+      }
+    },
+    frameAction(){
+       var framemax = 10;//三帧为例
+       var opacityDiviser = 0.6/framemax;
+      this.activeMap.forEach(function(factor){
+        
+
+       
+        var tscale = this.tscale;
+        if(factor.drawCount == factor.count){
+          
+        }
+         else if(factor.drawCount == 0 || factor.count == 0 || factor.isfadding){
+           factor.isfadding=true;
+            var diviser = (factor.count - factor.drawCount)/(framemax-this.frame);
+            var drawCount = factor.drawCount;
+            var count = factor.count;
+            factor.drawCount = drawCount + diviser;
+            var opacity;
+            if(drawCount > count){
+              opacity = 0.6-(opacityDiviser * (this.frame+1));
+              
+            }else{
+              opacity =opacityDiviser * (this.frame+1);
+            }
+            if(opacity == 0){
+              factor.circle.hide()
+            }else{
+              factor.circle.show()
+            }
+           
+            factor.circle.setOptions({
+            fillColor: tscale(drawCount),
+            fillOpacity:opacity,
+          });
+            if(this.frame==framemax){
+              factor.isfadding = false;
+            }
+         }else{
+            var diviser = (factor.count - factor.drawCount)/(framemax-this.frame);
+            var drawCount = factor.drawCount;
+            var count = factor.count;
+            factor.drawCount = drawCount + diviser;
+            factor.circle.setOptions({
+            fillColor: tscale(drawCount)
+          });
+         }
+
+      },this);
+      
+
+      this.frame++;
+      if(this.frame == framemax){
+        this.frame = 0;
+        this.freshArrest();
+      }
+
     },
     countInfo(type){
       //计算圈选范围详细信息

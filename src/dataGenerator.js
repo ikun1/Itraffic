@@ -77,13 +77,25 @@ var dataGenerator = {
             return false;
         }
     },
+    loadArrest(target){
+        d3.json("/src/data/timeDict.json")
+            .then(function (data) {
+                var count = 0;
+                for(var i in data) {
+                    if(data.hasOwnProperty(i)) {  // 建议加上判断,如果没有扩展对象属性可以不加
+                        count++;
+                    }
+                }
+                data.count=count;
+                console.log("数据")
+                console.log(data)
+                target.timelapses = data;
+            });
+    },
     formatter_arrest(target, index) {
-        //读取数据并转换为热力格式
-        console.log("/src/data/arrest" + index + ".json");
         var cache = this;
         d3.json("/src/data/arrest" + index + ".json")
             .then(function (data) {
-                console.log(data);
                 var arrestData = [];
                 var min = 10000;
                 var max = 0;

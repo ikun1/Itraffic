@@ -45,6 +45,12 @@
             <img id="rangeButton" v-on:click="reactRange" class="boxtext boxsubtitle rangeButton" src="./img/range.png"  />
           </div>
         </div>
+        <div class="boxitem">
+          <div style="width:100%; align-items:center;display:flex;">
+            <p class="boxtext boxsubtitle">驻点迁移</p>
+            <img  v-on:click="reactTime" class="boxtext boxsubtitle rangeButton retagleButton" src="./img/timelapses.png"  />
+          </div>
+        </div>
       </div>
 </template>
 
@@ -66,6 +72,9 @@ export default {
     methods:{
         reactRange(){
           this.$emit('range',"arrest");
+        },
+        reactTime(){
+          this.$emit('time');
         }
     },
     props:{
