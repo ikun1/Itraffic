@@ -27,6 +27,18 @@ body {
   display: flex;
   position: relative;
 }
+
+.playText{
+  text-align: center;
+  height: 10px;
+  font-size: 15px;
+
+}
+.playtiptext{
+  text-align: center;
+  font-size: 13px;
+
+}
 .outside{
     width:100%;
     display: flex;
@@ -83,6 +95,15 @@ p.title{
 .floatToolBar{
   top: 0px;
   left: 0%;
+  z-index: 5;
+  position: absolute;
+  opacity: 0.8;
+}
+.botToolBar{
+  right: 0;
+  left: 0;
+  bottom: 0;
+  margin: auto;
   z-index: 5;
   position: absolute;
   opacity: 0.8;
