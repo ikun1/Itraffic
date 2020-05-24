@@ -14,7 +14,7 @@
           </div>
         </div>
       </div>
-      <arrestDialog  v-show="!unfold" id="arrestDialog" ref="arrestDialog" left="-20%" @range="reactRange" @time="trigeringTime"/>
+      <arrestDialog  v-show="!unfold" id="arrestDialog" ref="arrestDialog" left="-20%" @range="reactRange" @time="appearDialog"/>
       <pathDialog  v-show="!unfold" id="pathDialog" ref="pathDialog" left="-20%" @showdiagram="showdiagram"/>
       <div id="toolBox" style="left:-20%;" class="floatToolBar" v-show="!unfold">
         <p class="boxtext boxtitle">热力图设置</p>
@@ -54,6 +54,7 @@
       </div>
       <dataInfo ref="dataInfoBox" ids="myinfoBox" @refreshArrest="loadArrestData" @func="drawData"/>
       <dataInfo ref="dataInfoBox"  ids="infoBox" @refreshArrest="loadArrestData" @func="drawData"/>
+      <playDialog ref="playDialog" @close="closeArrest" @change="reactArrest" @stop="stopArrest"  @start="startArrest" max=0 v-bind:show="showPlayDialog"/>
       <!-- <div class="input-card">
     <h4>轨迹回放控制</h4>
     <div class="input-item">
@@ -76,6 +77,7 @@ import { dataGenerator } from './dataGenerator.js'
 import dataInfo from './dataInfo.vue';
 import arrestDialog from './arrestDialog.vue';
 import pathDialog from './pathDialog.vue';
+import playDialog from './playDialog.vue';
 import funcMenu from './funcMenu.vue'
 import { pathColor } from './util.js';
 import { drawTable } from './tripTable.js';
@@ -123,8 +125,11 @@ export default {
     timeindex:0,//读入文件记号
     frame:0,//时间帧代号
     interval:'',//动画计时器 
-    activeMap:'',//圆点映射表
+    activeMap:new Map(),//圆点映射表
     test:0,
+    frameNumber:10,
+    frameRate:200,
+    showPlayDialog:false,//是否展示playerdialog
     status:{
       //分析图层集
       heatmap:false,//热力图（密度分析）
@@ -171,6 +176,7 @@ export default {
     dataInfo,
     arrestDialog,
     pathDialog,
+    playDialog,
     funcMenu
   },
   methods: {
@@ -304,8 +310,6 @@ export default {
         }
 
       //this.scale = d3.scaleLinear().domain([min,max]).range([248,81])
-      console.log(this.scale(min));
-      console.log(this.scale(max));
       this.initColor(this.scale,min,max);
       this.loadArrestData(arrestData);
     },
@@ -404,18 +408,45 @@ export default {
       this.map.on('mousedown',downEvent,this);
       this.map.on('mousemove',moveEvent,this);
     },
+    appearDialog(){
+      this.showPlayDialog = !this.showPlayDialog;
+      var target = this.$refs.playDialog
+      target.max=this.timelapses.count;
+    },
+    reactArrest(value){
+      this.timeindex = value;
+    },
+    startArrest(frameNumber,frameRate){
+      this.frameNumber = frameNumber;
+      this.frameRate = frameRate;
+      this.trigeringTime();
+    },
+    closeArrest(){
+      this.activeMap.forEach(function(factor){
+        factor.circle.hide();
+      },this)
+      if(this.status.arrest){
+       this.arrestCircles.forEach(function(circle){
+          circle.show();
+        })
+      }
+      this.showPlayDialog = false;
+    },
+    stopArrest(){
+      clearInterval(this.interval);
+    },
     trigeringTime()
     //时间演示开始
     {
-      this.activeMap = new Map();
-
+      //this.activeMap = new Map();
+      if(this.status.arrest){
        this.arrestCircles.forEach(function(circle){
           circle.hide();
         })
-        this.timeindex = 0;
+      }
         this.freshArrest();
         this.frame=0;
-      this.interval = setInterval(this.frameAction,100);
+      this.interval = setInterval(this.frameAction,this.frameRate);
     },
     freshArrest(){
       var index = this.timeindex;
@@ -455,20 +486,20 @@ export default {
           this.activeMap.set(points[0],newfactor);
         }else{
           factor.count++;
-          if(factor.count>this.test){
-            this.test = factor.count;
-            console.log(factor);
-          }
         }
         },this)
         
       this.timeindex = index+1;
+      var target = this.$refs.playDialog;
+      var value = parseInt(index / this.timelapses.count * 100);
+      target.progress = value;
       if(this.timeindex == this.timelapses.count){
         clearInterval(this.interval);
+        target.showDetail = true;
       }
     },
     frameAction(){
-       var framemax = 10;//三帧为例
+       var framemax = this.frameNumber;//三帧为例
        var opacityDiviser = 0.6/framemax;
       this.activeMap.forEach(function(factor){
         
@@ -569,7 +600,6 @@ export default {
           });
           }
         },this);
-        console.log(count);
         this.loadArrestData(newData);
       }
       this.$refs.dataInfoBox.countInfo(type,typeinfo,this.rangestate.rangeArea,count);

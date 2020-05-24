@@ -15,7 +15,12 @@ import arrestDialog from './arrestDialog.vue';
 import pathDialog from './pathDialog.vue';
 import { dataGenerator } from './dataGenerator.js'
 import api from './axios/index'
+import ElementUI from 'element-ui';
+import 'element-ui/lib/theme-chalk/index.css';
+
 Vue.use(api)
+Vue.use(ElementUI);
+
 var app = new Vue({
     el: '#app',
     template: '<App/>',
