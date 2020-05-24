@@ -87,6 +87,10 @@
             height: 375px;
             display: block;
         }
+
+        .in p{
+            display: inline;
+        }
     </style>
 </head>
 
@@ -113,43 +117,34 @@
                             <el-menu-item index="3-1">驻点及商圈</el-menu-item>
                         </el-menu-item-group>
                     </el-submenu>
-                    <el-submenu index="4">
-                        <template slot="title"><i class="el-icon-setting"></i>实验四</template>
-                        <el-menu-item-group>
-                            <template slot="title">分组一</template>
-                            <el-menu-item index="3-1">选项1</el-menu-item>
-                            <el-menu-item index="3-2">选项2</el-menu-item>
-                        </el-menu-item-group>
-                        <el-menu-item-group title="分组2">
-                            <el-menu-item index="3-3">选项3</el-menu-item>
-                        </el-menu-item-group>
-                        <el-submenu index="3-4">
-                            <template slot="title">选项4</template>
-                            <el-menu-item index="3-4-1">选项4-1</el-menu-item>
-                        </el-submenu>
-                    </el-submenu>
                 </el-menu>
             </el-aside>
             <el-container>
-                <el-header>Header</el-header>
+                <el-header style="font-size: 25px;font-weight: bold;">阡陌时空交通数据可视化系统</el-header>
                 <el-main>
                     <div v-show="chosenIndex=='1-1'">
                         <div class="roadScatter">
+                            <p class="des">热点路段（半径：路段热度）</p>
                         </div>
                         <el-row :gutter="20">
                             <el-col :span="5">
+                                <p class="des">出行比例</p>
                                 <div class="pieChart"></div>
                             </el-col>
                             <el-col :span="5">
+                                <p class="des">出行比例</p>
                                 <div class="donutChart"></div>
                             </el-col>
                             <el-col :span="5">
+                                <p class="des">各区域热度</p>
                                 <div class="barchart"></div>
                             </el-col>
                             <el-col :span="9">
+                                <p class="des">各时段出行量</p>
                                 <div class="bartimechart"></div>
                             </el-col>
                         </el-row>
+                        <p class="des">各时段下各区域出行量</p>
                         <div class="stackchart">
                         </div>
                     </div>
@@ -160,14 +155,23 @@
                             </el-col>
                             <el-col :span="11">
                                 <div class="density" style="height: 280px;">
-                                    <p class="title chinese">所选区：</p>
+                                    <el-card class="box-card">
+                                    <div class="in">
+                                        <p class="title chinese">所选区：</p>
                                     <p class="text chinese " id="district"></p>
-                                    <p class="title chinese">总流量：</p>
+                                    </div>
+                                    <div class="in">
+                                        <p class="title chinese">总流量：</p>
                                     <p class="text chinese " id="trans"></p>
+                                    </div>
                                     <p class="title chinese road">热门路段：</p>
                                     <div class="text chinese" id="road"></div>
+                                    </el-card>
+                                    
                                 </div>
-                                <div class="densityline"></div>
+                                <div class="densityline">
+                                    <p>各区域时段流量</p>
+                                </div>
                             </el-col>
                         </el-row>
                     </div>
@@ -177,13 +181,17 @@
                                 <div class="staymap"></div>
                             </el-col>
                             <el-col :span="11">
+                                <el-card class="box-card">
                                 <div class="staypointtext" style="height: 280px;">
                                     所选驻点:<p class="text chinese " id="point"></p>
                                     驻点频率:<p class="text chinese " id="frequency"></p>
                                     驻留时间:<p class="text chinese" id="time"></p>
                                     所在商圈:<p class="text chinese" id="business"></p>
                                 </div>
-                                <div class="business"></div>
+                            </el-card>
+                                <div class="business">
+                                    <p>热门商圈</p>
+                                </div>
                             </el-col>
                         </el-row>
                     </div>
