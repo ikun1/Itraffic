@@ -4,6 +4,7 @@ var dataGenerator = {
     //随机数据生成器
     originData: [],//初始数据
     arrestData:'',
+    cacheheat:'',
     attrs: [
         {
             name: '群体1',
@@ -87,8 +88,6 @@ var dataGenerator = {
                     }
                 }
                 data.count=count;
-                console.log("数据")
-                console.log(data)
                 target.timelapses = data;
             });
     },
@@ -138,9 +137,50 @@ var dataGenerator = {
                 target.initArrestData(arrestData, min, max);
             });
     },
+    formatter_heat(target,index,typeout){
+        if(this.cacheheat == ''){
+            var cache = this;
+            d3.json("/src/data/heatdata.json")
+            .then(function (data) {
+                cache.cacheheat = data;
+                var attributeCount = function(obj) {
+                    var count = 0;
+                    for(var i in obj) {
+                        if(obj.hasOwnProperty(i)) {  // 建议加上判断,如果没有扩展对象属性可以不加
+                            count++;
+                        }
+                    }
+                    return count;
+                }
+            
+                target.maxheatmap = attributeCount(data);
+                cache.formatter_heat(target,index,typeout);
+            },this)
+        }else{
+            console.log(index);
+            var origindata = this.cacheheat[""+index];
+            if($.isEmptyObject(origindata[0].count)){
+                origindata.forEach(function(data){
+                    data.count = data.frequency;
+                    data.info = ['deafault'];
+                },this)
+            }
+           
+            if(typeout==1){
+            target.loadHeatMap(origindata);
+            }else if(typeout==2){
+                target.readyheatmapdata = origindata;
+            }else if(typeout==3){
+                target.beginHeat(origindata);
+            }
+
+        }
+    },
+    getHeatData(){
+
+    },
     formatter(target, index) {
         //读取数据并转换为热力格式
-        console.log("/src/data/trip" + index + ".json");
         d3.json("/src/data/trip" + index + ".json")
             .then(function (data) {
                 console.log(data);
@@ -177,6 +217,7 @@ var dataGenerator = {
                         'info': value
                     })
                 });
+                console.log(heatmapdata);
                 target.loadHeatMap(heatmapdata);
             });
     },

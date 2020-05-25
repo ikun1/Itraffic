@@ -17,29 +17,21 @@
       <arrestDialog  v-show="!unfold" id="arrestDialog" ref="arrestDialog" left="-20%" @range="reactRange" @time="appearDialog"/>
       <pathDialog  v-show="!unfold" id="pathDialog" ref="pathDialog" left="-20%" @showdiagram="showdiagram"/>
       <div id="toolBox" style="left:-20%;" class="floatToolBar" v-show="!unfold">
-        <p class="boxtext boxtitle">热力图设置</p>
+        <p class="boxtext boxtitle">热力图工具</p>
         <div class="boxitem">
           <div style="width:100%">
-            <p class="boxtext boxsubtitle">日期:</p>
-            <p class="boxtext boxsubtitle" style="width:200px">2020/2/17</p>
+            <p class="boxtext boxsubtitle">时间:</p>
+            <p class="boxtext boxsubtitle" style="width:200px">{{nowdataindex}}</p>
           </div>
           <div class="fillbox">
-            <input type="range"  v-model="nowdataindex" v-on:change="reloadHeatMap" min="0" max="1" step="1" class="slider" />
+            <input type="range"  v-model="nowdataindex" v-on:change="reloadHeatMap" min="1" v-bind:max="maxheatmap" step="1" class="slider" />
           </div>
         </div>
+        
         <div class="boxitem">
           <div style="width:100%">
-            <p class="boxtext boxsubtitle">小时:</p>
-            <p class="boxtext boxsubtitle" style="width:200px">09:00</p>
-          </div>
-          <div class="fillbox">
-            <input type="range" value="50" min="0" max="100" step="1" class="slider" />
-          </div>
-        </div>
-        <div class="boxitem">
-          <div style="width:100%">
-            <p class="boxtext boxsubtitle">出行范围:</p>
-            <p class="boxtext boxsubtitle" style="width:200px">0.000公里</p>
+            <p class="boxtext boxsubtitle">不透明度:</p>
+            <p class="boxtext boxsubtitle" style="width:200px">100</p>
           </div>
           <div class="fillbox">
             <input type="range" value="50" min="0" max="100" step="1" class="slider" />
@@ -51,10 +43,17 @@
             <img id="rangeButton" class="boxtext boxsubtitle rangeButton" src="./img/range.png" v-on:click="reactRange('heatmap')" />
           </div>
         </div>
+         <div class="boxitem">
+          <div style="width:100%; align-items:center;display:flex;">
+            <p class="boxtext boxsubtitle">热力迁移</p>
+            <img  v-on:click="reactHeatTime" class="boxtext boxsubtitle rangeButton retagleButton" src="./img/timelapses.png"  />
+          </div>
+        </div>
       </div>
       <dataInfo ref="dataInfoBox" ids="myinfoBox" @refreshArrest="loadArrestData" @func="drawData"/>
-      <dataInfo   ids="infoBox" @refreshArrest="loadArrestData" @func="drawData"/>
-      <playDialog ref="playDialog" @close="closeArrest" @change="reactArrest" @stop="stopArrest"  @start="startArrest" max=0 v-bind:show="showPlayDialog"/>
+      <dataInfo  ref="dataInfoBox" ids="infoBox" @refreshArrest="loadArrestData" @func="drawData"/>
+      <playDialog  id="arrestPlayDialog" ref="playDialog"  @close="closeArrest" @change="reactArrest" @stop="stopArrest"  @start="startArrest" max=0 v-bind:show="showPlayDialog"/>
+      <playDialog id="heatPlayDialog" ref="heatplayDialog"  @close="closeArrest" @change="reactArrest" @stop="stopArrest"  @start="startHeat" max=0 v-bind:show="showHeatPlayDialog"/>
       <!-- <div class="input-card">
     <h4>轨迹回放控制</h4>
     <div class="input-item">
@@ -101,6 +100,8 @@ export default {
   return {
     map:'',
     heatmap:'',
+    nextheatmap:'',
+    readyheatmapdata:'',
     geocoder:'', 
     address:'',
     passedPolyline:'',//已移动过的路径
@@ -109,7 +110,7 @@ export default {
     lineArr:'',//移动路径
     pathData:'',
     heatmapdata:'',//热力图基础数据
-    nowdataindex:0,
+    nowdataindex:1,
     unfold:true,//是否折叠热力工具窗
     datasee:false,//是否显示数据分析窗
     isMapranging:false,//是否处于范围选取状态
@@ -124,12 +125,18 @@ export default {
     activeCircle:[],//时间数据中的活跃点
     timeindex:0,//读入文件记号
     frame:0,//时间帧代号
+    heatframe:0,
     interval:'',//动画计时器 
+    heatinterval:'',//热力计时器
     activeMap:new Map(),//圆点映射表
     test:0,
-    frameNumber:10,
-    frameRate:200,
+    frameNumber:8,
+    frameRate:100,
     showPlayDialog:false,//是否展示playerdialog
+    showHeatPlayDialog:false,
+    maxheatmap:0,
+    onetime:false,
+    waitnextread:false,
     status:{
       //分析图层集
       heatmap:false,//热力图（密度分析）
@@ -212,7 +219,22 @@ export default {
               1.0: 'red'
           }
       });
-      dataGenerator.formatter(cache,cache.nowdataindex);
+
+      cache.nextheatmap = new AMap.Heatmap(map, {
+          radius: 40, //给定半径
+          opacity: [0, 0],
+          gradient:{
+              0.5: 'blue',
+              0.65: 'rgb(117,211,248)',
+              0.7: 'rgb(0, 255, 0)',
+              0.9: '#ffea00',
+              1.0: 'red'
+          }
+      });
+      cache.nextheatmap.hide();
+      
+      //dataGenerator.formatter(cache,cache.nowdataindex);
+      dataGenerator.formatter_heat(cache,1,"1");
       dataGenerator.mergeData(cache,1);
       dataGenerator.loadArrest(cache);
       });
@@ -278,7 +300,8 @@ export default {
         }
     },
     reloadHeatMap(){
-      dataGenerator.formatter(this,this.nowdataindex);
+      this.onetime=true;
+      dataGenerator.formatter_heat(this,this.nowdataindex,3)
     },
     loadHeatMap(heatmapdata){
       this.heatmapdata = heatmapdata;
@@ -435,6 +458,77 @@ export default {
     stopArrest(){
       clearInterval(this.interval);
     },
+    reactHeat(value){
+      
+    },
+    startHeat(frameNumber,frameRate){
+      this.frameNumber = frameNumber;
+      this.frameRate = frameRate;
+      dataGenerator.formatter_heat(this,this.nowdataindex+1,"3");
+
+    },
+    closeHeat(){
+      
+    },
+    stopHeat(){
+      
+    },
+    heat_readframe(){
+      //热力图读入帧
+      this.heatmap.setDataSet({
+        data:this.nextheatmap.getDataSet().data
+      })
+      this.heatmapdata = this.nextheatmap.getDataSet().data;
+      this.heatmap.setOptions({
+        opacity:[0,0.8]
+      })
+      this.nextheatmap.setOptions({
+         opacity:[0,0]
+      })
+      if(this.onetime){
+        this.onetime=false;
+        clearInterval(this.heatinterval);
+        this.waitnextread = false;
+        return;
+      }
+      this.nextheatmap.setDataSet({
+        data: this.readyheatmapdata
+      });
+      dataGenerator.formatter_heat(this,this.nowdataindex+2,"2");
+      this.nowdataindex++;
+      this.waitnextread = false;
+    },
+    beginHeat(origindata){
+      this.heatmap.setOptions({
+                    opacity:[0,0.8]
+                  })
+                  this.nextheatmap.setOptions({
+                     opacity:[0,0]
+                  })
+                  this.nextheatmap.setDataSet({
+                    data: origindata
+                  });
+                this.nextheatmap.show();
+                this.heatinterval =  setInterval(this.heat_refresh,this.frameRate)
+    },
+    heat_refresh(){
+      if(this.waitnextread){
+        return;
+      }
+      var nextopa = (0.8*(this.heatframe + 1))/this.frameNumber;
+      this.heatmap.setOptions({
+        opacity:[0,0.8 - nextopa]
+      })
+      this.nextheatmap.setOptions({
+         opacity:[0,nextopa]
+      })
+      this.heatframe++;
+      if(this.heatframe == this.frameNumber){
+        this.heatframe = 0;
+        this.waitnextread = true;
+        this.heat_readframe();
+      }
+    },
     trigeringTime()
     //时间演示开始
     {
@@ -554,6 +648,9 @@ export default {
         this.freshArrest();
       }
 
+    },
+    reactHeatTime(){
+      this.showHeatPlayDialog = !this.showHeatPlayDialog;
     },
     countInfo(type){
       //计算圈选范围详细信息
