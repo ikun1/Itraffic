@@ -10,7 +10,7 @@
           <p class="boxtext boxsubtitle" style="width:200px">{{ammount}}</p>
         </div>
     <div id="infoList" class="strbox">
-        <div class="centeritems"  v-for="(typeitem,index) in typeinfo">
+        <div class="centeritems"  v-for="(typeitem,index) in typeinfo" v-bind:key="index">
         <input type="checkbox" checked="checked" class="checkbox" v-on:change="changeGroups(index,$event)" />
         <p class="boxtext centeritem" style="display:inline;vertical-align: middle;" v-on:click="showIDs(index)">{{typeitem.name}}▼</p>
         <svg width="100%" height="30px" class="lineSvg">
@@ -18,7 +18,7 @@
             <text x="80%" y="55%" fill="white" class="littlenumber">{{typeitem.percent}}%</text>
         </svg>
         <div id="displayID" class="strbox" v-show="isunfold[index]">
-            <div v-for="item in typeitem.info">
+            <div v-for="(item,mykey) in typeitem.info" v-bind:key="mykey">
             <input type="checkbox"  class="checkbox" v-bind:value="item" v-on:change="changeIDs(item,$event)" v-model="checkedIDs[index]" />
             <p class="boxtext" style="font-size:12px;display:inline;vertical-align: middle;">{{item.id}}</p>
             </div>
@@ -44,7 +44,8 @@ export default {
             type:'',
             rangeArea:0,
             ammount:0,
-            arrestMap:''
+            arrestMap:'',
+            mykey:0
         }
     },
     methods:{

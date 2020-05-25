@@ -53,7 +53,7 @@
         </div>
       </div>
       <dataInfo ref="dataInfoBox" ids="myinfoBox" @refreshArrest="loadArrestData" @func="drawData"/>
-      <dataInfo ref="dataInfoBox"  ids="infoBox" @refreshArrest="loadArrestData" @func="drawData"/>
+      <dataInfo   ids="infoBox" @refreshArrest="loadArrestData" @func="drawData"/>
       <playDialog ref="playDialog" @close="closeArrest" @change="reactArrest" @stop="stopArrest"  @start="startArrest" max=0 v-bind:show="showPlayDialog"/>
       <!-- <div class="input-card">
     <h4>轨迹回放控制</h4>
