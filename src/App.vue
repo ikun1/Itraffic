@@ -246,6 +246,7 @@ export default {
     })
 
     d3.select(".quick-menu").style("position", "absolute");
+    d3.select(".amap-logo").remove()
 
     },
     countLeft(index){

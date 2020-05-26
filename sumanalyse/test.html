@@ -9,8 +9,30 @@
 <!-- 引入组件库 -->
 </head>
 <body>
+    <div id="demo"></div>
 <script src="https://d3js.org/d3.v5.min.js"></script>
 <script type="text/javascript" src="https://unpkg.com/dc@4/dist/dc.js"></script>
-
+<script>
+    d3.json("roadParse.json").then(function(data){
+        console.log(data)
+        let heatobj = {}
+        for(let key in data){
+            debugger
+            let array = []
+            for(let place in data[key]){
+                debugger
+                let curobj = {}
+                curobj.lat = data[key][place]["lat"]
+                curobj.lng = data[key][place]["lng"]
+                curobj.frequency = data[key][place]["frequency"]
+                curobj.userid = []
+                array.push(curobj)
+            }
+            heatobj[key] = array
+        }
+        document.getElementById("demo").innerHTML = JSON.stringify(heatobj) 
+        console.log(heatobj)
+    })
+</script>
 </body>
 </html>
