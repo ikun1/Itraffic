@@ -51,7 +51,7 @@
         </div>
       </div>
       <dataInfo ref="dataInfoBox" ids="myinfoBox" @refreshArrest="loadArrestData" @func="drawData"/>
-      <dataInfo  ref="dataInfoBox" ids="infoBox" @refreshArrest="loadArrestData" @func="drawData"/>
+      <dataInfo  ids="infoBox" @refreshArrest="loadArrestData" @func="drawData"/>
       <playDialog  id="arrestPlayDialog" ref="playDialog"  @close="closeArrest" @change="reactArrest" @stop="stopArrest"  @start="startArrest" max=0 v-bind:show="showPlayDialog"/>
       <playDialog id="heatPlayDialog" ref="heatplayDialog"  @close="closeArrest" @change="reactArrest" @stop="stopArrest"  @start="startHeat" max=0 v-bind:show="showHeatPlayDialog"/>
       <!-- <div class="input-card">
