@@ -4,7 +4,7 @@
     <div class="boxitem">
       <div style="width:100%">
         <p class="boxtext boxsubtitle">日期:</p>
-        <p class="boxtext boxsubtitle" style="width:200px">2020/2/17</p>
+        <p class="boxtext boxsubtitle" style="width:200px">2018/10/03</p>
       </div>
       <div class="fillbox">
         <input type="range" value="50" min="0" max="100" step="1" class="slider" />
@@ -57,17 +57,12 @@
         </div>
       </div>
     </div>
-    <div class="boxitem" style="padding-bottom: 30px;">
-      <div style="width:100%; align-items:center;display:flex;">
-        <p class="boxtext boxsubtitle">图表分析</p>
-        <img
-          id="pathButton"
-          v-on:click="showdiagram"
-          class="boxtext boxsubtitle rangeButton"
-          src="./img/pathdiagram.png"
-        />
-      </div>
-    </div>
+    <div class="boxitem">
+          <div style="width:100%; align-items:center;display:flex;">
+            <p class="boxtext boxsubtitle">出行迁移</p>
+            <img  v-on:click="reactTime" class="boxtext boxsubtitle rangeButton retagleButton" src="./img/timelapses.png"  />
+          </div>
+        </div>
   </div>
 </template>
 

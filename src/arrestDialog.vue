@@ -4,7 +4,7 @@
         <div class="boxitem">
           <div style="width:100%">
             <p class="boxtext boxsubtitle">日期:</p>
-            <p class="boxtext boxsubtitle" style="width:200px">2020/2/17</p>
+            <p class="boxtext boxsubtitle" style="width:200px">2018/10/03</p>
           </div>
           <div class="fillbox">
              <input type="range" value="50" min="0" max="100" step="1" class="slider" />

@@ -19,6 +19,12 @@
       <div id="toolBox" style="left:-20%;" class="floatToolBar" v-show="!unfold">
         <p class="boxtext boxtitle">热力图工具</p>
         <div class="boxitem">
+        <div style="width:100%">
+            <p class="boxtext boxsubtitle">日期:</p>
+            <p class="boxtext boxsubtitle" style="width:200px">2018/10/03</p>
+          </div>
+        </div>
+        <div class="boxitem">
           <div style="width:100%">
             <p class="boxtext boxsubtitle">时间:</p>
             <p class="boxtext boxsubtitle" style="width:200px">{{nowdataindex}}</p>
@@ -757,7 +763,8 @@ export default {
             //     this.lineArr = path;
             //     getFirst = false;
             // }
-            path.push(new AMap.LngLat(data['path'][i][0], data['path'][i][1]))
+path.push(new AMap.LngLat(data['path'][i][0], data['path'][i][1]))
+            
         }
         // 创建折线实例
         var polyline = new AMap.Polyline({
