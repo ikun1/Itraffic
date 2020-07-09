@@ -16,6 +16,7 @@
       </div>
       <arrestDialog  v-show="!unfold" id="arrestDialog" ref="arrestDialog" left="-20%" @range="reactRange" @time="appearDialog"/>
       <pathDialog  v-show="!unfold" id="pathDialog" ref="pathDialog" left="-20%" @showdiagram="showdiagram"/>
+      <additionDialog  v-show="!unfold" id="additionDialog" ref="additionDialog" left="-20%"/>
       <div id="toolBox" style="left:-20%;" class="floatToolBar" v-show="!unfold">
         <p class="boxtext boxtitle">热力图工具</p>
         <div class="boxitem">
@@ -83,6 +84,7 @@ import dataInfo from './dataInfo.vue';
 import arrestDialog from './arrestDialog.vue';
 import pathDialog from './pathDialog.vue';
 import playDialog from './playDialog.vue';
+import additionDialog from './additionDialog.vue';
 import funcMenu from './funcMenu.vue'
 import { pathColor } from './util.js';
 import { drawTable } from './tripTable.js';
@@ -190,6 +192,7 @@ export default {
     arrestDialog,
     pathDialog,
     playDialog,
+    additionDialog,
     funcMenu
   },
   methods: {
@@ -304,6 +307,8 @@ export default {
           this.unfoldBox('arrestDialog');
         }else if(layerName == "heatmap"){
           this.unfoldBox('toolBox');
+        }else if(layerName == "addition"){
+          this.unfoldBox('additionDialog');
         }
     },
     reloadHeatMap(){
@@ -342,6 +347,29 @@ export default {
       //this.scale = d3.scaleLinear().domain([min,max]).range([248,81])
       this.initColor(this.scale,min,max);
       this.loadArrestData(arrestData);
+
+        var typeinfo = JSON.parse(JSON.stringify(dataGenerator.attrs));
+        var newData = [];
+        var count = 0;
+          this.arrestData.forEach(user=>{  
+          //遍历所有点，找出在圆范围的点
+          var newArrest = [];
+          for(var i = 0;i<user.arrests.length;i++){
+            var a = user.arrests[i];
+              newArrest.push(a);
+          }
+          if(newArrest.length > 0){
+          count++;
+          typeinfo[user.attr].info.push({
+            id:user.id,
+            arrests:newArrest,
+            attr:user.attr
+          });
+          }
+        },this);
+        console.log(typeinfo);
+        this.$refs.additionDialog.typeinfo = typeinfo;
+      
     },
     loadArrestData(arrestData){
       this.arrestCircles.forEach(function(circle){
@@ -366,6 +394,8 @@ export default {
           }
         },this)
       },this);
+
+
     },
     initColor(scale,min,max){
       //计算驻点图例
@@ -661,8 +691,16 @@ export default {
     },
     countInfo(type){
       //计算圈选范围详细信息
+      if (this.rangestate.circle != ''){
       var center = this.rangestate.circle.getCenter();
       var radius = this.rangestate.circle.getRadius();
+      console.log(center);
+      console.log(radius);
+      }
+      else{
+        var center = [123.4119873,41.8078804];
+        var radius = 50000000;
+      }
       var count = 0;
       var typeinfo = JSON.parse(JSON.stringify(dataGenerator.attrs));//克隆一份对象，不影响原值
       if(type == "heatmap"){

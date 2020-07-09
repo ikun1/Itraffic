@@ -14,10 +14,12 @@ export default {
   },
   data() {
       return {
-        count:3,
+        count:4,
         icons:["fa icon-pathtool","fa icon-arresttool",
-               "fa icon-heatmaptool"],
+               "fa icon-heatmaptool","fa icon-addition","fa icon-medical"],
         list:["http://jd.com",
+            "http://jd.com",
+            "http://jd.com",
             "http://jd.com",
             "http://jd.com"],
         backgroundColor:'#3e8e41',
@@ -35,6 +37,8 @@ export default {
         }else if(key == 2)
         {
           this.$emit('react',"heatmap");
+        }else if (key == 3){
+          this.$emit('react',"addition");
         }
       }
 
@@ -67,6 +71,24 @@ export default {
   height: 40px;
   width: 40px;
   background: url(./img/arresttool.png) no-repeat;
+  background-size: 100%;
+}
+.icon-commerce:before 
+{
+  content: "";
+  display: block;
+  height: 40px;
+  width: 40px;
+  background: url(./img/commercial.png) no-repeat;
+  background-size: 100%;
+}
+.icon-addition:before 
+{
+  content: "";
+  display: block;
+  height: 40px;
+  width: 40px;
+  background: url(./img/addition.png) no-repeat;
   background-size: 100%;
 }
 </style>
