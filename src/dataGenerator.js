@@ -8,15 +8,17 @@ var dataGenerator = {
     commercePoint:[//存放商铺建议点数据
         {
             target:[0],//单单群体一时的建议点
-            point:[123.411154,41.782403],
+            point:new AMap.LngLat(123.411154,41.782403),
             descript:"沈阳市沈河区南二经街",
+            type:0,//type分为0，1，2三个阶层，划分不同的建议度
             val1:40,
             val2:80
         },
         {
             target:[0],//单单群体一时的建议点
-            point:[123.387942,41.782399],
+            point:new AMap.LngLat(123.387942,41.782399),
             descript:"沈阳市沈河区南二经街",
+            type:0,
             val1:40,
             val2:80
         }

@@ -29,6 +29,21 @@
           </div>
         </div>
         <div class="boxitem">
+            <p class="boxtext boxsubtitle">显示模式:</p>
+            <div  class="fillbox">
+            <el-switch
+              style="display: block"
+              v-model="modevalue"
+              active-color="#13ce66"
+              inactive-color="#ff4949"
+              active-text="显示群体"
+              v-on:change="changeMode"
+              inactive-text="显示热度">
+            </el-switch>
+            </div>
+
+        </div>
+        <div class="boxitem">
           <p class="boxtext boxsubtitle">图例:</p>
           <svg width="100%" height="30px" version="1.1" xmlns="http://www.w3.org/2000/svg">
             <line x1="5%" y1="10" x2="35%" y2="10" v-bind:style="{ stroke: minicolor }" class="colorline" />
@@ -66,7 +81,8 @@ export default {
                 maxcolor:'red',
                 mininumber:'0',//图例三种数字
                 midiumnumber:'0',
-                maxnumber:'0'
+                maxnumber:'0',
+                modevalue:true
         }
     },
     methods:{
@@ -75,6 +91,10 @@ export default {
         },
         reactTime(){
           this.$emit('time');
+        },
+        changeMode(){
+          console.log("hello");
+          this.$emit('redrawArrest');
         }
     },
     props:{

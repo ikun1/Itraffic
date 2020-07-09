@@ -14,9 +14,9 @@
           </div>
         </div>
       </div>
-      <arrestDialog  v-show="!unfold" id="arrestDialog" ref="arrestDialog" left="-20%" @range="reactRange" @time="appearDialog"/>
+      <arrestDialog  v-show="!unfold" id="arrestDialog" ref="arrestDialog" left="-20%" @redrawArrest="redrawArrest" @range="reactRange" @time="appearDialog"/>
       <pathDialog  v-show="!unfold" id="pathDialog" ref="pathDialog" left="-20%" @showdiagram="showdiagram"/>
-      <additionDialog  v-show="!unfold" id="additionDialog" ref="additionDialog" left="-20%"/>
+      <additionDialog  v-show="!unfold" id="additionDialog" ref="additionDialog" left="-20%" @loadCommerce="loadCommerce"/>
       <div id="toolBox" style="left:-20%;" class="floatToolBar" v-show="!unfold">
         <p class="boxtext boxtitle">热力图工具</p>
         <div class="boxitem">
@@ -145,11 +145,14 @@ export default {
     maxheatmap:0,
     onetime:false,
     waitnextread:false,
+    commerceMarkers:[],
+    commerceDatas:[],
     status:{
       //分析图层集
       heatmap:false,//热力图（密度分析）
       arrest:false,//驻点分析
-      path:false//路径分析
+      path:false,//路径分析
+      enhancement:false//增强功能
     },
     rangestate:{//选取圆形范围
       begin:'',
@@ -367,22 +370,31 @@ export default {
           });
           }
         },this);
-        console.log(typeinfo);
         this.$refs.additionDialog.typeinfo = typeinfo;
       
     },
     loadArrestData(arrestData){
+      var appearType = this.$refs.arrestDialog.modevalue;
+
       this.arrestCircles.forEach(function(circle){
         this.map.remove(circle);
       },this);
       this.arrestCircles.length=0;
+      var attrs = dataGenerator.attrs;
       arrestData.forEach(function(user){
+        var color = '';
+        if(appearType){
+          color = attrs[user.attr].color;
+        }
         user.arrests.forEach(function(arrest){
           var scale = this.scale;
+          if(!appearType){
+          color = scale(arrest.hours)
+        }
           var circle = new AMap.Circle({
             center: arrest.location,  // 圆心位置
             radius: 200, // 圆半径
-            fillColor: scale(arrest.hours),   // 圆形填充颜色
+            fillColor: color,   // 圆形填充颜色
             fillOpacity:0.6,//圆形填充透明度
             strokeColor: '#fff', // 描边颜色
             strokeWeight: 1, // 描边宽度
@@ -418,6 +430,7 @@ export default {
         this.foldTargetBox("#toolBox");
         this.foldTargetBox("#arrestDialog");
         this.foldTargetBox("#pathDialog");
+         this.foldTargetBox("#additionDialog");
       }
     },
     foldTargetBox(target){
@@ -467,6 +480,59 @@ export default {
       }
       this.map.on('mousedown',downEvent,this);
       this.map.on('mousemove',moveEvent,this);
+    },
+    loadCommerce(data){
+      var points = dataGenerator.commercePoint;
+      var allpoints = [];
+      var dataString = data.sort().toString();
+      points.forEach(function(indata){
+        if(indata.target.sort().toString()==dataString){
+          allpoints.push(indata);
+        }
+      })
+      this.commerceDatas = allpoints;
+      this.commerceMarkers = [];
+      var showInfo = function(marker){
+        
+      };
+      allpoints.forEach(function(pointData){
+        var imgurl;
+        if(pointData.type == 0){
+          imgurl = './src/img/commerce.png'
+        }else if(pointData.type == 1){
+          imgurl = './src/img/commerce-normal.png'
+        }else if(pointData.type == 2){
+          imgurl = './src/img/commerce-hot.png'
+        }
+        var marker = new AMap.Marker({
+          position: pointData.point,
+          offset: new AMap.Pixel(-10, -10),
+          icon: imgurl, // 添加 Icon 图标 URL
+          title: '落点建议',
+          extData:pointData
+        });
+          var clickHandle = AMap.event.addListener(marker, 'click', function(e) {
+            var cur =JSON.parse(JSON.stringify(e.target.getExtData()));
+            this.commerceMarkers.forEach(function(marker){
+              marker.setLabel({
+                content:''
+              })
+            },this)
+            e.target.setLabel({
+                offset: new AMap.Pixel(0, -10),  //设置文本标注偏移量
+                content: "<div><p class='stext'>"+cur.descript+"</p><p class='stext'>参数1："+cur.val1+"</p><p class='stext'>参数2："+cur.val2+"</p></div>", //设置文本标注内容
+                direction: 'top' //设置文本标注方位
+            });
+            this.map.panTo(e.target.getPosition());
+          },this);
+
+        this.map.add(marker);
+        this.commerceMarkers.push(marker);
+      },this)
+
+    },
+    redrawArrest(){
+      this.loadArrestData(this.arrestData);
     },
     appearDialog(){
       this.showPlayDialog = !this.showPlayDialog;
@@ -694,8 +760,7 @@ export default {
       if (this.rangestate.circle != ''){
       var center = this.rangestate.circle.getCenter();
       var radius = this.rangestate.circle.getRadius();
-      console.log(center);
-      console.log(radius);
+
       }
       else{
         var center = [123.4119873,41.8078804];

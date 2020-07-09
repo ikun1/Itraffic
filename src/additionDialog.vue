@@ -3,6 +3,7 @@
         <p class="boxtext boxtitle">附加功能</p>
         <hr align="center" width="100%" color="#987cb9" SIZE="1" />
         <div class="boxitem">
+          <img src="./img/commercial.png" style="width:40px;height:40px;display:inline"/>
           <p class="vice-title">商业功能</p>
         </div>
          <div class="boxitem">
@@ -10,7 +11,7 @@
             <p class="boxtext boxsubtitle">选择店铺目标群体：</p>
              <div id="infoList" class="strbox">
                 <div class="centeritems"  v-for="(typeitem,index) in typeinfo" v-bind:key="index">
-                <input type="checkbox" checked="checked" class="checkbox"/>
+                <input type="checkbox" v-on:change="changeGroups(index,$event)" class="checkbox"/>
                 <p class="boxtext centeritem" style="display:inline;vertical-align: middle;" v-on:click="showIDs(index)">{{typeitem.name}}▼</p>
                 <svg width="100%" height="30px" class="lineSvg">
                     <line x1="0" y1="50%" v-bind:x2="typeitem.percent + '%'" y2="50%" v-bind:style="{ stroke: typeitem.color }" class="colorbar" />
@@ -28,8 +29,29 @@
           <div class="fillbox">
             <el-button  v-on:click="beginAnalyze()" type="primary" round>开始评估</el-button>
           </div>
+      <div class="boxitem">
+      <p class="boxtext boxsubtitle">图例:</p>
+      <div
+        style="display: flex; align-items: center; margin-left: 40px; min-height: 33px; font: 10px sans-serif;"
+      >
+        <div style="width: 100%; columns: 180px;">
+          <div class="O-1-item">
+            <div class="O-1-swatch" style="background:rgb(237,39,0);"></div>
+            <div class="O-1-label" title="Leisure and hospitality">热门落点</div>
+          </div>
+          <div class="O-1-item">
+            <div class="O-1-swatch" style="background:rgb(237,201,0);"></div>
+            <div class="O-1-label" title="Business services">建议落点</div>
+          </div>
+          <div class="O-1-item">
+            <div class="O-1-swatch" style="background:rgb(45,63,83);"></div>
+            <div class="O-1-label" title="Construction">可选落点</div>
+          </div>
         </div>
       </div>
+        </div>
+      </div>
+       </div>
 </template>
 
 <script>
@@ -48,6 +70,7 @@ export default {
                  typeinfo:'',
                  isunfold:[],
                 checkedIDs:[],
+                checkedGroups:[]
         }
     },
     methods:{
@@ -55,11 +78,25 @@ export default {
           this.$emit('range',"arrest");
         },
         reactTime(){
-          this.$emit('time');
         },
         showIDs(index){
             this.$set(this.isunfold,index,!this.isunfold[index]);
         },
+        changeGroups(index,event){
+          if(event.target.checked){
+              this.checkedGroups.push(index);
+          }else{
+              this.checkedGroups.forEach(function(data,i){
+                if(data == index)
+                {
+                  this.checkedGroups.splice(i,1);
+                }
+              },this);
+          }
+        },
+        beginAnalyze(){
+          this.$emit('loadCommerce',this.checkedGroups);
+        }
     },
     props:{
         left:{
