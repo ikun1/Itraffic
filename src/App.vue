@@ -59,6 +59,7 @@
       </div>
       <dataInfo ref="dataInfoBox" ids="myinfoBox" @refreshArrest="loadArrestData" @func="drawData"/>
       <dataInfo  ids="infoBox" @refreshArrest="loadArrestData" @func="drawData"/>
+      <commerceInfo id="commerceInfo" ref="commerceInfo" />
       <playDialog  id="arrestPlayDialog" ref="playDialog"  @close="closeArrest" @change="reactArrest" @stop="stopArrest"  @start="startArrest" max=0 v-bind:show="showPlayDialog"/>
       <playDialog id="heatPlayDialog" ref="heatplayDialog"  @close="closeArrest" @change="reactArrest" @stop="stopArrest"  @start="startHeat" max=0 v-bind:show="showHeatPlayDialog"/>
       <!-- <div class="input-card">
@@ -84,6 +85,7 @@ import dataInfo from './dataInfo.vue';
 import arrestDialog from './arrestDialog.vue';
 import pathDialog from './pathDialog.vue';
 import playDialog from './playDialog.vue';
+import commerceInfo from "./commerceInfo.vue"
 import additionDialog from './additionDialog.vue';
 import funcMenu from './funcMenu.vue'
 import { pathColor } from './util.js';
@@ -196,7 +198,8 @@ export default {
     pathDialog,
     playDialog,
     additionDialog,
-    funcMenu
+    funcMenu,
+    commerceInfo
   },
   methods: {
     loadmap(){
@@ -446,6 +449,9 @@ export default {
     showdiagram(){
       d3.select("#infoBox").transition().style("left", "80%");
     },
+    showCommerceInfo(){
+      d3.select("#commerceInfo").transition().style("left", "80%");
+    },
     reactRange(type){
       //圈选范围响应
       this.unfold = true;
@@ -482,6 +488,7 @@ export default {
       this.map.on('mousemove',moveEvent,this);
     },
     loadCommerce(data){
+      this.showCommerceInfo();
       var points = dataGenerator.commercePoint;
       var allpoints = [];
       var dataString = data.sort().toString();
