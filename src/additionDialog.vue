@@ -8,7 +8,7 @@
         </div>
          <div class="boxitem">
           <div style="width:100%">
-            <p class="boxtext boxsubtitle">选择店铺目标群体：</p>
+            <p class="boxtext boxsubtitle littletip">选择店铺目标群体，为您分析建议的商铺落点：</p>
              <div id="infoList" class="strbox">
                 <div class="centeritems"  v-for="(typeitem,index) in typeinfo" v-bind:key="index">
                 <input type="checkbox" v-on:change="changeGroups(index,$event)" class="checkbox"/>
@@ -27,7 +27,7 @@
             </div>
           </div>
           <div class="fillbox">
-            <el-button  v-on:click="beginAnalyze()" type="primary" round>开始评估</el-button>
+            <el-button  v-on:click="beginAnalyze(1)" type="primary" round>开始评估</el-button>
           </div>
       <div class="boxitem">
       <p class="boxtext boxsubtitle">图例:</p>
@@ -46,10 +46,23 @@
           <div class="O-1-item">
             <div class="O-1-swatch" style="background:rgb(45,63,83);"></div>
             <div class="O-1-label" title="Construction">可选落点</div>
+              </div>
+            </div>
           </div>
+            </div>
+      <hr align="center" width="100%" color="#987cb9" SIZE="1" />
+        <div class="boxitem">
+          <img src="./img/medical.png" style="width:40px;height:40px;display:inline"/>
+          <p class="vice-title">医疗功能</p>
         </div>
-      </div>
-        </div>
+        <div class="boxitem">
+          <div style="width:100%">
+            <p class="boxtext boxsubtitle littletip" >防疫病原追踪：锁定已知病原携带者，给出可疑接触个体及防疫建议</p>
+          </div></div>
+           <div class="fillbox" style="margin-top: 15px;margin-bottom:15px">
+            <el-button  v-on:click="beginAnalyze(2)" type="primary" round>开始分析</el-button>
+          </div>
+
       </div>
        </div>
 </template>
@@ -94,8 +107,11 @@ export default {
               },this);
           }
         },
-        beginAnalyze(){
+        beginAnalyze(ind){
+          if(ind==1)
           this.$emit('loadCommerce',this.checkedGroups);
+          else if(ind == 2)
+          this.$emit('beginMedical');
         }
     },
     props:{
