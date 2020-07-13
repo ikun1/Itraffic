@@ -366,17 +366,55 @@ right:0;
 
 
 .storeLoc{
-  top: 0px;
-  left: 60%;
+  top: 5%;
+  left: 75%;
+  z-index: 5;
+  position: absolute;
+  opacity: 0.8;
+  width: 20%;
+  height: 35%;
+  background-color: rgb(41, 43, 61);
+  border-radius:5px;
+  justify-content: center;
+  overflow-y: scroll;
+}
+
+#costomerFeature{
+  top: 42%;
+  left: 75%;
+  z-index: 5;
+  position: absolute;
+  opacity: 0.8;
+  width: 20%;
+  height: 55%;
+  background-color: rgb(41, 43, 61);
+  color: white;
+  border-radius:5px;
+  justify-content: center;
+  overflow-y: scroll;
+}
+
+#commerceType{
+  top: 60%;
+  left: 30%;
   z-index: 5;
   position: absolute;
   opacity: 0.8;
   width: 40%;
-  height: 100%;
-  background-color: white;
+  height: 37%;
+  background-color: rgb(41, 43, 61);
+  color: white;
   border-radius:5px;
   justify-content: center;
   overflow-y: scroll;
+}
+
+#commerceType::-webkit-scrollbar {
+  display: none;/*隐藏滚动条*/
+}
+
+#costomerFeature::-webkit-scrollbar {
+  display: none;/*隐藏滚动条*/
 }
 
 .storeLoc::-webkit-scrollbar {
@@ -386,6 +424,19 @@ right:0;
 .littletip{
   font-size: 13px;
   margin-bottom: 10px;
+}
+
+.el-table, .el-table__expanded-cell {
+  background-color: transparent;
+}
+
+.el-table th, .el-table tr {
+  background-color: transparent;
+}
+
+.el-table .el-table--fit .el-table--enable-row-hover .el-table--enable-row-transition{
+  background-color: rgb(41, 43, 61);
+  color: white;
 }
 
 /*性别比例部分的CSS*/
@@ -402,7 +453,7 @@ right:0;
 .gender-proportion-img {
   display: block;
   float: left;
-  margin-right: 0.53rem;
+  margin-right: 0.2rem;
   width: 1.67rem;
   height: 4rem;
 }
@@ -419,7 +470,7 @@ right:0;
   background: #2a93d4;
 }
 .firstBlockPercent {
-  width: 67%;
+  width: 100%;
   height: 3.33rem;
   line-height: 3.33rem;
   margin: -2rem auto 0px;
@@ -427,15 +478,14 @@ right:0;
 .female-percent {
   text-align: center;
   float: left;
-  width: 70%;
+  width: 55%;
   height: 100%;
   line-height: 3.33rem;
   font-size: 1.13rem;
 }
 .male-percent {
-  text-align: center;
   float: left;
-  width: 30%;
+  width: 45%;
   height: 100%;
   line-height: 3.33rem;
   font-size: 1.13rem;

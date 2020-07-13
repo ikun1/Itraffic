@@ -60,6 +60,8 @@
       <dataInfo ref="dataInfoBox" ids="myinfoBox" @refreshArrest="loadArrestData" @func="drawData"/>
       <dataInfo  ids="infoBox" @refreshArrest="loadArrestData" @func="drawData"/>
       <commerceInfo id="commerceInfo" ref="commerceInfo" />
+      <commerceType id="commerceType" ref="commerceType" />
+      <costomerFeature id="costomerFeature" ref="costomerFeature" />
       <infectionDialog id="infectionDialog" ref="infectionDialog" @confirm="confirmInfection" v-bind:show="infectionShow"/>
 
       <playDialog  id="arrestPlayDialog" ref="playDialog"  @close="closeArrest" @change="reactArrest" @stop="stopArrest"  @start="startArrest" max=0 v-bind:show="showPlayDialog"/>
@@ -88,6 +90,8 @@ import arrestDialog from './arrestDialog.vue';
 import pathDialog from './pathDialog.vue';
 import playDialog from './playDialog.vue';
 import commerceInfo from "./commerceInfo.vue"
+import commerceType from "./commerceType.vue"
+import costomerFeature from "./costomerFeature.vue"
 import additionDialog from './additionDialog.vue';
 import infectionDialog from "./infectionDialog.vue";
 import funcMenu from './funcMenu.vue'
@@ -204,6 +208,8 @@ export default {
     additionDialog,
     funcMenu,
     commerceInfo,
+    commerceType,
+    costomerFeature,
     infectionDialog
   },
   methods: {
