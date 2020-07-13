@@ -16,7 +16,7 @@
       </div>
       <arrestDialog  v-show="!unfold" id="arrestDialog" ref="arrestDialog" left="-20%" @redrawArrest="redrawArrest" @range="reactRange" @time="appearDialog"/>
       <pathDialog  v-show="!unfold" id="pathDialog" ref="pathDialog" left="-20%" @showdiagram="showdiagram"/>
-      <additionDialog  v-show="!unfold" id="additionDialog" ref="additionDialog" left="-20%" @loadCommerce="loadCommerce"/>
+      <additionDialog  v-show="!unfold" id="additionDialog" ref="additionDialog" left="-20%" @loadCommerce="loadCommerce" @beginMedical="beginMedical"/>
       <div id="toolBox" style="left:-20%;" class="floatToolBar" v-show="!unfold">
         <p class="boxtext boxtitle">热力图工具</p>
         <div class="boxitem">
@@ -60,6 +60,8 @@
       <dataInfo ref="dataInfoBox" ids="myinfoBox" @refreshArrest="loadArrestData" @func="drawData"/>
       <dataInfo  ids="infoBox" @refreshArrest="loadArrestData" @func="drawData"/>
       <commerceInfo id="commerceInfo" ref="commerceInfo" />
+      <infectionDialog id="infectionDialog" ref="infectionDialog" @confirm="confirmInfection" v-bind:show="infectionShow"/>
+
       <playDialog  id="arrestPlayDialog" ref="playDialog"  @close="closeArrest" @change="reactArrest" @stop="stopArrest"  @start="startArrest" max=0 v-bind:show="showPlayDialog"/>
       <playDialog id="heatPlayDialog" ref="heatplayDialog"  @close="closeArrest" @change="reactArrest" @stop="stopArrest"  @start="startHeat" max=0 v-bind:show="showHeatPlayDialog"/>
       <!-- <div class="input-card">
@@ -87,6 +89,7 @@ import pathDialog from './pathDialog.vue';
 import playDialog from './playDialog.vue';
 import commerceInfo from "./commerceInfo.vue"
 import additionDialog from './additionDialog.vue';
+import infectionDialog from "./infectionDialog.vue";
 import funcMenu from './funcMenu.vue'
 import { pathColor } from './util.js';
 import { drawTable } from './tripTable.js';
@@ -149,6 +152,7 @@ export default {
     waitnextread:false,
     commerceMarkers:[],
     commerceDatas:[],
+    infectionShow:false,
     status:{
       //分析图层集
       heatmap:false,//热力图（密度分析）
@@ -199,7 +203,8 @@ export default {
     playDialog,
     additionDialog,
     funcMenu,
-    commerceInfo
+    commerceInfo,
+    infectionDialog
   },
   methods: {
     loadmap(){
@@ -374,6 +379,8 @@ export default {
           }
         },this);
         this.$refs.additionDialog.typeinfo = typeinfo;
+        this.$refs.infectionDialog.typeinfo =typeinfo;
+        this.$refs.infectionDialog.countInfo();
       
     },
     loadArrestData(arrestData){
@@ -486,6 +493,14 @@ export default {
       }
       this.map.on('mousedown',downEvent,this);
       this.map.on('mousemove',moveEvent,this);
+    },
+    beginMedical(){
+      d3.select("#container").classed("blurBackground",true);
+      this.infectionShow = true;
+    },
+    confirmInfection(){
+      d3.select("#container").classed("blurBackground",false);
+      this.infectionShow = false;
     },
     loadCommerce(data){
       this.showCommerceInfo();

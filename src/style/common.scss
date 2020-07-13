@@ -108,6 +108,20 @@ p.title{
   position: absolute;
   opacity: 0.8;
 }
+.centralTool{
+  right: 0;
+  left: 0;
+  bottom: 0;
+  top:0;
+  margin: auto;
+  z-index: 5;
+  position: absolute;
+  opacity: 0.8;
+}
+.blurBackground{
+  -webkit-filter: blur(9px);
+  filter: blur(9px);
+}
 
 .mymap{
     width: 100%;
@@ -350,6 +364,7 @@ right:0;
   border-color: #20B2AA;
 }
 
+
 .storeLoc{
   top: 0px;
   left: 60%;
@@ -366,4 +381,9 @@ right:0;
 
 .storeLoc::-webkit-scrollbar {
   display: none;/*隐藏滚动条*/
+}
+
+.littletip{
+  font-size: 13px;
+  margin-bottom: 10px;
 }
