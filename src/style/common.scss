@@ -349,3 +349,21 @@ right:0;
   background-color: #20babb;
   border-color: #20B2AA;
 }
+
+.storeLoc{
+  top: 0px;
+  left: 60%;
+  z-index: 5;
+  position: absolute;
+  opacity: 0.8;
+  width: 40%;
+  height: 100%;
+  background-color: white;
+  border-radius:5px;
+  justify-content: center;
+  overflow-y: scroll;
+}
+
+.storeLoc::-webkit-scrollbar {
+  display: none;/*隐藏滚动条*/
+}
