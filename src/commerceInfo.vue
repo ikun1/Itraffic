@@ -32,10 +32,54 @@
             <el-collapse-item title="商圈网点类型分布" name="2">
                 <div id="storeType" style="width:750px;height:500px"></div>
             </el-collapse-item>
-            <el-collapse-item title="效率 Efficiency" name="3">
-                <div>简化流程：设计简洁直观的操作流程；</div>
-                <div>清晰明确：语言表达清晰且表意明确，让用户快速理解进而作出决策；</div>
-                <div>帮助用户识别：界面简单直白，让用户快速识别而非回忆，减少用户记忆负担。</div>
+            <el-collapse-item title="客群特征" name="3">
+                <div class="genderProportion">
+                    <div class="blockTitle">
+                        性别构成
+                    </div>
+                    <div class="proportionBox">
+                        <div class="gender-proportion-allpic" id="allpic">
+						<img class="gender-proportion-img" src="./img/pic002.png">
+						<img class="gender-proportion-img" src="./img/pic002.png">
+						<img class="gender-proportion-img" src="./img/pic002.png">
+						<img class="gender-proportion-img" src="./img/pic002.png">
+						<img class="gender-proportion-img" src="./img/pic002.png">
+						<img class="gender-proportion-img" src="./img/pic001.png">
+						<img class="gender-proportion-img" src="./img/pic001.png">
+						<img class="gender-proportion-img" src="./img/pic001.png">
+						<img class="gender-proportion-img" src="./img/pic001.png">
+						<img class="gender-proportion-img" src="./img/pic001.png">
+					</div>
+                    <div class="firstBlockContent">
+						<div class="femalebar" style="width: 55.3%;"></div>
+						<div class="malebar" style="width: 44.7%;"></div>
+					</div>
+                    <div class="firstBlockPercent">
+					<p class="female-percent">女
+						<span style="font-size:1.6rem;">
+							<strong class="femaleper" style="font-weight:normal;">55.3</strong>%
+						</span>
+					</p>
+					<p class="male-percent">男
+						<span style="font-size:1.6rem;">
+							<strong class="maleper" style="font-weight:normal;">44.7</strong>%
+						</span>
+					</p>
+				</div>
+                    </div>
+                </div>
+                <div class="ageDistribution">
+                    <div class="ageTitle">
+                        年龄分布
+                    </div>
+                    <div class="ageBar" id="ageBar" style="width:400px; height:200px"></div>
+                </div>
+                <div class="wageGraph">
+                    <div class="wageTitle">
+                        商圈个人月收入占比（千月/月）
+                    </div>
+                    <div class="wageLine" id="wageLine" style="width:400px; height:200px"></div>
+                </div>
             </el-collapse-item>
             <el-collapse-item title="可控 Controllability" name="4">
                 <div>用户决策：根据场景可给予用户操作建议或安全提示，但不能代替用户进行决策；</div>
@@ -77,6 +121,10 @@ export default {
       handleChange(val) {
           if(val.includes("2")){
               this.drawStoreType();
+          }
+          if(val.includes("3")){
+              this.drawAgeBar();
+              this.drawLine();
           }
         console.log(val);
       },
@@ -183,9 +231,68 @@ export default {
         };
         // 基于准备好的dom，初始化echarts实例
         console.log(document.getElementById('storeType'))
-        var myChart = echarts.init(document.getElementById('storeType'), 'light');
+        var myChart = echarts.init(document.getElementById('storeType'), 'dark');
         myChart.setOption(option);
-    }
+    },
+      drawAgeBar() {
+          var option = {
+            color: ['#3398DB'],
+            tooltip: {
+                trigger: 'axis',
+                axisPointer: {            // 坐标轴指示器，坐标轴触发有效
+                    type: 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+                }
+            },
+            grid: {
+                left: '3%',
+                right: '4%',
+                bottom: '3%',
+                containLabel: true
+            },
+            xAxis: [
+                {
+                    type: 'category',
+                    data: ['19岁以下', '19-25岁', '26-30岁', '31-35岁', '36-40岁', '40岁以上'],
+                    axisTick: {
+                        alignWithLabel: true
+                    }
+                }
+            ],
+            yAxis: [
+                {
+                    type: 'value'
+                }
+            ],
+            series: [
+                {
+                    name: '直接访问',
+                    type: 'bar',
+                    barWidth: '60%',
+                    data: [1.3, 23.1, 29.3, 26.4, 11.5, 8.4]
+                }
+            ]
+        };
+        var myChart = echarts.init(document.getElementById('ageBar'), 'light');
+        myChart.setOption(option);
+      },
+      drawLine() {
+          var option = {
+            xAxis: {
+                type: 'category',
+                data: ['0-3000元', '3000-5000元', '5000-8000元', '8000-15000元', '15000元以上']
+            },
+            yAxis: {
+                type: 'value'
+            },
+            series: [{
+                data: [12.1, 14.9, 23.4, 28.5, 20.3],
+                type: 'line'
+            }]
+        };
+        var myChart = echarts.init(document.getElementById('wageLine'), 'light');
+        myChart.setOption(option);
+
+      }
     },
     props:{
         ids:{
