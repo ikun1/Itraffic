@@ -18,10 +18,10 @@
       <pathDialog  v-show="!unfold" id="pathDialog" ref="pathDialog" left="-20%" @showdiagram="showdiagram"/>
       <additionDialog  v-show="!unfold" id="additionDialog" ref="additionDialog" left="-20%" @loadCommerce="loadCommerce" @beginMedical="beginMedical"/>
       <div id="toolBox" style="left:-20%;" class="floatToolBar" v-show="!unfold">
-        <p class="boxtext boxtitle">热力图工具</p>
+        <p class="boxtext boxtitle" v-on:click="drawPolyline">热力图工具</p>
         <div class="boxitem">
         <div style="width:100%">
-            <p class="boxtext boxsubtitle">日期:</p>
+            <p class="boxtext boxsubtitle" v-on:click="drawCircle">日期:</p>
             <p class="boxtext boxsubtitle" style="width:200px">2018/10/03</p>
           </div>
         </div>
@@ -59,7 +59,8 @@
       </div>
       <dataInfo ref="dataInfoBox" ids="myinfoBox" @refreshArrest="loadArrestData" @func="drawData"/>
       <dataInfo  ids="infoBox" @refreshArrest="loadArrestData" @func="drawData"/>
-      <commerceInfo id="commerceInfo" ref="commerceInfo" />
+      <medicalInfo id="medicalInfo" ref="medicalInfo"/>
+      <!--<commerceInfo id="commerceInfo" ref="commerceInfo" />-->
       <commerceType id="commerceType" ref="commerceType" />
       <costomerFeature id="costomerFeature" ref="costomerFeature" />
       <infectionDialog id="infectionDialog" ref="infectionDialog" @confirm="confirmInfection" v-bind:show="infectionShow"/>
@@ -89,6 +90,7 @@ import dataInfo from './dataInfo.vue';
 import arrestDialog from './arrestDialog.vue';
 import pathDialog from './pathDialog.vue';
 import playDialog from './playDialog.vue';
+import medicalInfo from './medicalInfo.vue'
 import commerceInfo from "./commerceInfo.vue"
 import commerceType from "./commerceType.vue"
 import costomerFeature from "./costomerFeature.vue"
@@ -157,6 +159,7 @@ export default {
     commerceMarkers:[],
     commerceDatas:[],
     infectionShow:false,
+    mouseTool:'',
     status:{
       //分析图层集
       heatmap:false,//热力图（密度分析）
@@ -210,17 +213,43 @@ export default {
     commerceInfo,
     commerceType,
     costomerFeature,
-    infectionDialog
+    infectionDialog,
+    medicalInfo
   },
   methods: {
+    drawPolyline () {
+      this.mouseTool.polyline({
+        strokeColor: "#3366FF", 
+        strokeOpacity: 1,
+        strokeWeight: 6,
+        // 线样式还支持 'dashed'
+        strokeStyle: "solid",
+        // strokeStyle是dashed时有效
+        // strokeDasharray: [10, 5],
+      })
+    },
+    drawCircle () {
+      this.mouseTool.circle({
+        strokeColor: "#FF33FF",
+        strokeOpacity: 1,
+        strokeWeight: 6,
+        strokeOpacity: 0.2,
+        fillColor: '#1791fc',
+        fillOpacity: 0.4,
+        strokeStyle: 'solid',
+        // 线样式还支持 'dashed'
+        // strokeDasharray: [30,10],
+      })
+    },
     loadmap(){
       this.map = new AMap.Map('container', {
         zoom: 12,
-        mapStyle: 'amap://styles/399846b22d60cd9dddca38485ce139d2',
+        mapStyle: 'amap://styles/a27028e5b4fb05f9e2f4a4ce0258a532',
         features: ['bg', 'road', 'building', 'point'],
         center: [123.438261, 41.821984]
       });
       var map = this.map;
+      
 
       //判断浏览区是否支持canvas
       function isSupportCanvas() {
@@ -232,6 +261,14 @@ export default {
         this.foldBox();
       },this);
       var cache = this;
+      AMap.plugin(["AMap.MouseTool"], function (){
+         cache.mouseTool = new AMap.MouseTool(map);
+          cache.mouseTool.on('draw', function(event) {
+          // event.obj 为绘制出来的覆盖物对象
+          //console.log(JSON.stringify(event.obj.getCenter()));
+          console.log(JSON.stringify(event.obj.getPath()));
+        })
+      })
       AMap.plugin(["AMap.Heatmap"], function () {
       //初始化heatmap对象
       cache.heatmap = new AMap.Heatmap(map, {
@@ -271,9 +308,54 @@ export default {
       });
     })
 
+    var polyline = new AMap.Polyline({
+        path: dataGenerator.line1,  
+        borderWeight: 2, // 线条宽度，默认为 1
+        strokeColor: 'red', // 线条颜色
+        lineJoin: 'round' // 折线拐点连接处样式
+    });
+    map.add(polyline);
+
+    var polyline2 = new AMap.Polyline({
+        path: dataGenerator.line2,  
+        borderWeight: 2, // 线条宽度，默认为 1
+        strokeColor: 'red', // 线条颜色
+        lineJoin: 'round' // 折线拐点连接处样式
+    });
+    map.add(polyline2);
+
+    var polyline3 = new AMap.Polyline({
+        path: dataGenerator.line3,  
+        borderWeight: 2, // 线条宽度，默认为 1
+        strokeColor: 'red', // 线条颜色
+        lineJoin: 'round' // 折线拐点连接处样式
+    });
+    map.add(polyline3);
+
+    var polyline4 = new AMap.Polyline({
+        path: dataGenerator.line4,  
+        borderWeight: 2, // 线条宽度，默认为 1
+        strokeColor: 'red', // 线条颜色
+        lineJoin: 'round' // 折线拐点连接处样式
+    });
+    map.add(polyline4);
+    dataGenerator.circle1.forEach(function(center){
+      var circle = new AMap.Circle({
+            center: center,  // 圆心位置
+            radius: 200, // 圆半径
+            fillColor: '#ffffff',   // 圆形填充颜色
+            fillOpacity:0.6,//圆形填充透明度
+            strokeColor: '#fff', // 描边颜色
+            strokeWeight: 1, // 描边宽度
+          });
+       this.map.add(circle);
+       console.log("画一个")
+    },this)
+    
+
     d3.select(".quick-menu").style("position", "absolute");
     d3.select(".amap-logo").remove()
-
+    
     },
     countLeft(index){
       var left = 15;

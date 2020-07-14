@@ -4,7 +4,7 @@
         <hr align="center" width="100%" color="#987cb9" SIZE="1" />
         <div class="boxitem">
           <img src="./img/commercial.png" style="width:40px;height:40px;display:inline"/>
-          <p class="vice-title">商业功能</p>
+          <p class="boxtext vice-title">商业功能</p>
         </div>
          <div class="boxitem">
           <div style="width:100%">
@@ -37,15 +37,15 @@
         <div style="width: 100%; columns: 180px;">
           <div class="O-1-item">
             <div class="O-1-swatch" style="background:rgb(237,39,0);"></div>
-            <div class="O-1-label" title="Leisure and hospitality">热门落点</div>
+            <div class="boxtext O-1-label" title="Leisure and hospitality">热门落点</div>
           </div>
           <div class="O-1-item">
             <div class="O-1-swatch" style="background:rgb(237,201,0);"></div>
-            <div class="O-1-label" title="Business services">建议落点</div>
+            <div class="boxtext O-1-label" title="Business services">建议落点</div>
           </div>
           <div class="O-1-item">
             <div class="O-1-swatch" style="background:rgb(45,63,83);"></div>
-            <div class="O-1-label" title="Construction">可选落点</div>
+            <div class="boxtext O-1-label" title="Construction">可选落点</div>
               </div>
             </div>
           </div>
@@ -53,7 +53,7 @@
       <hr align="center" width="100%" color="#987cb9" SIZE="1" />
         <div class="boxitem">
           <img src="./img/medical.png" style="width:40px;height:40px;display:inline"/>
-          <p class="vice-title">医疗功能</p>
+          <p class="boxtext vice-title">医疗功能</p>
         </div>
         <div class="boxitem">
           <div style="width:100%">

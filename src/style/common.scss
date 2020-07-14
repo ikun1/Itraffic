@@ -145,14 +145,14 @@ p.title{
 
   #toolBox{
     width:20%;
-    background-color: white;
+    background-color: #1d1d1d;
     border-radius:5px;
     justify-content: center;
   }
 
   .toolBox{
     width:20%;
-    background-color: white;
+    background-color: #1d1d1d;
     border-radius:5px;
     justify-content: center;
   }
@@ -168,13 +168,13 @@ p.title{
   .infoBox{
     width:20%;
     height: 100%;
-    background-color: white;
+    background-color: black;
     border-radius:5px;
     justify-content: center;
   }
 
   .boxtext{
-    color: black;
+    color: white;
     z-index: 6;
   }
 
@@ -196,7 +196,7 @@ p.title{
     width: 80%;
     border-radius: 10px; /*这个属性设置使填充进度条时的图形为圆角*/
     height: 10px;
-    background-color: #3e8e41;
+    background-color: #44b5d8;
   }
   .slider::-webkit-slider-thumb {
     -webkit-appearance: none;
