@@ -252,10 +252,11 @@ p.title{
 .dropdown {
   position: relative;
   display: inline-block;
+  background-color:#158d97;
 }
 
 .dropdown:hover .dropbtn {
-  background-color:#3e8e41;
+  background-color:#14ccc3;
 }
 
 .dropdown-content {
@@ -287,7 +288,7 @@ p.title{
   color: white;
 }
 .dropbtn{
-  background-color: rgb(22, 78, 61);
+  background-color:#158d97;
   color: white;
   width: 80px;
   height: 30px;
@@ -346,22 +347,22 @@ right:0;
 
 .el-button--primary.is-active,
 .el-button--primary:active {
-  background: #20B2AA;
+  background: #158d97;
   border-color: #20B2AA;
   color: #fff;
 }
 
 .el-button--primary:focus,
 .el-button--primary:hover {
-  background: #48D1CC;
+  background: #158d97;
   border-color: #48D1CC;
   color: #fff;
 }
 
 .el-button--primary {
   color: #FFF;
-  background-color: #20babb;
-  border-color: #20B2AA;
+  background-color: #158d97;
+  border-color: #b7dbdf;
 }
 .fcolor{
   color:#f16406;
@@ -391,7 +392,7 @@ right:0;
   position: absolute;
   opacity: 0.8;
   width: 20%;
-  background-color: rgb(41, 43, 61);
+  background-color: #158d97;
   border-radius:5px;
   justify-content: center;
   overflow-y: scroll;
@@ -409,7 +410,7 @@ right:0;
   opacity: 0.8;
   width: 20%;
   height: 35%;
-  background-color: rgb(41, 43, 61);
+  background-color: #158d97;
   border-radius:5px;
   justify-content: center;
   overflow-y: scroll;
@@ -423,7 +424,7 @@ right:0;
   opacity: 0.8;
   width: 20%;
   height: 55%;
-  background-color: rgb(41, 43, 61);
+  background-color: #158d97;
   color: white;
   border-radius:5px;
   justify-content: center;
@@ -438,7 +439,7 @@ right:0;
   opacity: 0.8;
   width: 20%;
   height: 35%;
-  background-color: rgb(41, 43, 61);
+  background-color: #158d97;
   border-radius:5px;
   justify-content: center;
   overflow-y: scroll;
@@ -452,7 +453,7 @@ right:0;
   opacity: 0.8;
   width: 20%;
   height: 35%;
-  background-color: rgb(41, 43, 61);
+  background-color: #158d97;
   color: white;
   border-radius:5px;
   justify-content: center;
@@ -467,7 +468,7 @@ right:0;
   opacity: 0.8;
   width: 40%;
   height: 37%;
-  background-color: rgb(41, 43, 61);
+  background-color: #158d97;
   color: white;
   border-radius:5px;
   justify-content: center;
@@ -482,7 +483,7 @@ right:0;
   opacity: 0.8;
   width: 25%;
   height: 35%;
-  background-color: rgb(41, 43, 61);
+  background-color: #158d97;
   border-radius:5px;
   justify-content: center;
   overflow-y: scroll;
@@ -496,7 +497,7 @@ right:0;
   opacity: 0.8;
   width: 25%;
   height: 55%;
-  background-color: rgb(41, 43, 61);
+  background-color: #158d97;
   color: white;
   border-radius:5px;
   justify-content: center;
@@ -545,7 +546,7 @@ right:0;
 }
 
 .el-table .el-table--fit .el-table--enable-row-hover .el-table--enable-row-transition{
-  background-color: rgb(41, 43, 61);
+  background-color: #158d97;
   color: white;
 }
 

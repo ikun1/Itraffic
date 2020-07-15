@@ -1,6 +1,8 @@
 <template>
   <quick-menu :menu-count="count" 
         :icon-class="icons" 
+        :color="color"
+        :background-color=backgroundColor
         :menu-url-list="list" @process=print>
   </quick-menu>
 </template>
@@ -22,10 +24,11 @@ export default {
             "http://jd.com",
             "http://jd.com",
             "http://jd.com"],
-        backgroundColor:'#3e8e41',
-        color:'#eee',
+        backgroundColor:'#158d97',
+        color:'#ffffff',
         position:'top-right',
-        isOpenNewTab:false
+        isOpenNewTab:false,
+        menucolor:"#158d97"
       }
   },
    methods:{
