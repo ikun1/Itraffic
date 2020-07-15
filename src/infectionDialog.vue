@@ -17,10 +17,6 @@
                 <div class="centeritems"  v-for="(typeitem,index) in typeinfo" v-bind:key="index">
                 <img  class="checkbox" width="15px" height="15px" src="./img/individual.png"/>
                 <p class="boxtext centeritem" style="display:inline;vertical-align: middle;" v-on:click="showIDs(index)">{{typeitem.name}}▼</p>
-                <svg width="100%" height="30px" class="lineSvg">
-                    <line x1="0" y1="50%" v-bind:x2="typeitem.percent + '%'" y2="50%" v-bind:style="{ stroke: typeitem.color }" class="colorbar" />
-                    <text x="80%" y="55%" fill="white" class="littlenumber">{{typeitem.percent}}%</text>
-                </svg>
                 <div id="displayID" class="strbox" style="height:150px;" v-show="isunfold[index]">
                     <div v-for="(item,mykey) in typeitem.info" v-bind:key="mykey">
                       <input type="checkbox"  class="checkbox" v-bind:value="item" v-on:change="changeIDs(item,$event)" v-model="checkedIDs[index]" />
