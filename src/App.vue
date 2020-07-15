@@ -119,7 +119,7 @@ export default {
     this.$api.path.getPathJson({}).then(res => {
     this.pathData = res.data;
     this.initPath();//初始化路径分析移动到这里
-    this.changeStatus('path');
+    //this.changeStatus('path');
     });
     
   },
@@ -371,9 +371,11 @@ export default {
       if(layerName == "path")
         {
           this.unfoldBox('pathDialog');
+          this.showTrafficType();
         }else if(layerName == "arrest"){
           this.unfoldBox('arrestDialog');
         }else if(layerName == "heatmap"){
+          this.showDistrictLine();
           this.unfoldBox('toolBox');
         }else if(layerName == "addition"){
           this.unfoldBox('additionDialog');
@@ -514,7 +516,21 @@ export default {
       d3.select("#infoBox").transition().style("left", "80%");
     },
     showCommerceInfo(){
-      d3.select("#commerceInfo").transition().style("left", "80%");
+      d3.select(".storeLoc").transition().style("left", "75%");
+    },
+    showcommerceType(){
+      d3.select("#commerceType").transition().style("top", "60%");
+    },
+    showCostomerFeature(){
+      d3.select("#costomerFeature").transition().style("left", "75%");
+    },
+    showTrafficType(){
+      d3.select(".trafficTypePie").transition().style("left", "75%");
+      d3.select(".trafficTypeDonut").transition().style("left", "75%");
+    },
+    showDistrictLine(){
+      d3.select(".totalLine").transition().style("left", "70%");
+      d3.select(".districtLine").transition().style("left", "70%");
     },
     reactRange(type){
       //圈选范围响应
@@ -656,6 +672,8 @@ export default {
     },
     loadCommerce(data){
       this.showCommerceInfo();
+      this.showcommerceType();
+      this.showCostomerFeature();
       var points = dataGenerator.commercePoint;
       var allpoints = [];
       var dataString = data.sort().toString();
@@ -993,12 +1011,29 @@ export default {
     },
     initPath(){
     var jsonPath = this.pathData;
-    console.log(jsonPath)
+    //将百度坐标转换为高德坐标
+    for (var userId in jsonPath) {
+        var selectedPeople = jsonPath[userId];
+        if (typeof (selectedPeople) == "undefined") continue;
+        for(var pathSeg in selectedPeople){
+          for(var index in selectedPeople[pathSeg]['path']){
+            var curloc = [selectedPeople[pathSeg]['path'][index][0], selectedPeople[pathSeg]['path'][index][1]]
+            AMap.convertFrom(curloc, 'baidu', function(status, result) {
+              if(result.info === 'ok'){
+                var lnglats = result.locations;
+                selectedPeople[pathSeg]['path'][index][0] = lnglats.lng;
+                selectedPeople[pathSeg]['path'][index][1] = lnglats.lat;
+              }
+            })
+          }
+        }
+    }
     for (var userId in jsonPath) {
         var selectedPeople = jsonPath[userId];
         
         if (typeof (selectedPeople) == "undefined") continue;
         for(var pathSeg in selectedPeople){
+          //console.log(selectedPeople[pathSeg])
           this.createPath(selectedPeople[pathSeg])
         }
     }
@@ -1040,7 +1075,7 @@ export default {
             //     this.lineArr = path;
             //     getFirst = false;
             // }
-path.push(new AMap.LngLat(data['path'][i][0], data['path'][i][1]))
+          path.push(new AMap.LngLat(data['path'][i][0], data['path'][i][1]))
             
         }
         // 创建折线实例
@@ -1050,7 +1085,7 @@ path.push(new AMap.LngLat(data['path'][i][0], data['path'][i][1]))
             showDir: true,
             strokeColor: pathColor(data['mode']),  //线颜色"#28F"
             // strokeOpacity: 1,     //线透明度
-            strokeWeight: 6,      //线宽
+            strokeWeight: 3,      //线宽
             // strokeStyle: "solid"  //线样式
         });
         this.mypolyline.push(polyline);

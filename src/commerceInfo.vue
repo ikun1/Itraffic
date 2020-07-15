@@ -77,6 +77,10 @@ export default {
       },
       drawAgeBar() {
           var option = {
+            title:{
+                text:"各年龄人群人数",
+                left: "center"
+            },
             color: ['#3398DB'],
             tooltip: {
                 trigger: 'axis',
@@ -106,7 +110,7 @@ export default {
             ],
             series: [
                 {
-                    name: '直接访问',
+                    name: '人数',
                     type: 'bar',
                     barWidth: '60%',
                     data: [1.3, 23.1, 29.3, 26.4, 11.5, 8.4]
@@ -118,8 +122,15 @@ export default {
       },
       drawLine() {
           var option = {
+            title:{
+                text: "各收入人群人数",
+                left: "center"
+            },
             xAxis: {
                 type: 'category',
+                axisTick: {
+                    interval: 0
+                },
                 data: ['0-3000元', '3000-5000元', '5000-8000元', '8000-15000元', '15000元以上']
             },
             yAxis: {
@@ -130,7 +141,7 @@ export default {
                 type: 'line'
             }]
         };
-        var myChart = echarts.init(document.getElementById('wageLine'), 'light');
+        var myChart = echarts.init(document.getElementById('wageLine'), 'dark');
         myChart.setOption(option);
 
       }

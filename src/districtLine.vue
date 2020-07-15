@@ -75,7 +75,7 @@ export default {
                 let curArray = []
                 curArray.push('district');
                 for(var i=0; i<24; i++){
-                    curArray.push(i);
+                    curArray.push(i.toString());
                 }
                 echartsLinePieData.push(curArray)
                 for(let index in districtArray){
