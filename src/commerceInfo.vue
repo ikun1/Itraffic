@@ -113,7 +113,7 @@ export default {
                 }
             ]
         };
-        var myChart = echarts.init(document.getElementById('ageBar'), 'light');
+        var myChart = echarts.init(document.getElementById('ageBar'), 'dark');
         myChart.setOption(option);
       },
       drawLine() {

@@ -62,6 +62,8 @@
       <medicalInfo id="medicalInfo" ref="medicalInfo"/>
       <!--<commerceInfo id="commerceInfo" ref="commerceInfo" />-->
       <commerceType id="commerceType" ref="commerceType" />
+      <districtLine id="districtLine" ref="districtLine" />
+      <trafficType id="trafficType" ref="trafficType" />
       <costomerFeature id="costomerFeature" ref="costomerFeature" />
       <infectionDialog id="infectionDialog" ref="infectionDialog" @confirm="confirmInfection" v-bind:show="infectionShow"/>
 
@@ -90,10 +92,12 @@ import dataInfo from './dataInfo.vue';
 import arrestDialog from './arrestDialog.vue';
 import pathDialog from './pathDialog.vue';
 import playDialog from './playDialog.vue';
-import medicalInfo from './medicalInfo.vue'
-import commerceInfo from "./commerceInfo.vue"
-import commerceType from "./commerceType.vue"
-import costomerFeature from "./costomerFeature.vue"
+import medicalInfo from './medicalInfo.vue';
+import commerceInfo from "./commerceInfo.vue";
+import commerceType from "./commerceType.vue";
+import trafficType from "./trafficType.vue";
+import districtLine from "./districtLine.vue";
+import costomerFeature from "./costomerFeature.vue";
 import additionDialog from './additionDialog.vue';
 import infectionDialog from "./infectionDialog.vue";
 import funcMenu from './funcMenu.vue'
@@ -212,6 +216,8 @@ export default {
     funcMenu,
     commerceInfo,
     commerceType,
+    trafficType,
+    districtLine,
     costomerFeature,
     infectionDialog,
     medicalInfo

@@ -367,7 +367,7 @@ right:0;
 
 .storeLoc{
   top: 5%;
-  left: 75%;
+  left: 100%;/*75*/
   z-index: 5;
   position: absolute;
   opacity: 0.8;
@@ -381,7 +381,7 @@ right:0;
 
 #costomerFeature{
   top: 42%;
-  left: 75%;
+  left: 100%;/*75*/
   z-index: 5;
   position: absolute;
   opacity: 0.8;
@@ -394,9 +394,38 @@ right:0;
   overflow-y: scroll;
 }
 
+.trafficTypePie{
+  top: 5%;
+  left: 100%;/*75*/
+  z-index: 5;
+  position: absolute;
+  opacity: 0.8;
+  width: 20%;
+  height: 35%;
+  background-color: rgb(41, 43, 61);
+  border-radius:5px;
+  justify-content: center;
+  overflow-y: scroll;
+}
+
+.trafficTypeDonut{
+  top: 42%;
+  left: 100%;/*75*/
+  z-index: 5;
+  position: absolute;
+  opacity: 0.8;
+  width: 20%;
+  height: 35%;
+  background-color: rgb(41, 43, 61);
+  color: white;
+  border-radius:5px;
+  justify-content: center;
+  overflow-y: scroll;
+}
+
 #commerceType{
   top: 60%;
-  left: 30%;
+  left: 100%;/*30%*/
   z-index: 5;
   position: absolute;
   opacity: 0.8;
@@ -409,6 +438,43 @@ right:0;
   overflow-y: scroll;
 }
 
+.totalLine{
+  top: 5%;
+  left: 70%;/*75*/
+  z-index: 5;
+  position: absolute;
+  opacity: 0.8;
+  width: 25%;
+  height: 35%;
+  background-color: rgb(41, 43, 61);
+  border-radius:5px;
+  justify-content: center;
+  overflow-y: scroll;
+}
+
+.districtLine{
+  top: 42%;
+  left: 70%;/*75*/
+  z-index: 5;
+  position: absolute;
+  opacity: 0.8;
+  width: 25%;
+  height: 55%;
+  background-color: rgb(41, 43, 61);
+  color: white;
+  border-radius:5px;
+  justify-content: center;
+  overflow-y: scroll;
+}
+
+.totalLine::-webkit-scrollbar {
+  display: none;/*隐藏滚动条*/
+}
+
+.districtLine::-webkit-scrollbar {
+  display: none;/*隐藏滚动条*/
+}
+
 #commerceType::-webkit-scrollbar {
   display: none;/*隐藏滚动条*/
 }
@@ -418,6 +484,14 @@ right:0;
 }
 
 .storeLoc::-webkit-scrollbar {
+  display: none;/*隐藏滚动条*/
+}
+
+.trafficTypeDonut::-webkit-scrollbar {
+  display: none;/*隐藏滚动条*/
+}
+
+.trafficTypePie::-webkit-scrollbar {
   display: none;/*隐藏滚动条*/
 }
 
