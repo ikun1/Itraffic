@@ -610,3 +610,21 @@ right:0;
   font-weight: bold;
   font-size: 18px;
 }
+
+#sysTitle{
+  pointer-events: auto;
+  position: absolute;
+  left: 33%;
+  margin-top: -1px;
+  width: 498px;
+  height: 65px;
+  line-height: 60px;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 30px;
+  color: #00EDFF;
+  letter-spacing: 0;
+  background-image: url(/src/img/titleBG.png);
+  background-size: 498px 66px;
+  background-repeat: no-repeat;
+}
