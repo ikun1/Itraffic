@@ -35,23 +35,23 @@
       >
         <div style="width: 100%; columns: 180px;">
           <div class="O-1-item">
-            <div class="O-1-swatch" style="background:#4c5d91;"></div>
+            <div class="O-1-swatch" style="background:#1b669a;"></div>
             <div class="boxtext O-1-label" title="Wholesale and Retail Trade">驾车</div>
           </div>
           <div class="O-1-item">
-            <div class="O-1-swatch" style="background:#4c92b9;"></div>
+            <div class="O-1-swatch" style="background:#33a02c;"></div>
             <div class="boxtext O-1-label" title="Manufacturing">步行</div>
           </div>
           <div class="O-1-item">
-            <div class="O-1-swatch" style="background:#53a488;"></div>
+            <div class="O-1-swatch" style="background:#a1c97c;"></div>
             <div class="boxtext O-1-label" title="Leisure and hospitality">骑行</div>
           </div>
           <div class="O-1-item">
-            <div class="O-1-swatch" style="background:#a5ad5c;"></div>
+            <div class="O-1-swatch" style="background:#e31a1c;"></div>
             <div class="boxtext O-1-label" title="Business services">公交</div>
           </div>
           <div class="O-1-item">
-            <div class="O-1-swatch" style="background:#909399;"></div>
+            <div class="O-1-swatch" style="background:#fb9a99;"></div>
             <div class="boxtext O-1-label" title="Construction">地铁</div>
           </div>
         </div>

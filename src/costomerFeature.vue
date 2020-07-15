@@ -30,15 +30,9 @@
 				</div>
                     </div>
                 <div class="ageDistribution">
-                    <div class="ageTitle">
-                        年龄分布
-                    </div>
                     <div class="ageBar" id="ageBar"></div>
                 </div>
                 <div class="wageGraph">
-                    <div class="wageTitle">
-                        商圈个人月收入占比（千月/月）
-                    </div>
                     <div class="wageLine" id="wageLine"></div>
                 </div>
                 </div>
@@ -86,6 +80,10 @@ export default {
     methods: {
       drawAgeBar() {
           var option = {
+            title:{
+                text:"年龄分布",
+                left: "center"
+            },
             color: ['#3398DB'],
             tooltip: {
                 trigger: 'axis',
@@ -122,11 +120,15 @@ export default {
                 }
             ]
         };
-        var myChart = echarts.init(document.getElementById('ageBar'), 'light');
+        var myChart = echarts.init(document.getElementById('ageBar'), 'dark');
         myChart.setOption(option);
       },
       drawLine() {
           var option = {
+            title:{
+                text: "商圈个人月收入占比（千月/月）",
+                left: "center"
+            },
             xAxis: {
                 type: 'category',
                 data: ['0-3000元', '3000-5000元', '5000-8000元', '8000-15000元', '15000元以上']
@@ -139,7 +141,7 @@ export default {
                 type: 'line'
             }]
         };
-        var myChart = echarts.init(document.getElementById('wageLine'), 'light');
+        var myChart = echarts.init(document.getElementById('wageLine'), 'dark');
         myChart.setOption(option);
 
       }
