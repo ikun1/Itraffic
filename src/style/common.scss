@@ -365,7 +365,43 @@ right:0;
   background-color: #20babb;
   border-color: #20B2AA;
 }
+.fcolor{
+  color:#f16406;
+  color:#f6fa07;
+}
 
+.avatar{
+  width:100px;
+  height:100px;
+  border-color:white;
+  border-width: 5px;
+  margin-left: 20px;
+  margin-top: 20px;
+}
+.medicalEr{
+  top: 65%;
+  height: 35%;
+}
+.medicalInfo{
+  top: 5%;
+  height: 55%;
+
+}
+.confrontBox{
+  left: 75%;
+  z-index: 5;
+  position: absolute;
+  opacity: 0.8;
+  width: 20%;
+  background-color: rgb(41, 43, 61);
+  border-radius:5px;
+  justify-content: center;
+  overflow-y: scroll;
+}
+
+.confrontBox::-webkit-scrollbar {
+  display: none;/*隐藏滚动条*/
+}
 
 .storeLoc{
   top: 5%;

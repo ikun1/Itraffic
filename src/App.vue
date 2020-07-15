@@ -59,8 +59,9 @@
       </div>
       <dataInfo ref="dataInfoBox" ids="myinfoBox" @refreshArrest="loadArrestData" @func="drawData"/>
       <dataInfo  ids="infoBox" @refreshArrest="loadArrestData" @func="drawData"/>
-      <medicalInfo id="medicalInfo" ref="medicalInfo"/>
-      <!--<commerceInfo id="commerceInfo" ref="commerceInfo" />-->
+      <medicalInfo v-bind:show="medicalShow" @lineHigh="lineHigh" @circleHigh="circleHigh" id="medicalInfo" ref="medicalInfo"/>
+      <medicalEr v-bind:show="medicalShow" @exit="exitMedical"  id="medicalEr" ref="medicalEr"/>
+      <commerceInfo id="commerceInfo" ref="commerceInfo" />
       <commerceType id="commerceType" ref="commerceType" />
       <districtLine id="districtLine" ref="districtLine" />
       <trafficType id="trafficType" ref="trafficType" />
@@ -92,12 +93,15 @@ import dataInfo from './dataInfo.vue';
 import arrestDialog from './arrestDialog.vue';
 import pathDialog from './pathDialog.vue';
 import playDialog from './playDialog.vue';
-import medicalInfo from './medicalInfo.vue';
+
+import medicalInfo from './medicalInfo.vue'
+import medicalEr from "./medicalEr.vue"
 import commerceInfo from "./commerceInfo.vue";
 import commerceType from "./commerceType.vue";
 import trafficType from "./trafficType.vue";
 import districtLine from "./districtLine.vue";
 import costomerFeature from "./costomerFeature.vue";
+
 import additionDialog from './additionDialog.vue';
 import infectionDialog from "./infectionDialog.vue";
 import funcMenu from './funcMenu.vue'
@@ -162,8 +166,11 @@ export default {
     waitnextread:false,
     commerceMarkers:[],
     commerceDatas:[],
+    drawCircles:[],
     infectionShow:false,
     mouseTool:'',
+    polylines:[],
+    medicalShow:false,
     status:{
       //分析图层集
       heatmap:false,//热力图（密度分析）
@@ -220,7 +227,8 @@ export default {
     districtLine,
     costomerFeature,
     infectionDialog,
-    medicalInfo
+    medicalInfo,
+    medicalEr
   },
   methods: {
     drawPolyline () {
@@ -313,51 +321,6 @@ export default {
         radius: 1000 //范围，默认：500
       });
     })
-
-    var polyline = new AMap.Polyline({
-        path: dataGenerator.line1,  
-        borderWeight: 2, // 线条宽度，默认为 1
-        strokeColor: 'red', // 线条颜色
-        lineJoin: 'round' // 折线拐点连接处样式
-    });
-    map.add(polyline);
-
-    var polyline2 = new AMap.Polyline({
-        path: dataGenerator.line2,  
-        borderWeight: 2, // 线条宽度，默认为 1
-        strokeColor: 'red', // 线条颜色
-        lineJoin: 'round' // 折线拐点连接处样式
-    });
-    map.add(polyline2);
-
-    var polyline3 = new AMap.Polyline({
-        path: dataGenerator.line3,  
-        borderWeight: 2, // 线条宽度，默认为 1
-        strokeColor: 'red', // 线条颜色
-        lineJoin: 'round' // 折线拐点连接处样式
-    });
-    map.add(polyline3);
-
-    var polyline4 = new AMap.Polyline({
-        path: dataGenerator.line4,  
-        borderWeight: 2, // 线条宽度，默认为 1
-        strokeColor: 'red', // 线条颜色
-        lineJoin: 'round' // 折线拐点连接处样式
-    });
-    map.add(polyline4);
-    dataGenerator.circle1.forEach(function(center){
-      var circle = new AMap.Circle({
-            center: center,  // 圆心位置
-            radius: 200, // 圆半径
-            fillColor: '#ffffff',   // 圆形填充颜色
-            fillOpacity:0.6,//圆形填充透明度
-            strokeColor: '#fff', // 描边颜色
-            strokeWeight: 1, // 描边宽度
-          });
-       this.map.add(circle);
-       console.log("画一个")
-    },this)
-    
 
     d3.select(".quick-menu").style("position", "absolute");
     d3.select(".amap-logo").remove()
@@ -611,6 +574,101 @@ export default {
     confirmInfection(){
       d3.select("#container").classed("blurBackground",false);
       this.infectionShow = false;
+      this.drawMyLine(this.map);
+      this.medicalShow = true;
+
+    },
+    exitMedical(){
+      this.drawCircles.forEach(function(c){
+              this.map.remove(c)
+            },this);
+            this.polylines.forEach(function(c){
+              this.map.remove(c)
+            },this);
+            this.drawCircles = [];
+            this.polylines = [];
+            this.medicalShow = false;
+    },
+    lineHigh(row,index){
+      this.polylines.forEach(function(l){
+        l.setOptions({
+          isOutline:false,
+          borderWeight:1
+        });
+      },this)
+      this.polylines[index+1].setOptions({
+          isOutline:true,
+          borderWeight:3,
+          outlineColor:"#FFFFFF"
+      });
+      this.map.panTo(this.polylines[index+1].getPath()[0]);
+      this.$refs.medicalEr.row = row;
+    },
+    circleHigh(index){
+      this.drawCircles.forEach(function(c){
+        c.setOptions({
+          strokeColor: '#fff', // 描边颜色
+          strokeWeight:1
+        });
+      },this);
+      this.drawCircles[index].setOptions({
+        strokeColor: 'blue', // 描边颜色
+        strokeWeight:5
+      });
+      this.map.panTo(this.drawCircles[index].getCenter());
+    },
+    drawMyLine(map){
+          
+        var polyline = new AMap.Polyline({
+            path: dataGenerator.line1,  
+            borderWeight: 15, // 线条宽度，默认为 1
+            strokeColor: 'red', // 线条颜色
+            lineJoin: 'round' // 折线拐点连接处样式
+        });
+        map.add(polyline);
+
+        var polyline2 = new AMap.Polyline({
+            path: dataGenerator.line2,  
+            borderWeight: 2, // 线条宽度，默认为 1
+            strokeColor: '#f6fa07', // 线条颜色
+            lineJoin: 'round' // 折线拐点连接处样式
+        });
+        map.add(polyline2);
+
+        var polyline3 = new AMap.Polyline({
+            path: dataGenerator.line3,  
+            borderWeight: 2, // 线条宽度，默认为 1
+            strokeColor: '#f16406', // 线条颜色
+            lineJoin: 'round' // 折线拐点连接处样式
+        });
+        map.add(polyline3);
+
+        var polyline4 = new AMap.Polyline({
+            path: dataGenerator.line4,  
+            borderWeight: 2, // 线条宽度，默认为 1
+            strokeColor: '#f6fa07', // 线条颜色
+            lineJoin: 'round' // 折线拐点连接处样式
+        });
+        map.add(polyline4);
+          this.polylines.push(polyline)
+          this.polylines.push(polyline3)
+          this.polylines.push(polyline2)
+          this.polylines.push(polyline4)
+
+        dataGenerator.circle1.forEach(function(center){
+          var circle = new AMap.Circle({
+                center: center,  // 圆心位置
+                radius: 200, // 圆半径
+                fillColor: '#ffffff',   // 圆形填充颜色
+                fillOpacity:0.6,//圆形填充透明度
+                strokeColor: '#fff', // 描边颜色
+                strokeWeight: 1, // 描边宽度
+              });
+          this.map.add(circle);
+          this.drawCircles.push(circle);
+          console.log("画一个")
+        },this)
+        
     },
     loadCommerce(data){
       this.showCommerceInfo();
