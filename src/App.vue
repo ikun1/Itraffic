@@ -563,6 +563,7 @@ export default {
       d3.select(".districtLine").transition().style("left", "100%");
       d3.select(".pointInfo").transition().style("left", "100%");
       d3.select(".bussinessInfo").transition().style("left", "100%");
+      d3.select("#myinfoBox").transition().style("left", "100%");
       this.medicalShow=false;
     },
     
@@ -1028,6 +1029,7 @@ export default {
         this.loadArrestData(newData);
       }
       this.$refs.dataInfoBox.countInfo(type,typeinfo,this.rangestate.rangeArea,count);
+      this.hideAll();
       d3.select("#myinfoBox").transition().style("left", "80%");
     },
     drawData(heatmapdata){
