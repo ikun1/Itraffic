@@ -13,10 +13,7 @@
                 <div class="centeritems"  v-for="(typeitem,index) in typeinfo" v-bind:key="index">
                 <input type="checkbox" v-on:change="changeGroups(index,$event)" class="checkbox"/>
                 <p class="boxtext centeritem" style="display:inline;vertical-align: middle;" v-on:click="showIDs(index)">{{typeitem.name}}▼</p>
-                <svg width="100%" height="30px" class="lineSvg">
-                    <line x1="0" y1="50%" v-bind:x2="typeitem.percent + '%'" y2="50%" v-bind:style="{ stroke: typeitem.color }" class="colorbar" />
-                    <text x="80%" y="55%" fill="white" class="littlenumber">{{typeitem.percent}}%</text>
-                </svg>
+                
                 <div id="displayID" class="strbox" style="height:150px;" v-show="isunfold[index]">
                     <div v-for="(item,mykey) in typeitem.info" v-bind:key="mykey">
                       <img  class="checkbox" width="10px" height="10px" src="./img/individual.png"/>
@@ -59,6 +56,9 @@
           <div style="width:100%">
             <p class="boxtext boxsubtitle littletip" >防疫病原追踪：锁定已知病原携带者，给出可疑接触个体及防疫建议</p>
           </div></div>
+          <div class="fillbox" style="margin-top: 15px;margin-bottom:15px">
+            <el-button  v-on:click="beginAnalyze(2)" type="primary" round>开始分析</el-button>
+          </div>
           <hr align="center" width="100%" color="#987cb9" SIZE="1" />
         <div class="boxitem">
           <img src="./img/gather.png" style="width:40px;height:40px;display:inline"/>
@@ -69,7 +69,7 @@
             <p class="boxtext boxsubtitle littletip" >分析异常聚集原因，给出可靠疏散建议</p>
           </div></div>
            <div class="fillbox" style="margin-top: 15px;margin-bottom:15px">
-            <el-button  v-on:click="beginAnalyze(2)" type="primary" round>开始分析</el-button>
+            <el-button   type="primary" round>开始分析</el-button>
           </div>
 
       </div>

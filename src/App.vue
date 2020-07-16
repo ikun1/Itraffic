@@ -276,6 +276,7 @@ export default {
 
       this.map.on('click',function(){
         this.foldBox();
+        this.hideAll();
       },this);
       var cache = this;
       AMap.plugin(["AMap.MouseTool"], function (){
@@ -562,7 +563,7 @@ export default {
       d3.select(".districtLine").transition().style("left", "100%");
       d3.select(".pointInfo").transition().style("left", "100%");
       d3.select(".bussinessInfo").transition().style("left", "100%");
-      
+      this.medicalShow=false;
     },
     
     reactRange(type){
@@ -608,7 +609,7 @@ export default {
       d3.select("#container").classed("blurBackground",false);
       this.infectionShow = false;
       this.drawMyLine(this.map);
-      hideAll();
+      this.hideAll();
       this.medicalShow = true;
 
     },
