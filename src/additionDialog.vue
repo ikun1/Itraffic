@@ -59,6 +59,15 @@
           <div style="width:100%">
             <p class="boxtext boxsubtitle littletip" >防疫病原追踪：锁定已知病原携带者，给出可疑接触个体及防疫建议</p>
           </div></div>
+          <hr align="center" width="100%" color="#987cb9" SIZE="1" />
+        <div class="boxitem">
+          <img src="./img/medical.png" style="width:40px;height:40px;display:inline"/>
+          <p class="boxtext vice-title">聚集分析</p>
+        </div>
+        <div class="boxitem">
+          <div style="width:100%">
+            <p class="boxtext boxsubtitle littletip" >分析异常聚集原因，给出可靠疏散建议</p>
+          </div></div>
            <div class="fillbox" style="margin-top: 15px;margin-bottom:15px">
             <el-button  v-on:click="beginAnalyze(2)" type="primary" round>开始分析</el-button>
           </div>
