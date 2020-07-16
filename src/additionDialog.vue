@@ -61,7 +61,7 @@
           </div></div>
           <hr align="center" width="100%" color="#987cb9" SIZE="1" />
         <div class="boxitem">
-          <img src="./img/medical.png" style="width:40px;height:40px;display:inline"/>
+          <img src="./img/gather.png" style="width:40px;height:40px;display:inline"/>
           <p class="boxtext vice-title">聚集分析</p>
         </div>
         <div class="boxitem">
