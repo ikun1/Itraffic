@@ -66,6 +66,7 @@
       <commerceType id="commerceType" ref="commerceType" />
       <districtLine id="districtLine" ref="districtLine" />
       <trafficType id="trafficType" ref="trafficType" />
+      <stayPointInfo id="stayPointInfon" ref="stayPointInfon" />
       <costomerFeature id="costomerFeature" ref="costomerFeature" />
       <infectionDialog id="infectionDialog" ref="infectionDialog" @confirm="confirmInfection" v-bind:show="infectionShow"/>
 
@@ -102,7 +103,7 @@ import commerceType from "./commerceType.vue";
 import trafficType from "./trafficType.vue";
 import districtLine from "./districtLine.vue";
 import costomerFeature from "./costomerFeature.vue";
-
+import stayPointInfo from "./stayPointInfo.vue";
 import additionDialog from './additionDialog.vue';
 import infectionDialog from "./infectionDialog.vue";
 import funcMenu from './funcMenu.vue'
@@ -226,6 +227,7 @@ export default {
     commerceType,
     trafficType,
     districtLine,
+    stayPointInfo,
     costomerFeature,
     infectionDialog,
     medicalInfo,
