@@ -120,8 +120,8 @@ export default {
     this.loadmap();     //加载地图和相关组件
     this.$api.path.getPathJson({}).then(res => {
     this.pathData = res.data;
-    //this.initPath();//初始化路径分析移动到这里
-    //this.changeStatus('path');
+    // this.initPath();//初始化路径分析移动到这里
+    // this.changeStatus('path');
     });
     
   },
@@ -377,6 +377,7 @@ export default {
           this.showTrafficType();
         }else if(layerName == "arrest"){
           this.unfoldBox('arrestDialog');
+          this.showPointInfo();
         }else if(layerName == "heatmap"){
           this.showDistrictLine();
           this.unfoldBox('toolBox');
@@ -516,24 +517,28 @@ export default {
       }
     },
     showdiagram(){
-      d3.select("#infoBox").transition().style("left", "80%");
+      d3.select("#infoBox").transition().duration(2000).style("left", "80%");
     },
     showCommerceInfo(){
-      d3.select(".storeLoc").transition().style("left", "75%");
+      d3.select(".storeLoc").transition().duration(2000).style("left", "75%");
     },
     showcommerceType(){
-      d3.select("#commerceType").transition().style("top", "60%");
+      d3.select("#commerceType").transition().duration(2000).style("top", "60%");
     },
     showCostomerFeature(){
-      d3.select("#costomerFeature").transition().style("left", "75%");
+      d3.select("#costomerFeature").transition().duration(2000).style("left", "75%");
     },
     showTrafficType(){
-      d3.select(".trafficTypePie").transition().style("left", "75%");
-      d3.select(".trafficTypeDonut").transition().style("left", "75%");
+      d3.select(".trafficTypePie").transition().duration(2000).style("left", "75%");
+      d3.select(".trafficTypeDonut").transition().duration(2000).style("left", "75%");
     },
     showDistrictLine(){
-      d3.select(".totalLine").transition().style("left", "70%");
-      d3.select(".districtLine").transition().style("left", "70%");
+      d3.select(".totalLine").transition().duration(2000).style("left", "70%");
+      d3.select(".districtLine").transition().duration(2000).style("left", "70%");
+    },
+    showPointInfo(){
+      d3.select(".pointInfo").transition().duration(2000).style("left", "75%");
+      d3.select(".bussinessInfo").transition().duration(2000).style("left", "75%");
     },
     reactRange(type){
       //圈选范围响应
