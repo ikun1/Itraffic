@@ -2,6 +2,7 @@
   <div class="outmap">
     <div class="inside">
       <div id="container" class="mymap inmap" v-bind:class="{ mapranging: isMapranging}"></div>
+      <div id="sysTitle"><span>阡陌交通时空大数据可视化系统</span></div>
       <func-menu @react="clickTools" style="display:absolute"/>
       <!--<img id="toolButton" class="floatToolBar toolButton" v-bind:class="{ hide:!status.heatmap }" v-bind:style="{left:countLeft(0)}" src="./img/heatmaptool.png" v-show="unfold" v-on:click="unfoldBox('toolBox')" />-->
       <div id=statusOfMap class="floatStatus">
@@ -118,7 +119,7 @@ export default {
     this.loadmap();     //加载地图和相关组件
     this.$api.path.getPathJson({}).then(res => {
     this.pathData = res.data;
-    this.initPath();//初始化路径分析移动到这里
+    //this.initPath();//初始化路径分析移动到这里
     //this.changeStatus('path');
     });
     

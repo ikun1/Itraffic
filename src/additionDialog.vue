@@ -68,9 +68,10 @@
 </template>
 
 <script>
+import * as d3 from 'd3';
 export default {
     mounted(){
-
+      d3.selectAll(".el-button--primary").style("background-color", "#158d97").style("border-color", "#158d97")
     },
     data(){
         return {
@@ -241,6 +242,16 @@ background-color:#82afff;
 
 background-color: #ff0bee;
 
+}
+
+.el-button--primary{
+  background-color: #158d97;
+  border-color: #158d97;
+}
+
+.el-button--primary:active{
+  background-color: #158d97;
+  border-color: #158d97;
 }
 
 </style>
