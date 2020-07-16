@@ -3,7 +3,7 @@
         <el-table
             :data="tableData"
             :header-cell-style="{background:'rgb(41, 43, 61)',color:'white'}"
-            style="background-color:transparent;color:white;"
+            style="background-color:transparent;color:black;"
             width="tableWidth">
             <el-table-column
                 prop="date"

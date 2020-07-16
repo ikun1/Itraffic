@@ -2,9 +2,9 @@
 <div v-bind:id="ids" class="genderProportion">
     <div class="pointInfo">
         <div class="staypointtext">
-            所选驻点:<p class="text chinese " id="point">辽宁省沈阳市和平区哈尔滨路11号</p>
-            驻点频率:<p class="text chinese " id="frequency">229</p>
-            驻留时间:<p class="text chinese" id="time">16.0h</p>
+            所选驻点:<p class="text chinese " id="point">{{arrestData.address}}</p>
+            驻点频率:<p class="text chinese " id="frequency">{{arrestData.frequency}}</p>
+            驻留时间:<p class="text chinese" id="time">{{arrestData.lastTime}}h</p>
         </div>
     </div>
     <div class="bussinessInfo"></div>
@@ -27,6 +27,11 @@ export default {
     },
     data(){
         return {
+            arrestData:{
+                "lastTime": 0.47,
+                "frequency": 3,
+                "address": "辽宁省沈阳市和平区抚顺路",
+            }
         }
     },
     computed: {
