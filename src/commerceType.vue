@@ -36,15 +36,7 @@ export default {
     },
     data(){
         return {
-        }
-    },
-    computed: {
-    },
-    methods: {
-      drawStoreType() {
-        
-        //var echarts = require('echarts');
-        var option = {
+            option:{
             tooltip: {
                 trigger: 'item',
                 formatter: '{a} <br/>{b}: {c} ({d}%)'
@@ -110,12 +102,25 @@ export default {
                     ]
                 }
             ]
-        };
+        }
+        }
+    },
+    computed: {
+    },
+    methods: {
+      drawStoreType() {
+        //var echarts = require('echarts');
+        var option = this.option;
         // 基于准备好的dom，初始化echarts实例
         console.log(document.getElementById('storeType'))
         var myChart = echarts.init(document.getElementById('storeType'), 'dark');
         myChart.setOption(option);
-    }
+    },
+        
+        changeData(){
+            this.option.series[0].data.forEach(function(s){s.data = Math.floor(Math.random()*5000);});
+            this.option.series[1].data.forEach(function(s){s.data = Math.floor(Math.random()*2000);});
+        }
     },
     props:{
         ids:{

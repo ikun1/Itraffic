@@ -34,8 +34,8 @@
             <el-switch
               style="display: block"
               v-model="modevalue"
-              active-color="#13ce66"
-              inactive-color="#ff4949"
+              active-color="#158d97"
+              inactive-color="#158d97"
               active-text="显示群体"
               v-on:change="changeMode"
               inactive-text="显示热度">

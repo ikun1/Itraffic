@@ -66,7 +66,7 @@
       <commerceType id="commerceType" ref="commerceType" />
       <districtLine id="districtLine" ref="districtLine" />
       <trafficType id="trafficType" ref="trafficType" />
-      <stayPointInfo id="stayPointInfon" ref="stayPointInfon" />
+      <stayPointInfo  id="stayPointInfo"  ref="stayPointInfo"/>
       <costomerFeature id="costomerFeature" ref="costomerFeature" />
       <infectionDialog id="infectionDialog" ref="infectionDialog" @confirm="confirmInfection" v-bind:show="infectionShow"/>
 
@@ -120,8 +120,8 @@ export default {
     this.loadmap();     //加载地图和相关组件
     this.$api.path.getPathJson({}).then(res => {
     this.pathData = res.data;
-    // this.initPath();//初始化路径分析移动到这里
-    // this.changeStatus('path');
+    this.initPath();//初始化路径分析移动到这里
+    this.changeStatus('path');
     });
     
   },
@@ -276,6 +276,7 @@ export default {
 
       this.map.on('click',function(){
         this.foldBox();
+        this.hideAll();
       },this);
       var cache = this;
       AMap.plugin(["AMap.MouseTool"], function (){
@@ -317,6 +318,7 @@ export default {
       dataGenerator.formatter_heat(cache,1,"1");
       dataGenerator.mergeData(cache,1);
       dataGenerator.loadArrest(cache);
+      dataGenerator.loadArrestDescript();
       });
 
       AMap.plugin('AMap.Geocoder', function() {
@@ -371,13 +373,15 @@ export default {
 
     },
     clickTools(layerName){
+      this.hideAll();
       if(layerName == "path")
         {
           this.unfoldBox('pathDialog');
           this.showTrafficType();
         }else if(layerName == "arrest"){
           this.unfoldBox('arrestDialog');
-          this.showPointInfo();
+          //this.showPointInfo();
+          this.showStayPointInfo();
         }else if(layerName == "heatmap"){
           this.showDistrictLine();
           this.unfoldBox('toolBox');
@@ -472,8 +476,18 @@ export default {
             strokeColor: '#fff', // 描边颜色
             strokeWeight: 1, // 描边宽度
           });
+
           this.arrestCircles.push(circle);
           this.map.add(circle);
+          var target = this;
+          circle.on('click', function(e) {
+            var features = dataGenerator.arrestDescript.features;
+            var length = features.length;
+            var rand = Math.floor(Math.random()*features.length);
+            var result = features[rand];
+            target.$refs.stayPointInfo.arrestData = result.properties;
+            target.map.panTo(e.center);
+            })
           if(!this.status.arrest){
           circle.hide();
           }
@@ -540,6 +554,24 @@ export default {
       d3.select(".pointInfo").transition().duration(2000).style("left", "75%");
       d3.select(".bussinessInfo").transition().duration(2000).style("left", "75%");
     },
+    showStayPointInfo(){
+      d3.select(".pointInfo").transition().style("left", "75%");
+      d3.select(".bussinessInfo").transition().style("left", "75%");
+    },
+     hideAll(){
+      d3.select(".storeLoc").transition().style("left", "100%");
+      d3.select("#commerceType").transition().style("top", "100%");
+      d3.select("#costomerFeature").transition().style("left", "100%");
+      d3.select(".trafficTypePie").transition().style("left", "100%");
+      d3.select(".trafficTypeDonut").transition().style("left", "100%");
+      d3.select(".totalLine").transition().style("left", "100%");
+      d3.select(".districtLine").transition().style("left", "100%");
+      d3.select(".pointInfo").transition().style("left", "100%");
+      d3.select(".bussinessInfo").transition().style("left", "100%");
+      d3.select("#myinfoBox").transition().style("left", "100%");
+      this.medicalShow=false;
+    },
+    
     reactRange(type){
       //圈选范围响应
       this.unfold = true;
@@ -583,6 +615,7 @@ export default {
       d3.select("#container").classed("blurBackground",false);
       this.infectionShow = false;
       this.drawMyLine(this.map);
+      this.hideAll();
       this.medicalShow = true;
 
     },
@@ -713,16 +746,7 @@ export default {
         });
           var clickHandle = AMap.event.addListener(marker, 'click', function(e) {
             var cur =JSON.parse(JSON.stringify(e.target.getExtData()));
-            this.commerceMarkers.forEach(function(marker){
-              marker.setLabel({
-                content:''
-              })
-            },this)
-            e.target.setLabel({
-                offset: new AMap.Pixel(0, -10),  //设置文本标注偏移量
-                content: "<div><p class='stext'>"+cur.descript+"</p><p class='stext'>参数1："+cur.val1+"</p><p class='stext'>参数2："+cur.val2+"</p></div>", //设置文本标注内容
-                direction: 'top' //设置文本标注方位
-            });
+            this.$refs.commerceType.changeData();
             this.map.panTo(e.target.getPosition());
           },this);
 
@@ -1010,6 +1034,7 @@ export default {
         this.loadArrestData(newData);
       }
       this.$refs.dataInfoBox.countInfo(type,typeinfo,this.rangestate.rangeArea,count);
+      this.hideAll();
       d3.select("#myinfoBox").transition().style("left", "80%");
     },
     drawData(heatmapdata){
