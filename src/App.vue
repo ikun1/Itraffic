@@ -120,7 +120,7 @@ export default {
     this.loadmap();     //加载地图和相关组件
     this.$api.path.getPathJson({}).then(res => {
     this.pathData = res.data;
-    this.initPath();//初始化路径分析移动到这里
+    // this.initPath();//初始化路径分析移动到这里
     this.changeStatus('path');
     });
     
