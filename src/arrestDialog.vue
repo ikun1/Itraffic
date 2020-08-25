@@ -36,6 +36,7 @@
               v-model="modevalue"
               active-color="#158d97"
               inactive-color="#158d97"
+              color="white"
               active-text="显示群体"
               v-on:change="changeMode"
               inactive-text="显示热度">
@@ -54,19 +55,38 @@
             <text x="80%" y="30" v-bind:fill="maxcolor" class="colortext">{{maxnumber}}</text>
           </svg>
         </div>
-        <div class="boxitem">
+        <!--<div class="boxitem">
           <div style="width:100%; align-items:center;display:flex;">
-            <p class="boxtext boxsubtitle">范围分析</p>
+            <p class="boxtext boxsubtitle" style="margin-top:10px">范围分析</p>
             <img id="rangeButton" v-on:click="reactRange" class="boxtext boxsubtitle rangeButton" src="./img/range.png"  />
           </div>
         </div>
         <div class="boxitem">
-          <div style="width:100%; align-items:center;display:flex;">
-            <p class="boxtext boxsubtitle">驻点迁移</p>
+          <div style="width:100%; align-items:center;display:flex;margin-bottom:10px">
+            <p class="boxtext boxsubtitle" style="margin-top:10px;">驻点迁移</p>
             <img  v-on:click="reactTime" class="boxtext boxsubtitle rangeButton retagleButton" src="./img/timelapses.png"  />
           </div>
-        </div>
+            </div>-->
+    <div class="linkbox" style="margin-top:20px">
+            <a v-on:click="reactRange" class="a iconbg1">
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span> 范围分析
+            </a>
+          </div>
+          <div class="linkbox" style="margin-top:10px;margin-bottom:20px">
+            <a v-on:click="reactTime" class="a iconbg2">
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span> 驻点迁移
+            </a>
+          </div>
+
+       
       </div>
+
 </template>
 
 <script>
@@ -104,3 +124,5 @@ export default {
     }
 }
 </script>
+
+

@@ -57,12 +57,15 @@
         </div>
       </div>
     </div>
-    <div class="boxitem">
-          <div style="width:100%; align-items:center;display:flex;">
-            <p class="boxtext boxsubtitle">出行迁移</p>
-            <img  v-on:click="reactTime" class="boxtext boxsubtitle rangeButton retagleButton" src="./img/timelapses.png"  />
+     <div class="linkbox" style="margin-top:20px;margin-bottom:20px">
+            <a v-on:click="reactRange" class="a iconbg2">
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span> 出行迁移
+            </a>
           </div>
-        </div>
+  
   </div>
 </template>
 

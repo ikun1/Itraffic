@@ -7,7 +7,7 @@
       <!--<img id="toolButton" class="floatToolBar toolButton" v-bind:class="{ hide:!status.heatmap }" v-bind:style="{left:countLeft(0)}" src="./img/heatmaptool.png" v-show="unfold" v-on:click="unfoldBox('toolBox')" />-->
       <div id=statusOfMap class="floatStatus">
         <div class="dropdown dropdown2">
-          <button class="dropbtn">图层</button>
+          <button class="dropbtn" style="display:none">图层</button>
           <div class="dropdown-content">
             <a v-bind:class="{ isShowed:status.heatmap }" v-on:click="changeStatus('heatmap')">密度分析</a>
             <a v-bind:class="{ isShowed:status.arrest }" v-on:click="changeStatus('arrest')"> 驻点分析</a>
@@ -45,18 +45,25 @@
             <input type="range" value="50" min="0" max="100" step="1" class="slider" />
           </div>
         </div>
-        <div class="boxitem">
-          <div style="width:100%; align-items:center;display:flex;">
-            <p class="boxtext boxsubtitle">范围分析</p>
-            <img id="rangeButton" class="boxtext boxsubtitle rangeButton" src="./img/range.png" v-on:click="reactRange('heatmap')" />
+          <div class="linkbox" style="margin-top:20px">
+            <a  v-on:click="reactRange('heatmap')" class="a iconbg1">
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span> 范围分析
+            </a>
           </div>
-        </div>
-         <div class="boxitem">
-          <div style="width:100%; align-items:center;display:flex;">
-            <p class="boxtext boxsubtitle">热力迁移</p>
-            <img  v-on:click="reactHeatTime" class="boxtext boxsubtitle rangeButton retagleButton" src="./img/timelapses.png"  />
+          <div class="linkbox" style="margin-top:10px;margin-bottom:20px">
+            <a v-on:click="reactHeatTime"  class="a iconbg2">
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span> 热力迁移
+            </a>
           </div>
-        </div>
+
+       
+      </div>
       </div>
       <dataInfo ref="dataInfoBox" ids="myinfoBox" @refreshArrest="loadArrestData" @func="drawData"/>
       <dataInfo  ids="infoBox" @refreshArrest="loadArrestData" @func="drawData"/>
@@ -72,19 +79,9 @@
 
       <playDialog  id="arrestPlayDialog" ref="playDialog"  @close="closeArrest" @change="reactArrest" @stop="stopArrest"  @start="startArrest" max=0 v-bind:show="showPlayDialog"/>
       <playDialog id="heatPlayDialog" ref="heatplayDialog"  @close="closeArrest" @change="reactArrest" @stop="stopArrest"  @start="startHeat" max=0 v-bind:show="showHeatPlayDialog"/>
-      <!-- <div class="input-card">
-    <h4>轨迹回放控制</h4>
-    <div class="input-item">
-        <input type="button" class="btn" value="开始动画" id="start" v-on:click="startAnimation"/>
-        <input type="button" class="btn" value="暂停动画" id="pause" v-on:click="pauseAnimation"/>
+     
     </div>
-    <div class="input-item">
-        <input type="button" class="btn" value="继续动画" id="resume" v-on:click="resumeAnimation"/>
-        <input type="button" class="btn" value="停止动画" id="stop" v-on:click="stopAnimation"/>
-    </div>
-</div> -->
-    </div>
-  </div>
+
 </template>
 <script>
 
@@ -120,8 +117,8 @@ export default {
     this.loadmap();     //加载地图和相关组件
     this.$api.path.getPathJson({}).then(res => {
     this.pathData = res.data;
-    // this.initPath();//初始化路径分析移动到这里
-    this.changeStatus('path');
+    //this.initPath();//初始化路径分析移动到这里
+    this.status["heatmap"] = true;
     });
     
   },
@@ -372,21 +369,74 @@ export default {
       }
 
     },
+    layerAnimation(former,latter){
+      switch(former){
+        case "arrest":
+           this.arrestCircles.forEach(function(circle){
+           circle.hide();
+        });
+        break;
+        case "heatmap":
+          this.heatmap.hide();
+          break;
+        case "path":
+          this.mypolyline.forEach(function(po){
+          po.hide()
+        });
+        break;
+      }
+      switch(latter){
+        case "arrest":
+           this.arrestCircles.forEach(function(circle){
+           circle.show();
+        });
+        break;
+        case "heatmap":
+          this.heatmap.show();
+          break;
+        case "path":
+          //this.initPath();
+        break;
+      }
+    },
+    transmitLayer(layerName){
+      var formerStatus = "";
+      var checkable = ["path","arrest","heatmap"];
+      checkable.forEach(function(e){
+        console.log(this.status[e])
+        if(this.status[e]){
+          formerStatus = e;
+        }
+      },this)
+      if(formerStatus==layerName){
+        return;
+      }
+      this.layerAnimation(formerStatus,layerName);
+      this.status[formerStatus]=false;
+      this.status[layerName]=true;
+    },
     clickTools(layerName){
       this.hideAll();
       if(layerName == "path")
         {
+          
+          this.transmitLayer("path");
           this.unfoldBox('pathDialog');
           this.showTrafficType();
         }else if(layerName == "arrest"){
+          
+          this.transmitLayer("arrest")
           this.unfoldBox('arrestDialog');
           //this.showPointInfo();
           this.showStayPointInfo();
         }else if(layerName == "heatmap"){
+          
+          this.transmitLayer("heatmap")
           this.showDistrictLine();
           this.unfoldBox('toolBox');
         }else if(layerName == "addition"){
           this.unfoldBox('additionDialog');
+          this.transmitLayer("");
         }
     },
     reloadHeatMap(){
@@ -486,7 +536,8 @@ export default {
             var rand = Math.floor(Math.random()*features.length);
             var result = features[rand];
             target.$refs.stayPointInfo.arrestData = result.properties;
-            target.map.panTo(e.center);
+            target.map.panTo(e.target.getCenter());
+            target.map.setZoom(17);
             })
           if(!this.status.arrest){
           circle.hide();
@@ -510,7 +561,7 @@ export default {
     unfoldBox(boxType){
       //展开盒子
       this.unfold = false;
-      d3.select("#"+boxType).transition().style("left", "0%");
+      d3.select("#"+boxType).transition().style("left", "2%");
     },
     foldBox(){
       if(!this.unfold){
@@ -524,7 +575,7 @@ export default {
       var cache = this;
       var toolBox = d3.select(target);
       var left = toolBox.style("left");
-      if(left == "0%"){
+      if(left == "2%"){
       toolBox.transition().style("left", "-20%").on('end', function(){
         cache.unfold = true;
       });
@@ -707,7 +758,6 @@ export default {
               });
           this.map.add(circle);
           this.drawCircles.push(circle);
-          console.log("画一个")
         },this)
         
     },

@@ -24,11 +24,11 @@ export default {
             "http://jd.com",
             "http://jd.com",
             "http://jd.com"],
-        backgroundColor:'#158d97',
+        backgroundColor:'#00BECC',
         color:'#ffffff',
         position:'top-right',
         isOpenNewTab:false,
-        menucolor:"#158d97"
+        menucolor:"#00BECC"
       }
   },
    methods:{

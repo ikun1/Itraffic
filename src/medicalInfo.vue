@@ -8,7 +8,7 @@
       class="tableBox"
       width="tableWidth"
        :header-cell-style="th_style"
-       :row-style="{background:'rgb(41, 43, 61)',color:'#FFFFFF'}"
+       :row-style="{background:'#1d1d1d',color:'#FFFFFF'}"
       >
       <el-table-column align="center" label="传染源信息">
         
@@ -39,7 +39,7 @@
       class="tableBox"
       width="tableWidth"
        :header-cell-style="th_style"
-       :row-style="{background:'rgb(41, 43, 61)',color:'#FFFFFF'}"
+       :row-style="{background:'#1d1d1d',color:'#FFFFFF'}"
       >
       <el-table-column align="center" label="传染源所到驻点">
       <el-table-column
@@ -66,7 +66,7 @@
       class="tableBox"
       width="tableWidth"
        :header-cell-style="th_style"
-       :row-style="{background:'rgb(41, 43, 61)',color:'#FFFFFF'}"
+       :row-style="{background:'#1d1d1d',color:'#FFFFFF'}"
       >
       <el-table-column align="center" label="可疑接触者">
       <el-table-column
