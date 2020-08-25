@@ -6,7 +6,7 @@
 		      <div class="panel">
 		        <div class="panel-heading" role="tab" id="headingOne">
 		          <h4 class="panel-title">
-		        <a class="mya" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+		        <a v-on:click="clickTap('headingOne')" class="mya" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
               <img src="./img/commercial.png" style="width:40px;height:40px;display:inline"/>
               商业功能
 		        </a>
@@ -30,8 +30,13 @@
                 </div>
             </div>
           </div>
-          <div class="fillbox">
-            <el-button  v-on:click="beginAnalyze(1)" type="primary" round>开始评估</el-button>
+          <div class="linkbox" style="margin-top:20px;margin-bottom:20px">
+            <a  v-on:click="beginAnalyze(1)" class="a iconbg3">
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span> 开始分析
+            </a>
           </div>
       <div class="boxitem">
       <p class="boxtext boxsubtitle">图例:</p>
@@ -60,7 +65,7 @@
 		      <!-- end of panel -->
 
 		      <div class="panel">
-		        <div class="panel-heading" role="tab" id="headingTwo">
+		        <div class="panel-heading active" role="tab" id="headingTwo">
 		          <h4 class="panel-title">
 		        <a class="collapsed mya" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
 		          <img src="./img/medical.png" style="width:40px;height:40px;display:inline"/>
@@ -74,9 +79,14 @@
                 <div style="width:100%">
                   <p class="boxtext boxsubtitle littletip" >防疫病原追踪：锁定已知病原携带者，给出可疑接触个体及防疫建议</p>
                 </div></div>
-                <div class="fillbox" style="margin-top: 15px;margin-bottom:15px">
-                  <el-button  v-on:click="beginAnalyze(2)" type="primary" round>开始分析</el-button>
-                </div>
+                <div class="linkbox" style="margin-top:20px;margin-bottom:20px">
+            <a  v-on:click="beginAnalyze(2)" class="a iconbg3">
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span> 开始分析
+            </a>
+          </div>
                </div>
 		        </div>
 		      </div>
@@ -97,9 +107,15 @@
           <div style="width:100%">
             <p class="boxtext boxsubtitle littletip" >分析异常聚集原因，给出可靠疏散建议</p>
           </div></div>
-           <div class="fillbox" style="margin-top: 15px;margin-bottom:15px">
-            <el-button   type="primary" round>开始分析</el-button>
+          <div class="linkbox" style="margin-top:20px;margin-bottom:20px">
+            <a  class="a iconbg3">
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span> 开始分析
+            </a>
           </div>
+           
                 </div>
 		        </div>
 		      </div>
@@ -150,6 +166,11 @@ export default {
 
 
 
+      },
+      clickTap(id){
+        $("#headingOne").tab("show");
+        $('#' + id).prev('.panel-heading').addClass('active');
+        console.log(id)
       },
         reactRange(){
           this.$emit('range',"arrest");
