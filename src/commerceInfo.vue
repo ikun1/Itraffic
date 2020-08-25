@@ -1,6 +1,8 @@
 <template>
       <div v-bind:id="ids" class="storeLoc" >
         <el-table
+            v-loading="loading"
+            element-loading-background="rgba(0, 0, 0, 0.8)"
             :data="tableData"
             :header-cell-style="{background:'rgb(41, 43, 61)',color:'white'}"
             style="background-color:transparent;color:black;"
@@ -55,7 +57,8 @@ export default {
             value: 3.7,
             address: '高于40%'
           }],
-          value: 5
+          value: 5,
+          loading: true,
         }
     },
     computed: {

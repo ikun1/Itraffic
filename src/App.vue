@@ -428,6 +428,7 @@ export default {
           
           this.transmitLayer("arrest")
           this.unfoldBox('arrestDialog');
+          //this.showPointInfo();
           this.showStayPointInfo();
         }else if(layerName == "heatmap"){
           
@@ -582,24 +583,28 @@ export default {
       }
     },
     showdiagram(){
-      d3.select("#infoBox").transition().style("left", "80%");
+      d3.select("#infoBox").transition().duration(2000).style("left", "80%");
     },
     showCommerceInfo(){
-      d3.select(".storeLoc").transition().style("left", "75%");
+      d3.select(".storeLoc").transition().duration(2000).style("left", "75%");
     },
     showcommerceType(){
-      d3.select("#commerceType").transition().style("top", "60%");
+      d3.select("#commerceType").transition().duration(2000).style("top", "60%");
     },
     showCostomerFeature(){
-      d3.select("#costomerFeature").transition().style("left", "75%");
+      d3.select("#costomerFeature").transition().duration(2000).style("left", "75%");
     },
     showTrafficType(){
-      d3.select(".trafficTypePie").transition().style("left", "75%");
-      d3.select(".trafficTypeDonut").transition().style("left", "75%");
+      d3.select(".trafficTypePie").transition().duration(2000).style("left", "75%");
+      d3.select(".trafficTypeDonut").transition().duration(2000).style("left", "75%");
     },
     showDistrictLine(){
-      d3.select(".totalLine").transition().style("left", "70%");
-      d3.select(".districtLine").transition().style("left", "70%");
+      d3.select(".totalLine").transition().duration(2000).style("left", "70%");
+      d3.select(".districtLine").transition().duration(2000).style("left", "70%");
+    },
+    showPointInfo(){
+      d3.select(".pointInfo").transition().duration(2000).style("left", "75%");
+      d3.select(".bussinessInfo").transition().duration(2000).style("left", "75%");
     },
     showStayPointInfo(){
       d3.select(".pointInfo").transition().style("left", "75%");

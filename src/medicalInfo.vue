@@ -2,6 +2,8 @@
 <transition name="el-fade-in-linear">
       <div v-show="show"  v-bind:id="ids" class="medicalInfo confrontBox" >
     <el-table
+      v-loading="loading"
+      element-loading-background="rgba(0, 0, 0, 0.8)"
       :data="tableData"
       class="tableBox"
       width="tableWidth"
@@ -31,6 +33,8 @@
     </el-table>
 
     <el-table
+    v-loading="loading"
+      element-loading-background="rgba(0, 0, 0, 0.8)"
       :data="addressData"
       class="tableBox"
       width="tableWidth"
@@ -56,6 +60,8 @@
       </el-table-column>
     </el-table>
     <el-table
+      v-loading="loading"
+      element-loading-background="rgba(0, 0, 0, 0.8)"
       :data="specular"
       class="tableBox"
       width="tableWidth"
@@ -95,6 +101,11 @@ import echarts from 'echarts';
 import * as d3 from 'd3';
 export default {
     mounted(){
+      // var timer = setTimeout(function(){
+      //   console.log("okk?")
+      //   this.loading=false;
+      // }, 1000);
+      //clearTimeout(timer);
     },
     data(){
         return {
@@ -127,7 +138,8 @@ export default {
           id:"460000095093417729",
           dangerous:"62",
           adata:"与传染源同时段处于同一驻点"
-        }]
+        }],
+        loading:true,
         }
     },
     computed: {
