@@ -1,10 +1,12 @@
 <template>
-<div v-bind:id="ids" class="genderProportion">
+<div v-bind:id="ids">
     <div class="pointInfo">
         <div class="staypointtext">
+            <div style="margin-left:15px;margin-top:15px;">
             所选驻点:<p class="text chinese " id="point">{{arrestData.address}}</p>
             驻点频率:<p class="text chinese " id="frequency">{{arrestData.frequency}}</p>
             驻留时间:<p class="text chinese" id="time">{{arrestData.lastTime}}h</p>
+            </div>
         </div>
     </div>
     <div class="bussinessInfo"></div>

@@ -9,6 +9,7 @@ say();*/
 
 import Vue from 'vue';
 import './style/common.scss';
+import "./style/style.css"
 import App from './App.vue';
 import dataInfo from './dataInfo.vue';
 import arrestDialog from './arrestDialog.vue';

@@ -93,8 +93,7 @@ p.title{
 }
 
 .floatToolBar{
-  top: 0px;
-  left: 0%;
+  top:3%;
   z-index: 5;
   position: absolute;
   opacity: 0.8;
@@ -125,6 +124,7 @@ p.title{
 
 .mymap{
     width: 100%;
+    overflow:hidden;
   }
 
 
@@ -133,8 +133,9 @@ p.title{
   }
 
   .outmap{
-    margin-top:10px;
-    height: 90%;
+    width:100%;
+    height:100%;
+    overflow:hidden;
   }
   .quick-menu{
     position: absolute;
@@ -168,7 +169,7 @@ p.title{
   .infoBox{
     width:20%;
     height: 100%;
-    background-color: black;
+    background-color: rgb(41,43,67);
     border-radius:5px;
     justify-content: center;
   }
@@ -196,7 +197,7 @@ p.title{
     width: 80%;
     border-radius: 10px; /*这个属性设置使填充进度条时的图形为圆角*/
     height: 10px;
-    background-color: #44b5d8;
+    background-color: #00BECC;
   }
   .slider::-webkit-slider-thumb {
     -webkit-appearance: none;
@@ -392,7 +393,7 @@ right:0;
   position: absolute;
   opacity: 0.8;
   width: 20%;
-  background-color: #158d97;
+  background-color: rgb(41,43,67);
   border-radius:5px;
   justify-content: center;
   overflow-y: scroll;
@@ -410,7 +411,7 @@ right:0;
   opacity: 0.8;
   width: 20%;
   height: 35%;
-  background-color: #158d97;
+  background-color: rgb(41,43,67);
   border-radius:5px;
   justify-content: center;
   overflow-y: scroll;
@@ -424,7 +425,7 @@ right:0;
   opacity: 0.8;
   width: 20%;
   height: 55%;
-  background-color: #158d97;
+  background-color: rgb(41,43,67);
 
   color: white;
   border-radius:5px;
@@ -440,7 +441,7 @@ right:0;
   opacity: 0.8;
   width: 20%;
   height: 35%;
-  background-color: rgb(41, 43, 61);
+  background-color: #292929;
   border-radius:5px;
   justify-content: center;
   overflow-y: scroll;
@@ -455,7 +456,7 @@ right:0;
   width: 20%;
   height: 55%;
   // background-color: rgb(41, 43, 61);
-  background-color: rgb(41, 43, 61);
+  background-color: rgb(41,43,67);
   border-radius:5px;
   justify-content: center;
   overflow-y: scroll;
@@ -590,7 +591,7 @@ right:0;
 
 /*性别比例部分的CSS*/
 .genderProportion{
-  background-color: rgb(41, 41, 41);
+  background-color: rgb(41, 43, 67);
 }
 .gender-proportion-allpic {
   width: 67%;
@@ -665,3 +666,218 @@ right:0;
   background-size: 498px 66px;
   background-repeat: no-repeat;
 }
+
+.linkbox{
+  cursor: pointer;
+  color: white;
+}
+			
+			.box {
+				width: 800px;
+				height: 280px;
+				margin: 50px auto;
+				border: solid 2px bisque;
+			}
+			/*盒子内部类为icon 的span 进行描述*/
+			
+
+      
+      .iconbg1{
+        background: url(/src/img/allow-range.png)no-repeat 130px center;
+      }
+      .iconbg2{
+        background: url(/src/img/allow-time.png)no-repeat 130px center;
+      }
+			.button,
+			.a {
+				display: block;
+				width: 180px;
+				height: 50px;
+				text-decoration: none;
+				line-height: 50px;
+				color: #00BECC;
+				font-family: "微软雅黑";
+				font-weight: bolder;
+				border: 2px solid #00BECC(200, 155, 155, 0.3);
+				padding-left: 20px;
+				margin: 0 auto;
+				box-sizing: border-box;
+				/*兼容代码*/
+				/*兼容IE浏览器*/
+				-ms-box-sizing: border-box;
+				/*兼容Safari和Chrome浏览器*/
+				-webkit-box-sizing: border-box;
+				/*兼容火狐浏览器*/
+				-moz-box-sizing: border-box;
+				/*加入箭头*/
+				/*添加过度效果*/
+				transition: all 0.3s linear;
+				position: relative;
+			}
+			
+			.button:hover {
+				border: 2px solid rgba(255, 255, 255, 1);
+				background-position: 140px center;
+			}
+			/*添加四条线的样式*/
+			
+			.button:hover .line {
+				background: yellow;
+			}
+			/*是四条闪现过来的线 ，很多重复的部分*/
+			
+			.button .line {
+				display: block;
+				position: absolute;
+				background: none;
+				transition: all 0.3s linear;
+				-webkit-transition: all 0.3s linear;
+				-moz-transition: all 0.3s linear;
+			}
+			/*顶端的线标注*/
+			/*1.高度 不变
+			2.盒子宽度不变
+			3.位置左右位置移动*/
+			
+			.button .line_top {
+				height: 2px;
+				width: 0;
+				left: -110%;
+				top: -2px;
+			}
+			
+			.button:hover .line_top {
+				width: 100%;
+				left: -2px;
+			}
+			
+			.button .line_bottom {
+				height: 2px;
+				width: 0;
+				right: -110%;
+				bottom: -2px;
+			}
+			
+			.button:hover .line_bottom {
+				width: 100%;
+				right: -2px;
+			}
+			
+			.button .line_right {
+				height: 0px;
+				width: 2px;
+				right: -2px;
+				top: -110%;
+			}
+			
+			.button:hover .line_right {
+				height: 100%;
+				top: -2px;
+			}
+			
+			.button .line_left {
+				height: 0px;
+				width: 2px;
+				left: -2px;
+				bottom: -110%;
+			}
+			
+			.button:hover .line_left {
+				height: 100%;
+				bottom: -2px;
+			}
+			.a{
+				
+				  overflow: hidden;
+			}
+			.a:hover {
+				background: #03e9f4;
+				color: #fff;
+				border-radius: 5px;
+				box-shadow: 0 0 5px #03e9f4, 0 0 25px #03e9f4, 0 0 50px #03e9f4, 0 0 100px #03e9f4;
+				background-position: 20px center;
+			}
+			
+			.a span {
+				position: absolute;
+				display: block
+			}
+			
+			.a span:nth-child(1) {
+				top: 0;
+				left: -100%;
+				width: 100%;
+				height: 2px;
+				background: linear-gradient(90deg, transparent, #03e9f4);
+				animation: btn-anim1 1s linear infinite;
+			}
+			
+			@keyframes btn-anim1 {
+				0% {
+					left: -100%;
+				}
+				50%,
+				100% {
+					left: 100%;
+				}
+			}
+			
+			.a span:nth-child(2) {
+				top: -100%;
+				right: 0;
+				width: 2px;
+				height: 100%;
+				background: linear-gradient(180deg, transparent, #03e9f4);
+				animation: btn-anim2 1s linear infinite;
+				animation-delay: .25s
+			}
+			
+			@keyframes btn-anim2 {
+				0% {
+					top: -100%;
+				}
+				50%,
+				100% {
+					top: 100%;
+				}
+			}
+			
+			.a span:nth-child(3) {
+				bottom: 0;
+				right: -100%;
+				width: 100%;
+				height: 2px;
+				background: linear-gradient(270deg, transparent, #03e9f4);
+				animation: btn-anim3 1s linear infinite;
+				animation-delay: .5s
+			}
+			
+			@keyframes btn-anim3 {
+				0% {
+					right: -100%;
+				}
+				50%,
+				100% {
+					right: 100%;
+				}
+			}
+			
+			.a span:nth-child(4) {
+				bottom: -100%;
+				left: 0;
+				width: 2px;
+				height: 100%;
+				background: linear-gradient(360deg, transparent, #03e9f4);
+				animation: btn-anim4 1s linear infinite;
+				animation-delay: .75s
+			}
+			
+			@keyframes btn-anim4 {
+				0% {
+					bottom: -100%;
+				}
+				50%,
+				100% {
+					bottom: 100%;
+				}
+			}

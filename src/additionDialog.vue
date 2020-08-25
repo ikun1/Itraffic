@@ -2,12 +2,19 @@
       <div v-bind:style="{left : left}"  class="floatToolBar toolBox">
         <p class="boxtext boxtitle">附加功能</p>
         <hr align="center" width="100%" color="#987cb9" SIZE="1" />
-        <div class="boxitem">
-          <img src="./img/commercial.png" style="width:40px;height:40px;display:inline"/>
-          <p class="boxtext vice-title">商业功能</p>
-        </div>
-         <div class="boxitem">
-          <div style="width:100%">
+      <div class="panel-group wrap" id="accordion" role="tablist" aria-multiselectable="true">
+		      <div class="panel">
+		        <div class="panel-heading" role="tab" id="headingOne">
+		          <h4 class="panel-title">
+		        <a class="mya" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+              <img src="./img/commercial.png" style="width:40px;height:40px;display:inline"/>
+              商业功能
+		        </a>
+		      </h4>
+		        </div>
+		        <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+		          <div class="panel-body">
+		            <div style="width:100%">
             <p class="boxtext boxsubtitle littletip">选择店铺目标群体，为您分析建议的商铺落点：</p>
              <div id="infoList" class="strbox">
                 <div class="centeritems"  v-for="(typeitem,index) in typeinfo" v-bind:key="index">
@@ -47,40 +54,81 @@
             </div>
           </div>
             </div>
-      <hr align="center" width="100%" color="#987cb9" SIZE="1" />
-        <div class="boxitem">
-          <img src="./img/medical.png" style="width:40px;height:40px;display:inline"/>
-          <p class="boxtext vice-title">医疗功能</p>
-        </div>
-        <div class="boxitem">
-          <div style="width:100%">
-            <p class="boxtext boxsubtitle littletip" >防疫病原追踪：锁定已知病原携带者，给出可疑接触个体及防疫建议</p>
-          </div></div>
-          <div class="fillbox" style="margin-top: 15px;margin-bottom:15px">
-            <el-button  v-on:click="beginAnalyze(2)" type="primary" round>开始分析</el-button>
-          </div>
-          <hr align="center" width="100%" color="#987cb9" SIZE="1" />
-        <div class="boxitem">
-          <img src="./img/gather.png" style="width:40px;height:40px;display:inline"/>
-          <p class="boxtext vice-title">聚集分析</p>
-        </div>
-        <div class="boxitem">
+                 </div>
+		        </div>
+		      </div>
+		      <!-- end of panel -->
+
+		      <div class="panel">
+		        <div class="panel-heading" role="tab" id="headingTwo">
+		          <h4 class="panel-title">
+		        <a class="collapsed mya" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+		          <img src="./img/medical.png" style="width:40px;height:40px;display:inline"/>
+              医疗功能
+		        </a>
+		      </h4>
+		        </div>
+		        <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+		          <div class="panel-body">
+		           <div class="boxitem">
+                <div style="width:100%">
+                  <p class="boxtext boxsubtitle littletip" >防疫病原追踪：锁定已知病原携带者，给出可疑接触个体及防疫建议</p>
+                </div></div>
+                <div class="fillbox" style="margin-top: 15px;margin-bottom:15px">
+                  <el-button  v-on:click="beginAnalyze(2)" type="primary" round>开始分析</el-button>
+                </div>
+               </div>
+		        </div>
+		      </div>
+		      <!-- end of panel -->
+
+		      <div class="panel">
+		        <div class="panel-heading" role="tab" id="headingThree">
+		          <h4 class="panel-title">
+		        <a class="collapsed mya" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+		          <img src="./img/gather.png" style="width:40px;height:40px;display:inline"/>
+              聚集分析
+		        </a>
+		      </h4>
+		        </div>
+		        <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+		          <div class="panel-body">
+		           <div class="boxitem">
           <div style="width:100%">
             <p class="boxtext boxsubtitle littletip" >分析异常聚集原因，给出可靠疏散建议</p>
           </div></div>
            <div class="fillbox" style="margin-top: 15px;margin-bottom:15px">
             <el-button   type="primary" round>开始分析</el-button>
           </div>
+                </div>
+		        </div>
+		      </div>
+		      <!-- end of panel -->
 
-      </div>
+
+		    </div>
+		    <!-- end of #accordion -->
+
+
+
        </div>
 </template>
 
 <script>
 import * as d3 from 'd3';
+import $ from 'jquery'
 export default {
     mounted(){
-      d3.selectAll(".el-button--primary").style("background-color", "#158d97").style("border-color", "#158d97")
+      d3.selectAll(".el-button--primary").style("background-color", "#158d97").style("border-color", "#158d97");
+       $('.collapse.in').prev('.panel-heading').addClass('active');
+		  $('#accordion, #bs-collapse')
+		    .on('show.bs.collapse', function(a) {
+		      $(a.target).prev('.panel-heading').addClass('active');
+		    })
+		    .on('hide.bs.collapse', function(a) {
+		      $(a.target).prev('.panel-heading').removeClass('active');
+        });
+        console.log("mount");
     },
     data(){
         return {
@@ -97,6 +145,12 @@ export default {
         }
     },
     methods:{
+      mounted(){
+      
+
+
+
+      },
         reactRange(){
           this.$emit('range',"arrest");
         },
@@ -262,5 +316,7 @@ background-color: #ff0bee;
   background-color: #158d97;
   border-color: #158d97;
 }
+
+.mya:hover { color: #2a6858; text-decoration: none; }/* 鼠标移动到链接上 */
 
 </style>

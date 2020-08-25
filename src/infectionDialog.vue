@@ -45,7 +45,7 @@
   <el-col :span="12"><el-input-number size="small" v-model="frameRate" :step="10" :min="0" :max="100" label="敏感度"></el-input-number></el-col>
     </el-row>
         </div>
-    <el-row type="flex" style="margin-top:15px" justify="center">
+    <el-row type="flex" style="margin-top:0px" justify="center">
       <el-button  v-on:click="confirm" type="primary">确认</el-button>
     </el-row>
   </el-main>
