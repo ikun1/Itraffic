@@ -58,7 +58,7 @@ export default {
             address: '高于40%'
           }],
           value: 5,
-          loading: true,
+          loading: false,
         }
     },
     computed: {

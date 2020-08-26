@@ -139,7 +139,7 @@ export default {
           dangerous:"62",
           adata:"与传染源同时段处于同一驻点"
         }],
-        loading:true,
+        loading:false,
         }
     },
     computed: {
