@@ -108,7 +108,7 @@
             <p class="boxtext boxsubtitle littletip" >分析异常聚集原因，给出可靠疏散建议</p>
           </div></div>
           <div class="linkbox" style="margin-top:20px;margin-bottom:20px">
-            <a  class="a iconbg3">
+            <a v-on:click="beginGather" class="a iconbg3">
               <span></span>
               <span></span>
               <span></span>
@@ -197,6 +197,9 @@ export default {
           this.$emit('loadCommerce',this.checkedGroups);
           else if(ind == 2)
           this.$emit('beginMedical');
+        },
+        beginGather(){
+          this.$emit('beginGather');
         }
     },
     props:{

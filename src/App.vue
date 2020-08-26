@@ -17,18 +17,18 @@
       </div>
       <arrestDialog  v-show="!unfold" id="arrestDialog" ref="arrestDialog" left="-20%" @redrawArrest="redrawArrest" @range="reactRange" @time="appearDialog"/>
       <pathDialog  v-show="!unfold" id="pathDialog" ref="pathDialog" left="-20%" @showdiagram="showdiagram"/>
-      <additionDialog  v-show="!unfold" id="additionDialog" ref="additionDialog" left="-20%" @loadCommerce="loadCommerce" @beginMedical="beginMedical"/>
+      <additionDialog  v-show="!unfold" id="additionDialog" ref="additionDialog" left="-20%" @loadCommerce="loadCommerce" @beginGather="reactHeatTime" @beginMedical="beginMedical"/>
       <div id="toolBox" style="left:-20%;" class="floatToolBar" v-show="!unfold">
         <p class="boxtext boxtitle" v-on:click="drawPolyline">热力图工具</p>
         <div class="boxitem">
         <div style="width:100%">
-            <p class="boxtext boxsubtitle" v-on:click="drawCircle">日期:</p>
+            <p class="boxtext boxsubtitle" v-on:click="certainHeat">日期:</p>
             <p class="boxtext boxsubtitle" style="width:200px">2018/10/03</p>
           </div>
         </div>
         <div class="boxitem">
           <div style="width:100%">
-            <p class="boxtext boxsubtitle">时间:</p>
+            <p class="boxtext boxsubtitle"  v-on:click="drawHeat">时间:</p>
             <p class="boxtext boxsubtitle" style="width:200px">{{nowdataindex}}</p>
           </div>
           <div class="fillbox">
@@ -38,7 +38,7 @@
         
         <div class="boxitem">
           <div style="width:100%">
-            <p class="boxtext boxsubtitle">不透明度:</p>
+            <p class="boxtext boxsubtitle" v-on:click="saveHeat" >不透明度:</p>
             <p class="boxtext boxsubtitle" style="width:200px">100</p>
           </div>
           <div class="fillbox">
@@ -122,6 +122,7 @@ export default {
     this.status["heatmap"] = true;
     });
     
+    
   },
   data () {
   return {
@@ -171,6 +172,11 @@ export default {
     mouseTool:'',
     polylines:[],
     medicalShow:false,
+    isDrawing:false,
+    mypolygon:'',
+    polygonInterval:'',
+    polyframe:3,
+    polyadd:false,
     status:{
       //分析图层集
       heatmap:false,//热力图（密度分析）
@@ -256,6 +262,27 @@ export default {
         // strokeDasharray: [30,10],
       })
     },
+    drawHeat(){
+      this.isDrawing = true;
+    },
+    saveHeat(){
+      dataGenerator.addHeat(this.heatmap.getDataSet().data);
+    },
+    certainHeat(){
+      dataGenerator.save();
+    },
+    drawHeatBegin(e){
+      if(this.isDrawing){
+      var nowdata = JSON.parse(JSON.stringify(this.heatmap.getDataSet().data));
+      nowdata.push({"lat":e.lnglat.getLat(),"lng":e.lnglat.getLng(),"frequency":1,"userid":[]});
+      console.log(nowdata)
+      this.heatmap.setDataSet({
+        data:nowdata
+      });
+      
+        
+      }
+    },
     loadmap(){
       this.map = new AMap.Map('container', {
         zoom: 12,
@@ -272,9 +299,10 @@ export default {
           return !!(elem.getContext && elem.getContext('2d'));
       }
 
-      this.map.on('click',function(){
+      this.map.on('click',function(e){
         this.foldBox();
         this.hideAll();
+        this.drawHeatBegin(e);
       },this);
       var cache = this;
       AMap.plugin(["AMap.MouseTool"], function (){
@@ -442,7 +470,7 @@ export default {
     },
     reloadHeatMap(){
       this.onetime=true;
-      dataGenerator.formatter_heat(this,this.nowdataindex,3)
+      dataGenerator.formatter_heat(this,this.nowdataindex,"3")
     },
     loadHeatMap(heatmapdata){
       this.heatmapdata = heatmapdata;
@@ -842,6 +870,7 @@ export default {
     startHeat(frameNumber,frameRate){
       this.frameNumber = frameNumber;
       this.frameRate = frameRate;
+      this.nowdataindex = parseInt(this.nowdataindex);
       dataGenerator.formatter_heat(this,this.nowdataindex+1,"3");
 
     },
@@ -853,6 +882,7 @@ export default {
     },
     heat_readframe(){
       //热力图读入帧
+
       this.heatmap.setDataSet({
         data:this.nextheatmap.getDataSet().data
       })
@@ -869,12 +899,51 @@ export default {
         this.waitnextread = false;
         return;
       }
+      if(this.nowdataindex == 30){
+        clearInterval(this.heatinterval);
+        this.drawPolyGon();
+        return;
+      }
       this.nextheatmap.setDataSet({
         data: this.readyheatmapdata
       });
       dataGenerator.formatter_heat(this,this.nowdataindex+2,"2");
       this.nowdataindex++;
       this.waitnextread = false;
+    },
+    drawPolyGon(){
+        var path = dataGenerator.polygon;
+        var resultPath=[];
+        for (var i = 0; i < path.length; i++) {
+          resultPath.push(new AMap.LngLat(path[i].lng, path[i].lat));
+        }
+        var polygon = new AMap.Polygon({
+            path: resultPath,  
+            fillColor: '#c55282', // 多边形填充颜色
+            borderWeight: 2, // 线条宽度，默认为 1
+            strokeColor: '#8b2e2e', // 线条颜色
+            fillOpacity:0.3
+        });
+
+        this.map.add(polygon);
+        this.mypolygon = polygon;
+        this.polyframe = 6;
+        this.polygonInterval =  setInterval(this.refreshPolygon,100)
+    },
+    refreshPolygon(){
+      if(this.polyframe == 6&&this.polyadd){
+        this.polyadd=false;
+      }else if(this.polyframe==0&&!this.polyadd){
+        this.polyadd=true;
+      }
+      this.mypolygon.setOptions({
+        fillOpacity:0.05*this.polyframe
+      });
+      if(this.polyadd){
+        this.polyframe++;
+      }else{
+        this.polyframe--;
+      }
     },
     beginHeat(origindata){
       this.heatmap.setOptions({
@@ -1028,6 +1097,12 @@ export default {
 
     },
     reactHeatTime(){
+      this.heatmap.show();
+      this.nowdataindex = 24;
+      this.reloadHeatMap();
+      this.map.panTo(["123.419121", "41.810374"]);
+      
+            this.map.setZoom(14);
       this.showHeatPlayDialog = !this.showHeatPlayDialog;
     },
     countInfo(type){
